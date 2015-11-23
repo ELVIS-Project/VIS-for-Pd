@@ -1,9 +1,9 @@
-#N canvas 518 671 450 300 12;
+#N canvas 19 338 450 300 12;
 #X obj 104 130 py music21-utilities;
-#X obj 105 202 outlet;
-#X obj 260 203 outlet;
-#X obj 98 57 inlet;
-#X obj 266 54 inlet;
+#X obj 104 190 outlet;
+#X obj 261 190 outlet;
+#X obj 104 70 inlet;
+#X obj 261 70 inlet;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 3 0 0 0;
