@@ -1,4 +1,0 @@
-#N canvas 768 420 450 300 10;
-#X declare -path lib;
-#X obj 34 29 declare -path lib;
-#X obj 104 118 music21-utilities;
