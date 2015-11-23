@@ -3,8 +3,8 @@ VIS for Pd is a dataflow programming extension for the VIS-Framework, based on P
 Requirements:
 - [Pd-0.46-7](http://msp.ucsd.edu/software.html])
 - Thomas Grill's [py/pyext](https://github.com/grrrr/py)
-- Python (via pip installer)
--   [music21](https://github.com/cuthbertLab/music21)
--   [VIS-Framework](https://github.com/ELVIS-Project/vis-framework)
--   [pandas](https://github.com/pydata/pandas)
+- Python, and the following modules:
+  - [music21](https://github.com/cuthbertLab/music21)
+  - [VIS-Framework](https://github.com/ELVIS-Project/vis-framework)
+  - [pandas](https://github.com/pydata/pandas)
 
