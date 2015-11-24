@@ -2,7 +2,7 @@
 #!/usr/local/bin/python
 
 """
-# ----- vis-index-score.py --------------------------------------------- #
+# ----- vis-index-score.py ------------------------------------------- #
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org

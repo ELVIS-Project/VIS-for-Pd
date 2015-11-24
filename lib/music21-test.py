@@ -2,12 +2,16 @@
 #! /usr/local/bin/python
 
 """
+# ----- music21-test.py ---------------------------------------------- #
+
 Author:		Reiner Kramer	
 Email:		reiner@music.org
 Updated:	11.24.2015
 
 A set of test functions to inspect whether or not the music21 module was
 properly loaded.
+
+# -------------------------------------------------------------------- #
 """
 
 import sys, os
@@ -67,3 +71,5 @@ def main():
 
 if __name__ == '__main__':
 	main()
+
+# ----- END music21-test.py ------------------------------------------ #
