@@ -1,8 +1,17 @@
 # - *- coding: utf-8 -*-
-#! /usr/local/bin python
+#! /usr/local/bin/python
+
+"""
+Author:		Reiner Kramer	
+Email:		reiner@music.org
+Updated:	11.24.2015
+
+A set of test functions to inspect whether or not the music21 module was
+properly loaded.
+"""
 
 import sys, os
-import music21 as mto
+import music21
 
 # Pd window message that file has properly loaded.
 print("{} loaded.".format(os.path.basename(__file__)))
@@ -13,9 +22,6 @@ try:
 except:
 	print 
 
-def loadbang():
-	print "loaded."
-
 def ps_name_to_midi(note_arg):
 	"""
 	Translating a not name with it's octave designation to a midi value
@@ -23,7 +29,7 @@ def ps_name_to_midi(note_arg):
 	>>> ps_name_to_midi('C#4')
 	61
 	"""
-	midi_note = mto.pitch.Pitch(str(note_arg))
+	midi_note = music21.pitch.Pitch(str(note_arg))
 	return midi_note.midi
 
 def midi_to_pc_name(midi_arg):
@@ -32,7 +38,7 @@ def midi_to_pc_name(midi_arg):
 	>>> midi_to_pc_name(61)
 	'C#'
 	"""
-	pc_name = mto.pitch.Pitch(int(midi_arg))
+	pc_name = music21.pitch.Pitch(int(midi_arg))
 	return pc_name.name
 
 def midi_to_ps_name(midi_arg):
@@ -41,7 +47,7 @@ def midi_to_ps_name(midi_arg):
 	>>> midi_to_ps_name(61)
 	'C#4'
 	"""
-	ps_name = mto.pitch.Pitch(int(midi_arg))
+	ps_name = music21.pitch.Pitch(int(midi_arg))
 	return ps_name.nameWithOctave
 
 def bang_test(bang='bang'):

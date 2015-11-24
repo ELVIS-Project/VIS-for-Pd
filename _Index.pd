@@ -1,40 +1,16 @@
-#N canvas 552 84 644 451 12;
+#N canvas 714 108 591 318 12;
 #X declare -path lib;
-#X obj 30 60 VIS-for-Pd Help;
-#X msg 110 110 reload;
-#X msg 300 110 set ps_name_to_midi;
-#X msg 300 140 set midi_to_pc_name;
-#X msg 300 170 set midi_to_ps_name;
-#X msg 470 110 D#5;
-#X obj 30 390 print;
-#X msg 470 140 1;
-#X msg 512 140 61;
-#X floatatom 555 140 5 0 0 0 - - -, f 5;
-#X msg 513 110 B-3;
-#X msg 556 110 E4;
-#X msg 60 110 help;
-#X obj 30 340 music21-utilities;
-#X msg 177 110 set bang_test;
-#X obj 30 110 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 30 266 VIS-for-Pd Help;
+#X obj 30 236 declare -path lib;
+#X obj 30 156 vis-index-score;
+#X obj 30 71 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X msg 470 170 1;
-#X msg 512 170 61;
-#X floatatom 555 170 5 0 0 0 - - -, f 5;
-#X obj 30 30 declare -path lib;
-#X connect 1 0 13 0;
-#X connect 2 0 13 0;
-#X connect 3 0 13 0;
-#X connect 4 0 13 0;
-#X connect 5 0 13 1;
-#X connect 7 0 13 1;
-#X connect 8 0 13 1;
-#X connect 9 0 13 1;
-#X connect 10 0 13 1;
-#X connect 11 0 13 1;
-#X connect 12 0 13 0;
-#X connect 13 0 6 0;
-#X connect 14 0 13 0;
-#X connect 15 0 13 0;
-#X connect 16 0 13 1;
-#X connect 17 0 13 1;
-#X connect 18 0 13 1;
+#X obj 30 126 openpanel;
+#X text 64 73 <= Click to open a symbolic music score from you file
+system., f 62;
+#X obj 30 186 print;
+#X text 27 31 ----- Analysis --------------------------------------------------
+, f 67;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;

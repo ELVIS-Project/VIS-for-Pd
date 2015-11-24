@@ -1,0 +1,8 @@
+#N canvas 477 404 213 196 12;
+#X obj 24 146 outlet;
+#X obj 24 26 inlet;
+#X obj 141 26 inlet;
+#X obj 24 86 py music21-test;
+#X connect 1 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 0 0;
