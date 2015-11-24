@@ -28,10 +28,21 @@ try:
 except:
 	print 
 
+test_file = ('../scores/symbolic/' + 
+	'De-profundis-clamavi_Josquin-Des-Prez_file1.krn')
+
 def parse_score(selected_file):
 	'''
 	Uses the noterest indexer from the VIS-Framework to place a score 
 	into a pandas DataFrame.
+	>>> parse_score(test_file)
+	{0.0} <music21.instrument.Instrument Voice>
+	{0.0} <music21.clef.Treble8vbClef>
+	{0.0} <music21.key.KeySignature of no sharps or flats>
+	{0.0} <music21.meter.TimeSignature 2/1>
+	{0.0} <music21.note.Note D>
+	{6.0} <music21.note.Note D>
+	{8.0} <music21.bar.Barline style=regular>
 	'''
 
 	the_score = music21.converter.parse(str(selected_file))
