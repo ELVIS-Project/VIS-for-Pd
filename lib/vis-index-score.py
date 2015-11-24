@@ -51,7 +51,6 @@ def parse_score(selected_file):
 	# Returning the first measures only for now:
 	return the_score.parts[1].measure(1).show('text')
 
-
 def main():
 	"""
 	Using main only for doctest.
@@ -62,5 +61,4 @@ def main():
 if __name__ == '__main__':
 	main()
  
-
-
+ # ----- END vis-index-score.py -------------------------------------- #
