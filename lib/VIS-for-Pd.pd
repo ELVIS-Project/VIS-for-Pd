@@ -1,20 +1,21 @@
 #N canvas 338 23 626 644 12;
-#X text 41 63 VIS for Pd in a music analysis tool to analyze contrapuntal
+#X text 41 73 VIS for Pd in a music analysis tool to analyze contrapuntal
 music.;
-#X text 40 109 Requirements:;
-#X text 40 129 - py/pyext: Thomas Grill's Python extension for Pd,
-f 66;
-#X text 40 168 - Python;
-#X text 60 228 - music21;
-#X text 59 248 - VIS-Framework;
-#X text 59 268 - pandas;
-#X text 40 188 - Python Libraries:;
-#X text 56 208 (all libraries can be installed via Python's pip installer)
+#X text 40 119 Requirements:;
+#X text 40 195 - Python;
+#X text 60 255 - music21;
+#X text 59 275 - VIS-Framework;
+#X text 59 295 - pandas;
+#X text 40 215 - Python Libraries:;
+#X text 56 235 (all libraries can be installed via Python's pip installer)
 ;
-#X text 135 149 (included in OSX package);
-#X obj 43 348 music21-utilities;
-#X text 194 349 - A series of scripts accessing music21 objects;
-#X text 40 308 ----- VIS for Pd Abstractions (Objects) ---------------------------
+#X obj 43 375 music21-utilities;
+#X text 194 375 - A series of scripts accessing music21 objects;
+#X text 40 335 ----- VIS for Pd Abstractions (Objects) ---------------------------
 , f 67;
 #X text 40 39 ----- VIS for Pd Help ---------------------------------------------
 , f 67;
+#X text 40 139 - py/pyext: Thomas Grill's Python extension for Pd.
+Check GitHub, f 67;
+#X text 135 159 (https://github.com/grrrr/py) on how to build the external.
+;

@@ -4,6 +4,18 @@
 import sys, os
 import music21 as mto
 
+# Pd window message that file has properly loaded.
+print("{} loaded.".format(os.path.basename(__file__)))
+
+# Pd window message that music21 module has properly loaded.
+try:
+	print("{} loaded via {}.".format(mto, sys.argv))
+except:
+	print 
+
+def loadbang():
+	print "loaded."
+
 def ps_name_to_midi(note_arg):
 	"""
 	Translating a not name with it's octave designation to a midi value
