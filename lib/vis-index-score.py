@@ -3,11 +3,12 @@
 """
 # ----- vis-index-score.py ------------------------------------------- #
 
+Symbolic music score parsing with music21, and indexing of the score 
+into a pandas DataFrame via the NoteRestIndexer of the VIS-Framework.
+
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	12.01.2015
-
-Symbolic music score parsing with music21.
+Updated:	12.02.2015
 
 # -------------------------------------------------------------------- #
 """
@@ -23,13 +24,9 @@ except:
 	print 
 
 # A test file for running a doctest.
-'''
+
 test_file = ('../scores/symbolic/' + 
 	'De-profundis-clamavi_Josquin-Des-Prez_file1.krn')
-'''
-# Local Test.
-test_file = ('/Users/reiner/Documents/MusicAnalyses/VIS-for-Pd/' + 
-	'scores/symbolic/De-profundis-clamavi_Josquin-Des-Prez_file1.krn')
 
 def index_score(selected_file):
 	'''
