@@ -1,12 +1,11 @@
 # -*- coding: UTF-8 -*-
-#!/usr/local/bin/python
 
 """
 # ----- vis-index-score.py ------------------------------------------- #
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	11.24.2015
+Updated:	12.01.2015
 
 Symbolic music score parsing with music21.
 
@@ -17,39 +16,39 @@ import sys, os
 import music21
 from vis.analyzers.indexers import noterest
 
-# Pd window message that file has properly loaded.
-print("{} loaded.".format(os.path.basename(__file__)))
-print("Using Python {}.{}.{}.".format(sys.version_info[0],
-	sys.version_info[1],sys.version_info[2]))
-
 # Pd window message that music21 module has properly loaded.
 try:
-	print("{} loaded via {}.".format(music21, sys.argv))
+	print("{} loaded.".format(sys.argv))
 except:
 	print 
 
+# A test file for running a doctest.
+'''
 test_file = ('../scores/symbolic/' + 
 	'De-profundis-clamavi_Josquin-Des-Prez_file1.krn')
+'''
+# Local Test.
+test_file = ('/Users/reiner/Documents/MusicAnalyses/VIS-for-Pd/' + 
+	'scores/symbolic/De-profundis-clamavi_Josquin-Des-Prez_file1.krn')
 
-def parse_score(selected_file):
+def index_score(selected_file):
 	'''
 	Uses the noterest indexer from the VIS-Framework to place a score 
 	into a pandas DataFrame.
-	>>> parse_score(test_file)
-	{0.0} <music21.instrument.Instrument Voice>
-	{0.0} <music21.clef.Treble8vbClef>
-	{0.0} <music21.key.KeySignature of no sharps or flats>
-	{0.0} <music21.meter.TimeSignature 2/1>
-	{0.0} <music21.note.Note D>
-	{6.0} <music21.note.Note D>
-	{8.0} <music21.bar.Barline style=regular>
+	>>> index_score(test_file)
+	Indexer noterest.NoteRestIndexer                
+	Parts                          0   1     2     3
+	0                           Rest  D4  Rest  Rest
+	6                            NaN  D4   NaN   NaN
+	8                           Rest  D4  Rest  Rest
+	12                            G4  G3   NaN   NaN
+	16                           NaN  C4  Rest  Rest
 	'''
 
 	the_score = music21.converter.parse(str(selected_file))
 	indexed_score = noterest.NoteRestIndexer(the_score).run()
 
-	# Returning the first measures only for now:
-	return the_score.parts[1].measure(1).show('text')
+	print indexed_score.head()
 
 def main():
 	"""
