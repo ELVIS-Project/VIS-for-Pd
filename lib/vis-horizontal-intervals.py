@@ -5,8 +5,8 @@
 
 Symbolic music score parsing with music21, and indexing of the score 
 into a pandas DataFrame via the NoteRestIndexer of the VIS-Framework.
-Once the DataFrame has been created all vertical intervals are 
-calculated between the parts.
+Once the DataFrame has been created all horizontal intervals are 
+calculated within a part.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org

@@ -1,4 +1,4 @@
-#N canvas 380 244 785 396 12;
+#N canvas 544 164 785 396 12;
 #X msg 73 112 reload;
 #X obj 390 113 openpanel;
 #X obj 390 53 t b b;
@@ -8,6 +8,7 @@
 #X obj 390 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 45 221 print vertical_intervals;
+#X msg 44 68 doc;
 #X connect 0 0 3 0;
 #X connect 1 0 3 1;
 #X connect 2 0 1 0;
@@ -16,3 +17,4 @@
 #X connect 3 0 7 0;
 #X connect 5 0 3 1;
 #X connect 6 0 2 0;
+#X connect 8 0 3 0;

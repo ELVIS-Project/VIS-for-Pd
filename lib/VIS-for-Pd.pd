@@ -1,4 +1,4 @@
-#N canvas 847 164 666 500 12;
+#N canvas 191 92 946 649 12;
 #X text 41 73 VIS for Pd in a music analysis tool to analyze contrapuntal
 music.;
 #X text 40 119 Requirements:;
@@ -18,7 +18,11 @@ Check GitHub, f 67;
 , f 69;
 #X text 40 39 ----- VIS for Pd Help -----------------------------------------------
 , f 69;
-#X text 177 376 - Access to scripts testing music21.;
-#X text 177 406 - Parse a score with music21 \, and index it with VIS.
+#X text 247 376 - Access to scripts testing music21.;
+#X text 247 406 - Parse a score with music21 \, and index it with VIS.
 ;
 #X obj 43 405 vis-index-score;
+#X obj 43 435 vis-vertical-intervals;
+#X obj 43 465 vis-horizontal-intervals;
+#X text 247 434 - Finds vertical intervals between voices.;
+#X text 247 464 - Finds horizontal intervals within voices.;
