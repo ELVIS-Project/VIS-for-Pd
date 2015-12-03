@@ -42,7 +42,7 @@ def find_intervals(selected_file):
 	the_intervals = interval.IntervalIndexer(indexed_score,mmm).run()
 
 	# Small collection for test printing.
-	print the_intervals.head()
+	print the_intervals.head().to_csv()
 
 def main():
 	"""

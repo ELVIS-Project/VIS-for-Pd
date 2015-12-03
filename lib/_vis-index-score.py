@@ -45,9 +45,7 @@ def index_score(selected_file,measures=5):
 	the_score = music21.converter.parse(str(selected_file))
 	indexed_score = noterest.NoteRestIndexer(the_score).run()
 
-	#return indexed_score.to_csv()
-
-	print indexed_score.head(measures).to_csv()
+	return indexed_score.head(measures)
 
 def main():
 	'''

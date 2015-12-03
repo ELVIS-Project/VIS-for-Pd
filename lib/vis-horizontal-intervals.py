@@ -10,7 +10,7 @@ calculated within a part.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	12.02.2015
+Updated:	12.03.2015
 
 # -------------------------------------------------------------------- #
 """
@@ -18,12 +18,22 @@ Updated:	12.02.2015
 import sys, os
 import music21
 from vis.analyzers.indexers import noterest, interval
-import multiprocessing as mp
 
 test_file = ('/Users/reiner/Documents/MusicAnalyses/VIS-for-Pd/' + 
 	'scores/symbolic/De-profundis-clamavi_Josquin-Des-Prez_file1.krn')
 
-def find_intervals(selected_file):
+'''
+def index_score(symbolic_file):
+	"""
+	Indexes a symbolic music file.
+	"""
+	the_score = music21.converter.parse(str(symbolic_file))
+	indexed_score = noterest.NoteRestIndexer(the_score).run()
+
+	return indexed_score
+'''
+
+def find_intervals(symbolic_file):
 	"""
 	Takes an indexed score and finds the horizontal intervals.
 	>>> find_intervals(test_file).head()
@@ -35,19 +45,21 @@ def find_intervals(selected_file):
 	12                                       1   4   NaN   NaN
 	16                                     NaN  -2  Rest  Rest
 	"""
-
-	the_score = music21.converter.parse(str(selected_file))
+	the_score = music21.converter.parse(str(symbolic_file))
 	indexed_score = noterest.NoteRestIndexer(the_score).run()
 	mmm = {'mp':False}
 	the_intervals = interval.HorizontalIntervalIndexer(indexed_score,mmm).run()
 
-	# Small collection for test printing.
-	print the_intervals.head()
+	print the_intervals.head().to_csv()
+
+#the_score = index_score(test_file)
+#the_intervals = find_intervals(the_score)
 
 def main():
 	"""
 	Using main only for doctest.
 	"""
+
 	import doctest
 	doctest.testmod()
 

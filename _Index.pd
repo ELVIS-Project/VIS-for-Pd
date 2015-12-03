@@ -7,16 +7,10 @@
 -1;
 #X text 154 93 <= Click to open a symbolic music score from you file
 system., f 62;
-#X obj 30 356 print indexed_score;
 #X obj 30 326 vis-vertical-intervals;
-#X obj 230 356 print indexed_score;
 #X obj 230 326 vis-horizontal-intervals;
 #X text 27 31 ----- Analysis --------------------------------------------------------------
 , f 78;
-#X obj 237 234 print indexed_score;
+#X connect 2 0 5 0;
 #X connect 2 0 6 0;
-#X connect 2 0 8 0;
-#X connect 2 1 10 0;
 #X connect 3 0 2 0;
-#X connect 6 0 5 0;
-#X connect 8 0 7 0;
