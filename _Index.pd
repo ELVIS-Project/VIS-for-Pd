@@ -1,39 +1,22 @@
-#N canvas 458 87 647 445 12;
+#N canvas 461 153 710 415 12;
 #X declare -path lib;
-#X obj 30 396 VIS-for-Pd Help;
-#X obj 30 366 declare -path lib;
-#X obj 30 287 vis-index-score;
-#X obj 30 71 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 520 356 VIS-for-Pd Help;
+#X obj 520 326 declare -path lib;
+#X obj 120 197 vis-index-score;
+#X obj 120 91 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 30 126 openpanel;
-#X text 64 73 <= Click to open a symbolic music score from you file
+#X text 154 93 <= Click to open a symbolic music score from you file
 system., f 62;
-#X text 27 31 ----- Analysis --------------------------------------------------
-, f 67;
-#X obj 30 317 print indexed_score;
-#X obj 200 221 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 200 256 openpanel;
-#X obj 200 316 print indexed_score;
-#X obj 200 286 vis-vertical-intervals;
-#X obj 400 221 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 400 256 openpanel;
-#X obj 400 316 print indexed_score;
-#X obj 400 286 vis-horizontal-intervals;
-#X obj 50 221 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 50 256 openpanel;
-#X connect 2 0 7 0;
-#X connect 3 0 4 0;
-#X connect 4 0 2 0;
-#X connect 4 0 11 0;
-#X connect 4 0 15 0;
-#X connect 8 0 9 0;
-#X connect 9 0 11 0;
-#X connect 11 0 10 0;
-#X connect 12 0 13 0;
-#X connect 13 0 15 0;
-#X connect 15 0 14 0;
-#X connect 16 0 17 0;
-#X connect 17 0 2 0;
+#X obj 30 356 print indexed_score;
+#X obj 30 326 vis-vertical-intervals;
+#X obj 230 356 print indexed_score;
+#X obj 230 326 vis-horizontal-intervals;
+#X text 27 31 ----- Analysis --------------------------------------------------------------
+, f 78;
+#X obj 237 234 print indexed_score;
+#X connect 2 0 6 0;
+#X connect 2 0 8 0;
+#X connect 2 1 10 0;
+#X connect 3 0 2 0;
+#X connect 6 0 5 0;
+#X connect 8 0 7 0;
