@@ -1,16 +1,38 @@
-#N canvas 461 153 710 415 12;
+#N canvas 47 75 713 477 12;
 #X declare -path lib;
-#X obj 520 356 VIS-for-Pd Help;
-#X obj 520 326 declare -path lib;
-#X obj 120 197 vis-index-score;
-#X obj 120 91 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 520 426 VIS-for-Pd Help;
+#X obj 520 396 declare -path lib;
+#X obj 30 91 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X text 154 93 <= Click to open a symbolic music score from you file
+#X text 64 93 <= Click to open a symbolic music score from you file
 system., f 62;
-#X obj 30 326 vis-vertical-intervals;
-#X obj 230 326 vis-horizontal-intervals;
+#X obj 30 426 vis-vertical-intervals;
+#X obj 230 426 vis-horizontal-intervals;
 #X text 27 31 ----- Analysis --------------------------------------------------------------
 , f 78;
-#X connect 2 0 5 0;
-#X connect 2 0 6 0;
-#X connect 3 0 2 0;
+#X obj 30 197 vis-index-score 5 beginning;
+#X msg 243 132 beginning;
+#X msg 243 162 end;
+#X obj 230 372 spigot;
+#X obj 275 344 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 30 382 spigot;
+#X obj 75 354 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 203 394 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 419 396 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 136 131 number-chooser;
+#X connect 2 0 7 0;
+#X connect 7 0 10 0;
+#X connect 7 0 12 0;
+#X connect 8 0 7 2;
+#X connect 9 0 7 2;
+#X connect 10 0 5 0;
+#X connect 11 0 10 1;
+#X connect 12 0 4 0;
+#X connect 13 0 12 1;
+#X connect 14 0 4 1;
+#X connect 15 0 5 1;
+#X connect 16 0 7 1;

@@ -1,4 +1,4 @@
-#N canvas 315 148 785 396 12;
+#N canvas 315 148 654 303 12;
 #X msg 73 112 reload;
 #X obj 406 40 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -9,12 +9,16 @@
 #X obj 73 190 outlet;
 #X obj 44 221 print horizontal_intervals;
 #X msg 39 68 doc;
+#X obj 520 170 symbol;
+#X obj 520 39 inlet;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
 #X connect 2 0 3 1;
+#X connect 2 0 9 1;
 #X connect 3 0 6 0;
 #X connect 3 0 7 0;
 #X connect 4 0 2 0;
 #X connect 4 1 0 0;
 #X connect 5 0 3 1;
 #X connect 8 0 3 0;
+#X connect 10 0 9 0;

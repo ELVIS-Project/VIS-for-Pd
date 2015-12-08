@@ -1,0 +1,18 @@
+#N canvas 699 220 450 300 12;
+#X floatatom 29 232 5 0 0 0 - - -, f 5;
+#X obj 29 201 f;
+#X floatatom 50 105 5 0 0 0 - - -, f 5;
+#X obj 29 167 t b;
+#X obj 29 139 delay 10;
+#X obj 21 21 cnv 20 91 24 empty empty empty 20 12 0 14 -262144 -162280
+0;
+#X obj 29 260 outlet;
+#X floatatom 25 24 10 0 0 0 - - -, f 10;
+#X connect 0 0 6 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 7 0 2 0;
+#X coords 0 -1 1 1 93 26 2 20 20;

@@ -1,6 +1,6 @@
 #N canvas 586 336 785 396 12;
 #X msg 73 112 reload;
-#X obj 390 113 openpanel;
+#X obj 390 96 openpanel;
 #X obj 390 53 t b b;
 #X obj 73 151 py vis-vertical-intervals find_intervals;
 #X obj 73 188 outlet;
@@ -9,8 +9,11 @@
 -1;
 #X obj 45 221 print vertical_intervals;
 #X msg 44 68 doc;
+#X obj 498 150 symbol;
+#X obj 498 83 inlet;
 #X connect 0 0 3 0;
 #X connect 1 0 3 1;
+#X connect 1 0 9 1;
 #X connect 2 0 1 0;
 #X connect 2 1 0 0;
 #X connect 3 0 4 0;
@@ -18,3 +21,4 @@
 #X connect 5 0 3 1;
 #X connect 6 0 2 0;
 #X connect 8 0 3 0;
+#X connect 10 0 9 0;
