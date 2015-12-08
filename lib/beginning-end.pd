@@ -4,15 +4,10 @@
 #X msg 79 124 beginning;
 #X msg 79 149 end;
 #X obj 79 188 outlet;
-#X obj 24 124 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 24 124 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 24 149 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 24 188 t b;
 #X connect 1 0 3 0;
-#X connect 1 0 6 0;
 #X connect 2 0 3 0;
-#X connect 2 0 6 0;
-#X connect 6 0 4 0;
-#X connect 6 0 5 0;
 #X coords 0 -1 1 1 110 60 2 20 20;
