@@ -1,0 +1,10 @@
+#N canvas 251 581 317 205 12;
+#X msg 27 26 reload;
+#X msg 248 26 5;
+#X obj 27 76 py passing-values pass_value;
+#X obj 27 116 py passing-values catch_value;
+#X obj 27 156 print catch_value;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;

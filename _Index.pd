@@ -1,4 +1,4 @@
-#N canvas 47 75 713 477 12;
+#N canvas 975 352 713 477 12;
 #X declare -path lib;
 #X obj 520 426 VIS-for-Pd Help;
 #X obj 520 396 declare -path lib;

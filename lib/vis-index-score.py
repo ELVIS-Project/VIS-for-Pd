@@ -8,13 +8,12 @@ into a pandas DataFrame via the NoteRestIndexer of the VIS-Framework.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	12.07.2015
+Updated:	12.08.2015
 
 # -------------------------------------------------------------------- #
 """
 
-import sys, os
-import music21
+import sys, os, music21
 from vis.analyzers.indexers import noterest
 
 # Pd window message that music21 module has properly loaded.
@@ -26,6 +25,11 @@ except:
 # Test file for running doctest.
 test_file = ('../scores/symbolic/' + 
 	'De-profundis-clamavi_Josquin-Des-Prez_file1.krn')
+
+'''
+test_file = ('/Users/reiner/Documents/MusicAnalyses/VIS-for-Pd/scores/symbolic/' + 
+	'De-profundis-clamavi_Josquin-Des-Prez_file1.krn')
+'''
 
 def index_score(*args):
 	'''
@@ -40,9 +44,8 @@ def index_score(*args):
 	12                            G4  G3   NaN   NaN
 	16                           NaN  C4  Rest  Rest
 	'''
-
-	the_score = music21.converter.parse(str(args[0]))
-	indexed_score = noterest.NoteRestIndexer(the_score).run()
+	parsed_score = music21.converter.parseFile(str(args[0]))
+	indexed_score = noterest.NoteRestIndexer(parsed_score).run()
 
 	if(str(args[2]) == 'end'):
 		print '\n' + indexed_score.tail(args[1]).to_string(col_space=10)

@@ -1,0 +1,17 @@
+#N canvas 83 413 552 372 12;
+#X msg 63 153 reload;
+#X obj 319 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 319 161 openpanel;
+#X obj 252 161 symbol;
+#X obj 252 136 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 63 192 pyext pv NoteRestIndexed;
+#X obj 63 276 pyext pv PdWindowDisplay;
+#X obj 63 232 outlet DataFrame;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 1;
+#X connect 3 0 5 1;
+#X connect 4 0 3 0;
+#X connect 5 0 7 0;
