@@ -1,30 +1,46 @@
-#N canvas 23 528 490 330 12;
-#X msg 33 30 reload;
-#X obj 112 59 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 112 85 openpanel;
-#X obj 112 170 symbol;
-#X obj 112 145 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 301 90 1164 399 12;
+#X msg 143 247 reload;
+#X obj 222 64 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
 -1 -1;
-#X msg 191 172 index;
-#X obj 191 213 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 222 120 openpanel;
+#X obj 222 205 symbol;
+#X obj 222 180 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
 -1 -1;
-#X msg 360 57 beginning;
-#X msg 370 87 end;
-#X floatatom 270 62 5 0 0 0 - - -, f 5;
-#X obj 350 27 inlet;
-#X obj 112 29 inlet;
-#X obj 270 28 inlet;
-#X obj 270 135 t b f;
-#X obj 33 242 pyext VIS-Tools NoteRestIndexing, f 40;
-#X obj 270 165 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X msg 301 207 index;
+#X obj 301 245 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
 -1 -1;
-#X obj 112 115 t b s;
-#X obj 112 210 t b s;
-#X obj 270 198 f \$1;
-#X obj 33 282 outlet;
-#X obj 149 282 outlet;
-#X obj 196 28 inlet;
+#X msg 470 138 beginning;
+#X msg 480 168 end;
+#X floatatom 380 143 5 0 0 0 - - -, f 5;
+#X obj 460 108 inlet;
+#X obj 222 20 inlet;
+#X obj 380 79 inlet;
+#X obj 380 170 t b f;
+#X obj 143 277 pyext VIS-Tools NoteRestIndexing, f 40;
+#X obj 380 204 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
+-1 -1;
+#X obj 222 150 t b s;
+#X obj 222 245 t b s;
+#X obj 380 233 f \$1;
+#X obj 143 347 outlet;
+#X obj 259 317 outlet;
+#X obj 306 49 inlet;
+#X text 274 19 <= File selection prompt to choose a symbolic music
+file.;
+#X text 358 48 <= View default events in DataFrame of symbolic music
+file;
+#X text 432 78 <= Change amount of events to show from DataFrame.;
+#X text 554 138 <= Bypass for testing this abstraction outside of a
+patch.;
+#X text 516 168 <= Bypass for testing this abstraction outside of a
+patch.;
+#X text 323 316 <= Selected file bypass.;
+#X text 210 348 <= Print/Data outlet;
+#X text 512 108 <= Choose whether to view events from the beginning
+or end of the DataFrame., f 77;
+#X text 16 215 If Python file has been edited \, it has to be reloaded
+, f 12;
+#X text 118 246 =>;
 #X connect 0 0 14 0;
 #X connect 1 0 2 0;
 #X connect 2 0 16 0;
