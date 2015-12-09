@@ -1,6 +1,8 @@
 # VIS for Pd
 VIS for Pd is a dataflow programming extension for the VIS-Framework, based on PureData (Pd).
-![VIS-for-Pd Screenshot](images/VIS-for-Pd-Screenshot.svg)
+
+![VIS-for-Pd Screenshot](https://github.com/ELVIS-Project/VIS-for-Pd/blob/master/images/VIS-for-Pd-Screenshot.svg)
+
 ####Requirements:
 - Miller Puckette's [Pd-0.46-7](http://msp.ucsd.edu/software.html]).
   - It is highly recommended to work through a tutorial on how to use Pd first, before going any further. Johannes Kreidler wrote an excellent [Pd tutorial](http://www.pd-tutorial.com).
