@@ -47,7 +47,7 @@ class NoteRestIndexing(pyext._class):
 		self.events = events
 		self.direction = direction
 
-	# Handeling inlets.
+	# Handling inlets.
 	def _anything_1(self,symbolic_score):
 		'''
 		Parses a score in music21, then indexes the parsed score with 
