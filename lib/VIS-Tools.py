@@ -1,5 +1,4 @@
-# -*- coding: UTF-8 -*-
-
+# -*- coding: utf-8 -*-
 """
 # ----- VIS-Tools.py ------------------------------------------------- #
 
@@ -17,10 +16,16 @@ import sys, os, music21, pyext
 from vis.analyzers.indexers import noterest
 
 try:
-	print("{} loaded.".format(sys.argv))
+        print("{} loaded.".format(sys.argv))
+        print("Using Python {}.{}.{}.".format(
+                sys.version_info[0],
+                sys.version_info[1],
+                sys.version_info[2]))
 except:
 	print("Failed")
 
+
+        
 class NoteRestIndexing(pyext._class):
 
 	'''

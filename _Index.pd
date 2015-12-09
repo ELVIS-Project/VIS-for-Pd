@@ -1,36 +1,42 @@
-#N canvas 765 242 728 465 12;
+#N canvas 765 242 811 512 12;
 #X declare -path lib;
-#X obj 30 406 VIS-for-Pd Help;
-#X obj 30 376 declare -path lib;
+#X obj 30 456 VIS-for-Pd Help;
+#X obj 30 426 declare -path lib;
 #X obj 30 71 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 73 72 <= Click to open a symbolic music score from you file
 system., f 62;
-#X obj 243 406 vis-vertical-intervals;
-#X obj 446 406 vis-horizontal-intervals;
-#X msg 243 162 beginning;
-#X msg 243 192 end;
-#X obj 446 352 spigot;
-#X obj 491 324 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 243 456 vis-vertical-intervals;
+#X obj 446 456 vis-horizontal-intervals;
+#X msg 243 212 beginning;
+#X msg 243 242 end;
+#X obj 446 402 spigot;
+#X obj 491 374 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 243 362 spigot;
-#X obj 288 334 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 243 412 spigot;
+#X obj 288 384 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 416 374 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 416 424 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 635 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 635 426 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 30 223 VIS-Index-Score 5 beginning;
+#X obj 30 273 VIS-Index-Score 5 beginning;
 #X floatatom 172 132 5 0 0 0 - - -, f 5;
 #X text 232 130 <= Determine how many events to view in score.;
 #X obj 101 97 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X text 144 99 <= Peak at score events with default values.;
-#X text 337 161 <= View events from "beginning" of score.;
-#X text 289 191 <= View events from the "end" of the score.;
-#X text 27 31 ----- Analysis -------------------------------------------------------------------
-, f 83;
-#X obj 30 253 print DataFrame;
+#X obj 30 303 print DataFrame;
+#X text 257 146 The number can be click-and-dragged \, or click on
+the number field \, enter the number on your computer keyboard and
+hit enter.;
+#X text 337 211 <= Click to view events from "beginning" of score.
+;
+#X text 337 241 <= Click to view events from the "end" of the score.
+;
+#X text 144 99 <= Click to peak at score events with default values.
+;
+#X text 27 31 ----- Analysis -----------------------------------------------------------------------------
+, f 93;
 #X connect 2 0 14 0;
 #X connect 6 0 14 3;
 #X connect 7 0 14 3;
@@ -40,7 +46,7 @@ system., f 62;
 #X connect 11 0 10 1;
 #X connect 12 0 4 1;
 #X connect 13 0 5 1;
-#X connect 14 0 22 0;
+#X connect 14 0 18 0;
 #X connect 14 1 8 0;
 #X connect 14 1 10 0;
 #X connect 15 0 14 2;
