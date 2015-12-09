@@ -1,4 +1,4 @@
-#N canvas 765 242 811 512 12;
+#N canvas 765 242 823 506 12;
 #X declare -path lib;
 #X obj 30 456 VIS-for-Pd Help;
 #X obj 30 426 declare -path lib;
@@ -35,8 +35,8 @@ hit enter.;
 ;
 #X text 144 99 <= Click to peak at score events with default values.
 ;
-#X text 27 31 ----- Analysis -----------------------------------------------------------------------------
-, f 93;
+#X text 27 31 ----- VIS-for-Pd -----------------------------------------------------------------------------
+, f 95;
 #X connect 2 0 14 0;
 #X connect 6 0 14 3;
 #X connect 7 0 14 3;

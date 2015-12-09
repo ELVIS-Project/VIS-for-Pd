@@ -7,7 +7,7 @@ passed to another in Pd.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	12.08.2015
+Updated:	12.09.2015
 
 # -------------------------------------------------------------------- #
 """
