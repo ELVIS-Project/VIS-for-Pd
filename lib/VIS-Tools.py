@@ -7,7 +7,9 @@ passed to another in Pd.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	12.09.2015
+Updated:	02.08.2016
+
+Todo: Lots ... Converting or dumping DataFrame into CSV?
 
 # -------------------------------------------------------------------- #
 """
@@ -40,7 +42,7 @@ class NoteRestIndexing(pyext._class):
 	def __init__(self,mto_score=0,ind_score=0,events=5,
 		direction='beginning'):
 		'''
-		Init function for storage variables used in this class.
+		Init function for storing variables used in this class.
 		'''
 		self.mto_score = mto_score
 		self.ind_score = ind_score
@@ -99,7 +101,7 @@ class NoteRestIndexing(pyext._class):
 			self.direction = str(direction)
 			self._heads_or_tails()
 
-	# Local method, to comply by DRY.
+	# Local method, to comply with DRY.
 	def _heads_or_tails(self):
 		'''
 		Helper method to determine whether to count from the beginning
