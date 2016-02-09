@@ -12,4 +12,4 @@ VIS for Pd is a dataflow programming extension for the VIS-Framework, based on P
   - McGill's [VIS-Framework](https://github.com/ELVIS-Project/vis-framework) developed by the [SIMSSA](https://simssa.ca) project. [Read the documentation](http://vis-framework.readthedocs.org/en/latest/).
   - The open source [pandas](https://github.com/pydata/pandas) library. [Read the documentation](http://pandas.pydata.org/pandas-docs/stable/10min.html).
 
-
+:)
