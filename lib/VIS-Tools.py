@@ -7,7 +7,7 @@ passed to another in Pd.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	02.08.2016
+Updated:	02.11.2016
 
 Todo: Lots ... Converting or dumping DataFrame into CSV?
 

@@ -4,7 +4,7 @@
 
 Author: Reiner Kramer
 Email:  reiner@music.org
-Date:   12.10.2015
+Date:   11.02.2016
 
 The following class encapsulates the VIS Framework's Horizontal 
 Interval indexer class.

@@ -4,7 +4,7 @@
 
 Author: Reiner Kramer
 Email:  reiner@music.org
-Date:   12.10.2015
+Date:   02.11.2016
 
 The following class encapsulates the vis-frameworks Vertical Interval 
 indexer class.

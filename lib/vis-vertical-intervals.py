@@ -10,9 +10,10 @@ calculated between the parts.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	12.07.2015
+Updated:	02.11.2016
 
-# -------------------------------------------------------------------- #
+
+# ------------------------------------------------------------- #
 """
 
 import sys, os
@@ -21,7 +22,7 @@ from vis.analyzers.indexers import noterest, interval
 import multiprocessing as mp
 
 test_file = ('/Users/reiner/Documents/MusicAnalyses/VIS-for-Pd/' + 
-	'scores/symbolic/De-profundis-clamavi_Josquin-Des-Prez_file1.krn')
+	'scores/symbolic/De-profundis-clamavi_Nicholas-Champion.krn')
 
 def find_intervals(selected_file):
 	"""
