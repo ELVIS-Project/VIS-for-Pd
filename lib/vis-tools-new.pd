@@ -1,0 +1,31 @@
+#N canvas 584 69 576 436 12;
+#X msg 60 172 reload;
+#X msg 50 142 doc;
+#X obj 271 59 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
+-1 -1;
+#X obj 271 84 openpanel;
+#X obj 271 169 symbol;
+#X obj 271 144 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
+-1 -1;
+#X obj 271 29 inlet;
+#X obj 271 114 t b s;
+#X symbolatom 123 282 50 0 0 0 Status: - -, f 50;
+#X obj 50 320 print df;
+#X obj 197 242 print debug;
+#X obj 50 202 pyext NoteRestIndexing Index;
+#X obj 50 360 outlet;
+#X obj 123 360 outlet;
+#X connect 0 0 11 0;
+#X connect 1 0 11 0;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 4 0 11 1;
+#X connect 5 0 4 0;
+#X connect 6 0 2 0;
+#X connect 7 0 5 0;
+#X connect 7 1 4 1;
+#X connect 8 0 13 0;
+#X connect 11 0 9 0;
+#X connect 11 0 12 0;
+#X connect 11 1 8 0;
+#X connect 11 2 10 0;
