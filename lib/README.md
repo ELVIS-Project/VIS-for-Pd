@@ -1,3 +1,3 @@
 ## The library files for the VIS-for-Pd project.
-### Todo:
-- Create a Python script, or class to handles CSV files.
+### NoteRestIndexer
+- CSV files of an indexed dataframe are generated as temporary files, and can be accessed  at any point.
