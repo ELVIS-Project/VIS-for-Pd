@@ -1,0 +1,40 @@
+#N canvas 370 218 1048 756 12;
+#X msg 60 172 reload;
+#X msg 50 142 doc;
+#X obj 263 59 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
+-1 -1;
+#X obj 263 84 openpanel;
+#X obj 263 169 symbol;
+#X obj 263 144 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
+-1 -1;
+#X obj 263 29 inlet;
+#X obj 263 114 t b s;
+#X symbolatom 121 387 50 0 0 0 Status: - -, f 50;
+#X obj 50 202 pyext DataFrameHandler Pack;
+#X obj 75 556 pyext DataFrameExpand Unpack;
+#X msg 85 526 reload;
+#X msg 75 496 doc;
+#X symbolatom 185 618 50 0 0 0 - - -, f 50;
+#X msg 455 585 symbol Ready!;
+#X obj 39 655 print dfExpand;
+#X obj 36 312 print dfPacked;
+#X obj 343 509 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 9 0;
+#X connect 1 0 9 0;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 4 0 9 1;
+#X connect 5 0 4 0;
+#X connect 6 0 2 0;
+#X connect 7 0 5 0;
+#X connect 7 1 4 1;
+#X connect 9 0 16 0;
+#X connect 9 0 10 1;
+#X connect 9 1 8 0;
+#X connect 10 0 15 0;
+#X connect 10 1 13 0;
+#X connect 11 0 10 0;
+#X connect 12 0 10 0;
+#X connect 14 0 13 0;
+#X connect 17 0 10 1;
