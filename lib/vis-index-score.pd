@@ -1,47 +1,53 @@
-#N canvas 301 90 1255 665 12;
-#X msg 193 367 reload;
-#X obj 235 117 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
+#N canvas 1 35 1255 665 12;
+#X msg 243 387 reload;
+#X obj 285 117 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
 -1 -1;
-#X obj 235 142 openpanel;
-#X obj 235 227 symbol;
-#X obj 235 202 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
+#X obj 285 142 openpanel;
+#X obj 285 227 symbol;
+#X obj 285 202 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
 -1 -1;
-#X msg 351 327 index;
-#X obj 351 365 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
+#X msg 401 327 index;
+#X obj 401 365 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
 -1 -1;
-#X msg 520 258 beginning;
-#X msg 530 288 end;
-#X floatatom 430 263 5 0 0 0 - - -, f 5;
-#X obj 510 228 inlet;
-#X obj 235 87 inlet;
-#X obj 430 199 inlet;
-#X obj 430 290 t b f;
-#X obj 193 397 pyext VIS-Tools NoteRestIndexing, f 40;
-#X obj 430 324 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
+#X msg 570 258 beginning;
+#X msg 580 288 end;
+#X floatatom 480 263 5 0 0 0 - - -, f 5;
+#X obj 560 228 inlet;
+#X obj 285 87 inlet;
+#X obj 480 199 inlet;
+#X obj 480 290 t b f;
+#X obj 243 437 pyext VIS-Tools NoteRestIndexing, f 40;
+#X obj 480 324 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
 -1 -1;
-#X obj 235 172 t b s;
-#X obj 235 267 t b s;
-#X obj 430 353 f \$1;
-#X obj 193 557 outlet;
-#X obj 439 557 outlet;
-#X obj 356 169 inlet;
-#X text 287 86 <= File selection prompt to choose a symbolic music
+#X obj 285 172 t b s;
+#X obj 285 267 t b s;
+#X obj 480 353 f \$1;
+#X obj 243 597 outlet;
+#X obj 489 597 outlet;
+#X obj 406 169 inlet;
+#X text 337 86 <= File selection prompt to choose a symbolic music
 file.;
-#X text 408 168 <= View default events in DataFrame of symbolic music
+#X text 458 168 <= View default events in DataFrame of symbolic music
 file;
-#X text 482 198 <= Change amount of events to show from DataFrame.
+#X text 532 198 <= Change amount of events to show from DataFrame.
 ;
-#X text 604 258 <= Bypass for testing this abstraction outside of a
+#X text 654 258 <= Bypass for testing this abstraction outside of a
 patch.;
-#X text 604 288 <= Bypass for testing this abstraction outside of a
+#X text 654 288 <= Bypass for testing this abstraction outside of a
 patch.;
-#X text 503 556 <= Selected file bypass.;
-#X text 260 558 <= Print/Data outlet;
-#X text 562 228 <= Choose whether to view events from the beginning
+#X text 553 596 <= Selected file bypass.;
+#X text 310 598 <= Print/Data outlet;
+#X text 612 228 <= Choose whether to view events from the beginning
 or end of the DataFrame., f 77;
-#X text 66 335 If Python file has been edited \, it has to be reloaded
+#X text 106 386 If Python file has been edited \, it has to be reloaded
 , f 12;
-#X text 168 366 =>;
+#X text 208 386 =>;
+#X msg 243 327 doc, f 4;
+#X msg 243 357 doc+;
+#X text 44 326 Documentation module;
+#X text 52 359 Documentation class;
+#X text 209 359 =>;
+#X text 210 326 =>;
 #X connect 0 0 14 0;
 #X connect 1 0 2 0;
 #X connect 2 0 16 0;
@@ -66,3 +72,5 @@ or end of the DataFrame., f 77;
 #X connect 17 1 20 0;
 #X connect 18 0 14 3;
 #X connect 21 0 15 0;
+#X connect 32 0 14 0;
+#X connect 33 0 14 0;
