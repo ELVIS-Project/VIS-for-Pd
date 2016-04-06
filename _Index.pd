@@ -1,42 +1,50 @@
-#N canvas 765 242 823 506 12;
+#N canvas 279 49 834 598 12;
 #X declare -path lib;
-#X obj 30 456 VIS-for-Pd Help;
-#X obj 30 426 declare -path lib;
+#X obj 30 536 VIS-for-Pd Help;
+#X obj 30 506 declare -path lib;
 #X obj 30 71 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 73 72 <= Click to open a symbolic music score from you file
 system., f 62;
-#X obj 243 456 vis-vertical-intervals;
-#X obj 446 456 vis-horizontal-intervals;
-#X msg 243 212 beginning;
-#X msg 243 242 end;
-#X obj 446 402 spigot;
-#X obj 491 374 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 243 536 vis-vertical-intervals;
+#X obj 446 536 vis-horizontal-intervals;
+#X msg 189 212 beginning;
+#X msg 203 242 end;
+#X obj 446 482 spigot;
+#X obj 491 454 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 243 412 spigot;
-#X obj 288 384 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 243 492 spigot;
+#X obj 288 464 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 416 424 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 416 504 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 635 426 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 635 506 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 30 273 VIS-Index-Score 5 beginning;
-#X floatatom 172 132 5 0 0 0 - - -, f 5;
-#X text 232 130 <= Determine how many events to view in score.;
-#X obj 101 97 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 30 403 VIS-Index-Score 5 beginning;
+#X floatatom 136 132 5 0 0 0 - - -, f 5;
+#X text 196 130 <= Determine how many events to view in score.;
+#X obj 83 97 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 30 303 print DataFrame;
-#X text 257 146 The number can be click-and-dragged \, or click on
+#X obj 30 433 print DataFrame;
+#X text 221 146 The number can be click-and-dragged \, or click on
 the number field \, enter the number on your computer keyboard and
 hit enter.;
-#X text 337 211 <= Click to view events from "beginning" of score.
+#X text 287 211 <= Click to view events from "beginning" of score.
 ;
-#X text 337 241 <= Click to view events from the "end" of the score.
+#X text 287 241 <= Click to view events from the "end" of the score.
 ;
-#X text 144 99 <= Click to peak at score events with default values.
+#X text 126 99 <= Click to peak at score events with default values.
 ;
 #X text 27 31 ----- VIS-for-Pd -----------------------------------------------------------------------------
 , f 95;
+#X msg 243 273 0 7;
+#X text 286 273 <= Select a slice from the score by selecting starting
+and end points.;
+#X floatatom 313 346 5 0 0 0 - - -, f 5;
+#X floatatom 374 346 5 0 0 0 - - -, f 5;
+#X obj 313 315 t b;
+#X obj 313 383 pack 0 0;
+#X text 424 345 <= This can also happen dynamically.;
 #X connect 2 0 14 0;
 #X connect 6 0 14 3;
 #X connect 7 0 14 3;
@@ -51,3 +59,9 @@ hit enter.;
 #X connect 14 1 10 0;
 #X connect 15 0 14 2;
 #X connect 17 0 14 1;
+#X connect 24 0 14 4;
+#X connect 26 0 29 0;
+#X connect 27 0 28 0;
+#X connect 27 0 29 1;
+#X connect 28 0 26 0;
+#X connect 29 0 14 4;
