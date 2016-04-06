@@ -1,4 +1,4 @@
-#N canvas 272 39 673 620 10;
+#N canvas 41 35 673 620 10;
 #N canvas 0 22 639 393 gemwin 0;
 #X obj 289 246 gemwin;
 #X obj 67 89 outlet;
