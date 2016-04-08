@@ -75,7 +75,7 @@ class Pack(pyext._class):
 				self.ind_score.to_csv(
 					os.path.dirname(os.path.realpath(__file__)) + 
 					'/Alma-dataframe.csv',
-					na_rep="--",
+					#na_rep="--",
 					encoding='utf-8')
 				# Pickle the dataframe.
 				"""
@@ -91,8 +91,8 @@ class Pack(pyext._class):
 
 				# Pass the CSV dataframe path the right left outlet
 				
-				self._outlet(1, os.path.dirname(os.path.realpath(__file__)) + 
-					'/Alma-dataframe.csv')				
+				self._outlet(1, str(os.path.dirname(os.path.realpath(__file__)) + 
+					'/Alma-dataframe.csv'))				
 				self._outlet(2, self.vis_parsed)
 				self._outlet(3, self.ind_score.head(5).to_csv(
 					sep=" ",
