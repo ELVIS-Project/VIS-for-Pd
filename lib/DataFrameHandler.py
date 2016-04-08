@@ -7,7 +7,7 @@ framework available to Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 02.12.2016
+Updated: 04.08.2016
 
 Inlets:
 
@@ -40,7 +40,7 @@ class Pack(pyext._class):
 	Packs a music21 score into DataFrame.
 	'''
 	_inlets = 1
-	_outlets = 3
+	_outlets = 4
 
 	# Init function.
 	def __init__(self,mto_score=0,ind_score=0):
@@ -71,19 +71,30 @@ class Pack(pyext._class):
 			try:
 				indexed_score = noterest.NoteRestIndexer(self.mto_score).run()
 				self.ind_score = indexed_score
-				# Possible file formats:
-				# to_csv() // as expected
-				# to_json() // as expected
-				# to_msgpack() // just like json ...
-				# to_clipboard() > output bang?
-				# write the beast to a CSV
-				self._outlet(1, self.ind_score.to_csv(
+				# Write the dataframe to CSV.
+				self.ind_score.to_csv(
 					os.path.dirname(os.path.realpath(__file__)) + 
-					'/dataframe.csv',
+					'/Alma-dataframe.csv',
 					na_rep="--",
-					encoding='utf-8'))
+					encoding='utf-8')
+				# Pickle the dataframe.
+				"""
+				self.ind_score.to_pickle(
+					os.path.dirname(os.path.realpath(__file__)) + 
+					'/Alma-dataframe.pkl')
+				
+				# Put dataframe into JSON.
+				self.ind_score.to_json(
+					os.path.dirname(os.path.realpath(__file__)) + 
+					'/Alma-dataframe.json')
+				"""
+
+				# Pass the CSV dataframe path the right left outlet
+				
+				self._outlet(1, os.path.dirname(os.path.realpath(__file__)) + 
+					'/Alma-dataframe.csv')				
 				self._outlet(2, self.vis_parsed)
-				self._outlet(3, self.ind_score.tail(10).to_csv(
+				self._outlet(3, self.ind_score.head(5).to_csv(
 					sep=" ",
 					na_rep="--", 
 					encoding='utf-8'))

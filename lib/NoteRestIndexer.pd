@@ -1,4 +1,4 @@
-#N canvas 584 69 576 436 12;
+#N canvas 234 373 576 436 12;
 #X msg 60 172 reload;
 #X msg 50 142 doc;
 #X obj 271 59 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
@@ -14,7 +14,7 @@
 #X obj 50 202 pyext NoteRestIndexing Index;
 #X obj 50 360 outlet;
 #X obj 123 360 outlet;
-#X obj 50 320 print inside_NoteRestIndexer;
+#X obj 60 320 print inside_NoteRestIndexer;
 #X connect 0 0 10 0;
 #X connect 1 0 10 0;
 #X connect 2 0 3 0;

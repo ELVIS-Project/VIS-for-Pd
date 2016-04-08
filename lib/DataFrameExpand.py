@@ -7,7 +7,7 @@ framework available to Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 02.12.2016
+Updated: 04.08.2016
 
 Inlets:
 
@@ -32,32 +32,41 @@ except:
 	print("Failed")
 
 class Unpack(pyext._class):
-	'''
+	"""
 	Unpacks a DataFrame.
-	'''
+	"""
 	_inlets = 1
 	_outlets = 2
 
-	def __init__(self,df_score=0):
+	def __init__(self,df_path=0,df_score=0):
 		'''
 		Init function for the Unpack class.
 		'''
+		self.df_path = df_path
 		self.df_score = df_score
 		self.status_msg_pass = "The dataframe unpack succeeded."
 		self.status_msg_fail = "The dataframe unpack failed."
 
-	def _anything_1(self,passed_in_df):
-		
+	def _anything_1(self,df_path):
+		"""
+		Opens a stored dataframe.
+		"""
 		try:
-			the_data = (os.path.dirname(os.path.realpath(__file__)) + 
-				'/dataframe.csv')
+			self.df_path = str(df_path)
+			"""
 			the_score = pandas.read_csv(
-				the_data,
+				self.df_path,
 				header=0,
 				names=['soprano','alto','tenor','bass'], 
 				index_col=0,
 				encoding='utf-8')
-			self._outlet(1, the_score.tail(10).to_csv(sep=" "))
+			"""
+			self.df_score = pandas.read_csv(self.df_path,
+				header=0,
+				index_col=0,
+				encoding='utf-8')
+			self._outlet(1, self.df_score.head(7).to_csv(sep=' '))
+			# self._outlet(1, the_score.head(5).to_csv(sep=" "))
 			self._outlet(2, self.status_msg_pass)
 
 		except:

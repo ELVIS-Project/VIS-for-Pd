@@ -7,7 +7,7 @@ passed to another in Pd.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	04.06.2016
+Updated:	04.08.2016
 
 Todo: Lots ... Converting or dumping DataFrame into CSV?
 
@@ -68,7 +68,7 @@ class NoteRestIndexing(pyext._class):
 		NoteRest indexed.
 		"""
 		if(self.mto_score == 0):
-			print("Please load a symbolic score first.")
+			self._msg_missing_score()
 		else:
 			if(bang):
 				try:

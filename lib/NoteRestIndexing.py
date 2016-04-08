@@ -7,7 +7,7 @@ framework available to Pd.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	02.11.2016
+Updated:	04.08.2016
 
 Inlets:
 
@@ -37,17 +37,17 @@ except:
 	print("Failed")
 
 class Index(pyext._class):
-	'''
+	"""
 	Parses a score through music21, and vis into a pandas DataFrame.
-	'''
+	"""
 	_inlets = 1
 	_outlets = 3
 
 	# Init function.
 	def __init__(self,mto_score=0,ind_score=0):
-		'''
+		"""
 		Init function for storing variables used in this class.
-		'''
+		"""
 		self.mto_score = mto_score
 		self.ind_score = ind_score
 		# Messages
@@ -55,12 +55,14 @@ class Index(pyext._class):
 		self.err_msg_2 = "The NoteRestIndexer failed."
 		self.mto_parsed = "The score was parsed with music21."
 		self.vis_parsed = "The score has been indexed with VIS."
+		self.vis_df_save = ("The DataFrame has been saved in the selected " +
+			"format.")
 
 	def _anything_1(self,symbolic_score):
-		'''
+		"""
 		Parses a score in music21, then indexes the parsed score with 
 		the vis-framework into a pandas DataFrame.
-		'''
+		"""
 		try:
 			# First parse the score with music21.
 			the_score = music21.converter.parse(str(symbolic_score))
@@ -77,12 +79,17 @@ class Index(pyext._class):
 				# to_json() // as expected
 				# to_msgpack() // just like json ...
 				# to_clipboard() > output bang?
+				'''
 				self._outlet(1, self.ind_score.to_csv(
 					os.path.dirname(os.path.realpath(__file__)) + 
 					'/dataframe.csv',
 					na_rep="--",
 					encoding='utf8'))
-				self._outlet(2, self.vis_parsed)
+				'''
+				self.ind_score.to_json(os.path.dirname(os.path.realpath(__file__)) + 
+					'/dataframe.json')
+				self._outlet(1, self.mto_parsed)
+				self._outlet(2, self.vis_df_save)
 
 			except:
 				self._outlet(2, self.err_msg_2)
