@@ -1,4 +1,4 @@
-#N canvas 608 68 625 674 12;
+#N canvas 406 343 625 674 12;
 #X msg 60 172 reload;
 #X msg 50 142 doc;
 #X obj 263 59 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
@@ -14,7 +14,6 @@
 #X msg 60 282 reload;
 #X msg 50 252 doc;
 #X obj 50 342 print Expanded_Sample;
-#X obj 156 232 print Packed_Sample;
 #X connect 0 0 8 0;
 #X connect 1 0 8 0;
 #X connect 2 0 3 0;
@@ -25,7 +24,6 @@
 #X connect 7 0 5 0;
 #X connect 7 1 4 1;
 #X connect 8 0 9 1;
-#X connect 8 2 13 0;
 #X connect 9 0 12 0;
 #X connect 10 0 9 0;
 #X connect 11 0 9 0;
