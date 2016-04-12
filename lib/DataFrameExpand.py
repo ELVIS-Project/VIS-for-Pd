@@ -7,7 +7,7 @@ framework available to Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.08.2016
+Updated: 04.12.2016
 
 Inlets:
 
@@ -38,15 +38,17 @@ class Unpack(pyext._class):
 	_inlets = 1
 	_outlets = 2
 
+	# Constructor.
 	def __init__(self,df_path=0,df_score=0):
-		'''
+		"""
 		Init function for the Unpack class.
-		'''
+		"""
 		self.df_path = df_path
 		self.df_score = df_score
 		self.status_msg_pass = "The dataframe unpack succeeded."
 		self.status_msg_fail = "The dataframe unpack failed."
 
+	# Methods.
 	def _anything_1(self,df_path):
 		"""
 		Opens a stored dataframe.
