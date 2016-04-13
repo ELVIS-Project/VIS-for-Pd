@@ -63,18 +63,22 @@ class Parse(pyext._class):
 
 			self.mto_score_list = [music21.converter.parse(str(x)) 
 				for x in symbolic_score_list]
-			print(self.mto_score_list)
+
+			self.mto_frozen_list = [music21.converter.freeze(x,fmt='pickle',fp='/Users/reiner')
+				for x in self.mto_score_list]
+
+			print("Freeze!")
 
 		except:
 
-			print("Please load a symbolic score first.")
+			print("Nope.")
 
 	def bang_1(self):
 		"""
 		Bang to check of there are already parsed music21 scores.
 		"""
 		if(self.mto_score_list == 0):
-			print("There are currently no music21 score streams present")
+			print("There are currently no music21 score streams present.")
 		else:
 			print(self.mto_score_list)
 
