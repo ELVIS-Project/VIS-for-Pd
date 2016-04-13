@@ -6,7 +6,7 @@ A Python object to capture multiple files.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.12.2016
+Updated: 04.13.2016
 
 Inlets:
 
@@ -35,11 +35,22 @@ except:
 class ReadFiles(pyext._class):
 	"""
 	Class to read multiple files into a list.
+
+	Inlets:
+
+	1. Default inlet: Documentation string, reload, etc.
+	2. A bang that opens a openfile window.
+
+	Outlets:
+
+	1. Returns list of files.
+	2. Returns a debug message, if so desired.
+	3. Default outlet.
+
 	"""
 	_inlets = 1
-	_outlets = 1
+	_outlets = 2
 
-	
 	def __init__(self,the_files=0):
 		"""
 		Init function for the ReadFiles class.
@@ -71,13 +82,13 @@ class ReadFiles(pyext._class):
 		Message provided to user if files have been successfully placed 
 		into a list.
 		"""
-		self._outlet(1, self.status_pass)
+		self._outlet(2, self.status_pass)
 
 	def _msg_fail(self):
 		"""
 		Message provided to user if files were not successully added to 
 		a list.
 		"""
-		self._outlet(1, self.status_fail)
+		self._outlet(2, self.status_fail)
 
 # ----- END MultiFile.py --------------------------------------------- #
