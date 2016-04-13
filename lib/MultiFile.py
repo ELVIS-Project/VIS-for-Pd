@@ -55,10 +55,10 @@ class ReadFiles(pyext._class):
 		are then passed to first outlet.
 		"""
 		try: 
-			root = Tkinter.Tk()
-			collected_files = tkFileDialog.askopenfilenames(parent=root,
-				title='Choose a file')
-			root.withdraw()
+			le_machine = Tkinter.Tk()
+			collected_files = tkFileDialog.askopenfilenames(parent=le_machine,
+				title='Choose a symbolic music file')
+			le_machine.withdraw()
 			self.the_files = collected_files
 			self._outlet(1, self.the_files)
 			self._msg_success()
