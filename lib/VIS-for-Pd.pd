@@ -10,22 +10,24 @@
 Check GitHub, f 67;
 #X text 135 159 (https://github.com/grrrr/py) on how to build the external.
 ;
-#X text 247 465 - Parse a score with music21 \, and index it with VIS.
+#X text 247 505 - Parse a score with music21 \, and index it with VIS.
 ;
-#X obj 43 494 vis-vertical-intervals;
-#X obj 43 524 vis-horizontal-intervals;
-#X text 247 493 - Finds vertical intervals between voices.;
-#X text 247 523 - Finds horizontal intervals within voices.;
-#X obj 43 464 VIS-Index-Score;
+#X obj 43 534 vis-vertical-intervals;
+#X obj 43 564 vis-horizontal-intervals;
+#X text 247 533 - Finds vertical intervals between voices.;
+#X text 247 563 - Finds horizontal intervals within voices.;
+#X obj 43 504 VIS-Index-Score;
 #X text 41 73 VIS for Pd in a music analysis tool to analyze music.
 ;
 #X text 40 195 - Python 2.7;
-#X obj 43 374 openfiles;
-#X text 247 374 - Open 1+ files;
-#X obj 43 404 parse-symbolic-music;
-#X text 247 404 - Parse a list of symbolic music files via music21
+#X obj 43 414 openfiles;
+#X text 247 414 - Open 1+ files;
+#X obj 43 444 parse-symbolic-music;
+#X text 247 444 - Parse a list of symbolic music files via music21
 ;
 #X text 40 335 ----- VIS for Pd Abstractions (Objects) ------------------------------------
 , f 76;
 #X text 40 29 ----- VIS for Pd Help ------------------------------------------------------
 , f 76;
+#X text 40 375 Right-click on an abstraction \, and choose "help" to
+see how to connect it., f 76;
