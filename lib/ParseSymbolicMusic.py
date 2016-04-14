@@ -96,6 +96,6 @@ class Parse(pyext._class):
 
 			musky = music21.converter.thaw(filename)
 
-			self._outlet(2, str(musky)
+			self._outlet(2, str(musky))
 
 # ----- END ParseSymbolicMusic.py ------------------------------------ #
