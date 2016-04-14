@@ -1,4 +1,4 @@
-#N canvas 444 162 744 357 10;
+#N canvas 235 243 643 327 10;
 #X obj 86 134 pyext ParseSymbolicMusic Parse;
 #X msg 90 104 doc;
 #X msg 83 72 doc+;

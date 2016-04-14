@@ -54,6 +54,8 @@ class Parse(pyext._class):
 		"""
 		self.mto_score_list = mto_score_list
 		self.mto_frozen_list = mto_frozen_list
+		self.directory = (os.path.dirname(os.path.realpath(__file__)) 
+			+ '/data/')
 
 	# Handling inlets.
 	def _anything_1(self,*symbolic_score_list):
@@ -65,14 +67,10 @@ class Parse(pyext._class):
 			self.mto_score_list = [music21.converter.parse(str(x)) 
 				for x in symbolic_score_list]
 
-			#self.mto_frozen_list = []
-			
-			directory = os.path.dirname(os.path.realpath(__file__)) + '/data/'
-
-			frozen_list = []
-			for i in range(len(self.mto_score_list)):
-				frozen_list.append(music21.converter.freeze(self.mto_score_list[i],fmt='pickle',fp=(directory + str(i) + '.pgz')))
-
+			frozen_list = [music21.converter.freeze(self.mto_score_list[i],
+				fmt='pickle', fp=(self.directory + str(i) + '.pgz'))
+				for i in range(len(self.mto_score_list))]
+				
 			self._outlet(2, frozen_list)
 
 		except:
@@ -81,18 +79,15 @@ class Parse(pyext._class):
 
 	def bang_1(self):
 		"""
-		Bang to check of there are already parsed music21 scores.
+		Bang to check if there are an parsed music21 streams present.
 		"""
 		if(self.mto_score_list == 0):
 			print("There are currently no music21 score streams present.")
+
 		else:
-			# print(self.mto_score_list)
-			pathy = '/Users/reiner/Documents/MusicAnalyses/VIS-for-Pd/lib/data/'
 			filename = music21.converter.freeze(self.mto_score_list[0],
 				fmt='pickle',
-				fp=(pathy+'mango.pgz'))
-
-			# print(filename)
+				fp=(self.directory + 'mango.pgz'))
 
 			musky = music21.converter.thaw(filename)
 
