@@ -1,0 +1,16 @@
+#N canvas 131 101 984 891 12;
+#X declare -path ../lib;
+#X declare -path ../scores/symbolic;
+#X obj 34 806 declare -path ../lib;
+#X obj 34 836 declare -path ../scores/symbolic;
+#X obj 41 73 openfiles;
+#X obj 41 43 bng 20 250 50 0 empty empty Open_File(s) 30 10 0 12 -262144
+-1 -66577;
+#X obj 41 103 parse-symbolic-music;
+#X obj 41 353 print Pickeled_Files;
+#X text 214 73 <= Opens 1+ files;
+#X text 214 103 <= Converts Symbolic music files via music21 to music21
+streams, f 64;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;

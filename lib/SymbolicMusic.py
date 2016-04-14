@@ -37,8 +37,9 @@ class Parse(pyext._class):
 	Inlets:
 
 	1. Default inlet: Documentation string, reload, etc.
-	2. Takes a list of file paths (file names + paths).
-	3. Bang to recall whether or not streams already exist.
+	2. Takes a list of file paths (file names + paths). 
+	-  Can process a Bang to recall whether a stream exists.
+
 
 	Outlets:
 
@@ -76,11 +77,11 @@ class Parse(pyext._class):
 				fmt='pickle', fp=(self.directory + str(i) + '.pgz'))
 				for i in range(len(self.mto_score_list))]
 				
-			self._outlet(2, frozen_list)
+			self._outlet(1, frozen_list)
 
 		except:
 
-			self._outlet(2, "Nope.")
+			self._outlet(2, "A frozen stream list was not created.")
 
 	def bang_1(self):
 		"""

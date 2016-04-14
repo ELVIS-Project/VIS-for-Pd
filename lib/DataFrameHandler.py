@@ -74,7 +74,7 @@ class Pack(pyext._class):
 				# Write the dataframe to CSV.
 				self.ind_score.to_csv(
 					os.path.dirname(os.path.realpath(__file__)) + 
-					'/Alma-dataframe.csv',
+					'/data/frames/Alma-dataframe.csv',
 					#na_rep="--",
 					encoding='utf-8')
 				# Pickle the dataframe.

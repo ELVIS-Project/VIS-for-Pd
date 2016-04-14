@@ -1,8 +1,5 @@
-#N canvas 110 87 713 534 12;
-#X text 41 73 VIS for Pd in a music analysis tool to analyze contrapuntal
-music.;
+#N canvas 554 58 718 624 12;
 #X text 40 119 Requirements:;
-#X text 40 195 - Python;
 #X text 60 255 - music21;
 #X text 59 275 - VIS-Framework;
 #X text 59 295 - pandas;
@@ -13,16 +10,22 @@ music.;
 Check GitHub, f 67;
 #X text 135 159 (https://github.com/grrrr/py) on how to build the external.
 ;
-#X obj 43 375 music21-test;
-#X text 40 335 ----- VIS for Pd Abstractions (Objects) -----------------------------
-, f 69;
-#X text 40 39 ----- VIS for Pd Help -----------------------------------------------
-, f 69;
-#X text 247 376 - Access to scripts testing music21.;
-#X text 247 406 - Parse a score with music21 \, and index it with VIS.
+#X text 247 465 - Parse a score with music21 \, and index it with VIS.
 ;
-#X obj 43 435 vis-vertical-intervals;
-#X obj 43 465 vis-horizontal-intervals;
-#X text 247 434 - Finds vertical intervals between voices.;
-#X text 247 464 - Finds horizontal intervals within voices.;
-#X obj 43 405 VIS-Index-Score;
+#X obj 43 494 vis-vertical-intervals;
+#X obj 43 524 vis-horizontal-intervals;
+#X text 247 493 - Finds vertical intervals between voices.;
+#X text 247 523 - Finds horizontal intervals within voices.;
+#X obj 43 464 VIS-Index-Score;
+#X text 41 73 VIS for Pd in a music analysis tool to analyze music.
+;
+#X text 40 195 - Python 2.7;
+#X obj 43 374 openfiles;
+#X text 247 374 - Open 1+ files;
+#X obj 43 404 parse-symbolic-music;
+#X text 247 404 - Parse a list of symbolic music files via music21
+;
+#X text 40 335 ----- VIS for Pd Abstractions (Objects) ------------------------------------
+, f 76;
+#X text 40 29 ----- VIS for Pd Help ------------------------------------------------------
+, f 76;

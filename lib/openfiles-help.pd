@@ -1,0 +1,12 @@
+#N canvas 395 488 547 355 12;
+#X obj 33 37 openfiles;
+#X obj 34 299 openpanel;
+#X text 30 77 Inlet:;
+#X text 31 169 Outlet:;
+#X text 30 107 Send a "bang" to the openfiles inlet in order to open
+1 or more symbolic music files. All symbolic music files supported
+by music21 are accepted.;
+#X text 31 199 The outlet send a list of opened files \, i.e. a list
+of file paths.;
+#X text 31 259 Related standard Pd object (opens only 1 file at a time):
+;

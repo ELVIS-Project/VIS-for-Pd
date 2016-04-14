@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-# ----- MultiFile.py ------------------------------------------------- #
+MultiFile.py
+============
 
 A Python object to capture multiple files.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.13.2016
+Updated: 04.14.2016
 
 Inlets:
 
-1) When a bang is supplied, a file chooser dialog window appears to 
+1. When a bang is supplied, a file chooser dialog window appears to 
    select one or multiple files.
 
 Outlets:
 
-1) A list of file paths is sent through this outlet
+1. A list of file paths is sent through this outlet
 
 # -------------------------------------------------------------------- #
 """
@@ -34,7 +35,14 @@ except:
 
 class ReadFiles(pyext._class):
 	"""
-	Class to read multiple files into a list.
+
+	MultiFile.py Module
+	===================
+
+	ReadFiles Class
+	---------------
+	
+	Reads multiple files into a list.
 
 	Inlets:
 

@@ -1,0 +1,8 @@
+#N canvas 207 512 527 235 12;
+#X obj 19 22 parse-symbolic-music;
+#X text 16 62 Inlet:;
+#X text 16 162 Outlet:;
+#X text 16 92 Takes a list of file paths to symbolic music files that
+are supported by music21 \, converts them into music21 streams \, and
+pickles the appropriate streams.;
+#X text 16 192 Provides a list of pickled music21 streams.;

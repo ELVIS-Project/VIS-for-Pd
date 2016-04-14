@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-# ----- NoteRestIndexing.py ------------------------------------------ #
+NoteRestIndexing.py
+===================
 
 A Python object to make the results of the NoteRestIndexer from the VIS
 framework available to Pd.
@@ -11,17 +12,16 @@ Updated:	04.13.2016
 
 Inlets:
 
-1) The first inlet takes a symbolic score for input, which then will be 
+1. The first inlet takes a symbolic score for input, which then will be 
 first parsed with musicXML, and then placed into a dataframe.
 
 Outlets:
-1) The first outlet outputs a bang, when a csv version of the dataframe 
+1. The first outlet outputs a bang, when a csv version of the dataframe 
 has been created along with a unique ID for that dataframe.
-2) The second outlet displays status messages to the user.
-3) The third outlet is provided for debugging purposes, but will be 
+2. The second outlet displays status messages to the user.
+3. The third outlet is provided for debugging purposes, but will be 
 removed. 
 
-# -------------------------------------------------------------------- #
 """
 
 import sys, os, music21, pyext
@@ -87,7 +87,7 @@ class Index(pyext._class):
 					encoding='utf8'))
 				'''
 				self.ind_score.to_json(os.path.dirname(os.path.realpath(__file__)) + 
-					'/dataframe.json')
+					'/data/frames/dataframe.json')
 				self._outlet(1, self.mto_parsed)
 				self._outlet(2, self.vis_df_save)
 
