@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-# ----- ParseSymbolicMusic.py ----------------------------------------- #
+ParseSymbolicMusic.py
+=====================
 
 The ParseSymbolicMusic module takes a symbolic music file for it's 
 input, parses that input with music21, and outputs an array of music21
-"streams".
+frozen "streams" in the pickle format.
 
-Author:		Reiner Kramer	
-Email:		reiner@music.org
-Updated:	04.13.2016
+Author:	Reiner Kramer	
+Email:	reiner@music.org
+Updated:	04.14.2016
 
-# -------------------------------------------------------------------- #
 """
 
 import sys, os, music21, pyext
@@ -25,8 +25,13 @@ except:
 		print("Failed")
         
 class Parse(pyext._class):
-
 	"""
+	SymbolicMusic Module
+	=========================
+
+	Parse Class
+	-----------
+
 	Parses a score through music21.
 
 	Inlets:
@@ -82,7 +87,7 @@ class Parse(pyext._class):
 		Bang to check if there are an parsed music21 streams present.
 		"""
 		if(self.mto_score_list == 0):
-			print("There are currently no music21 score streams present.")
+			self._outlet(1, "There are currently no music21 score streams present.")
 
 		else:
 			filename = music21.converter.freeze(self.mto_score_list[0],
