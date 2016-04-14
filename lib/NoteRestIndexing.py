@@ -7,7 +7,7 @@ framework available to Pd.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	04.12.2016
+Updated:	04.13.2016
 
 Inlets:
 

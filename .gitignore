@@ -1,4 +1,7 @@
 *.pyo
 *.pyc
+<<<<<<< HEAD
 *.py~
+=======
+>>>>>>> develop
 *.pgz

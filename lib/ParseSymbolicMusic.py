@@ -48,11 +48,12 @@ class Parse(pyext._class):
 	_outlets = 2
 
 	# Init function.
-	def __init__(self,mto_score_list=0):
+	def __init__(self,mto_score_list=0,mto_frozen_list=0):
 		"""
 		Init function for storing variables used in this class.
 		"""
 		self.mto_score_list = mto_score_list
+		self.mto_frozen_list = mto_frozen_list
 
 	# Handling inlets.
 	def _anything_1(self,*symbolic_score_list):
@@ -64,14 +65,19 @@ class Parse(pyext._class):
 			self.mto_score_list = [music21.converter.parse(str(x)) 
 				for x in symbolic_score_list]
 
-			self.mto_frozen_list = [music21.converter.freeze(x,fmt='pickle',fp='/Users/reiner')
-				for x in self.mto_score_list]
+			#self.mto_frozen_list = []
+			
+			directory = os.path.dirname(os.path.realpath(__file__)) + '/data/'
 
-			print("Freeze!")
+			frozen_list = []
+			for i in range(len(self.mto_score_list)):
+				frozen_list.append(music21.converter.freeze(self.mto_score_list[i],fmt='pickle',fp=(directory + str(i) + '.pgz')))
+
+			self._outlet(2, frozen_list)
 
 		except:
 
-			print("Nope.")
+			self._outlet(2, "Nope.")
 
 	def bang_1(self):
 		"""
@@ -80,7 +86,16 @@ class Parse(pyext._class):
 		if(self.mto_score_list == 0):
 			print("There are currently no music21 score streams present.")
 		else:
-			print(self.mto_score_list)
+			# print(self.mto_score_list)
+			pathy = '/Users/reiner/Documents/MusicAnalyses/VIS-for-Pd/lib/data/'
+			filename = music21.converter.freeze(self.mto_score_list[0],
+				fmt='pickle',
+				fp=(pathy+'mango.pgz'))
 
+			# print(filename)
 
-# ----- END VIS-Tools.py --------------------------------------------- #
+			musky = music21.converter.thaw(filename)
+
+			self._outlet(2, str(musky)
+
+# ----- END ParseSymbolicMusic.py ------------------------------------ #

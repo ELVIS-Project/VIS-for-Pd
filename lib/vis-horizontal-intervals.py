@@ -10,7 +10,7 @@ calculated within a part.
 
 Author:		Reiner Kramer	
 Email:		reiner@music.org
-Updated:	04.12.2016
+Updated:	04.13.2016
 
 # -------------------------------------------------------------------- #
 """
