@@ -2,4 +2,3 @@
 *.pyc
 *.py~
 *.pgz
-!/lib/pre-compiled-externals
