@@ -67,9 +67,9 @@ class ReadFiles(pyext._class):
 		"""
 		try: 
 			le_machine = Tkinter.Tk()
+			le_machine.withdraw()
 			collected_files = tkFileDialog.askopenfilenames(parent=le_machine,
 				title='Choose a symbolic music file')
-			le_machine.withdraw()
 			self.the_files = collected_files
 			self._outlet(1, self.the_files)
 			self._msg_success()
