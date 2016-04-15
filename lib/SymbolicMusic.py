@@ -9,7 +9,7 @@ frozen "streams" in the pickle format.
 
 Author:	Reiner Kramer	
 Email:	reiner@music.org
-Updated:	04.14.2016
+Updated:	04.15.2016
 
 """
 
@@ -61,7 +61,7 @@ class Parse(pyext._class):
 		self.mto_score_list = mto_score_list
 		self.mto_frozen_list = mto_frozen_list
 		self.directory = (os.path.dirname(os.path.realpath(__file__)) 
-			+ '/data/')
+			+ '/data/music21streams/')
 
 	# Handling inlets.
 	def _anything_1(self,*symbolic_score_list):

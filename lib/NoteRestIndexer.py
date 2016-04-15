@@ -8,7 +8,7 @@ framework available to Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.14.2016
+Updated: 04.15.2016
 
 """
 
@@ -38,10 +38,12 @@ class Index(pyext._class):
 
 	1. The first inlet takes a list of pickled music21 objects, unthaws these
 	objects, and then place them into a pandas DataFrame via the vis-framework.
+	The first inlet also can take a bang in order to check whether or not a 
+	DataFrame exists.
 
 	Outlets:
 	
-	1. The first outlet outputs a bang, and the packed dataframe.
+	1. The first outlet outputs a bang, and the paths packed dataframe.
 	2. The second outlet displays status messages to the user. 
 	
 	"""
@@ -49,34 +51,73 @@ class Index(pyext._class):
 	_outlets = 2
 
 	# Init function.
-	def __init__(self,mto_scores=0,ind_scores=0):
+	def __init__(self,mto_scores=0,ind_scores=0,df_paths=0):
 		"""
 		Storing variables used in this class.
 		"""
 		self.mto_scores = mto_scores
 		self.ind_scores = ind_scores
+		self.df_paths = df_paths
 		# Messages
 		self.err_msg_1 = ("There wasn't enough heat to thaw the frozen " + 
 			"music21 object.")
 		self.err_msg_2 = "The NoteRestIndexer failed."
 		self.mto_parsed = "The scores were thawed and parsed with music21."
-		self.vis_parsed = "The score has been indexed with VIS."
+		self.vis_parsed = "The scores have been indexed with VIS."
 
 	def _anything_1(self,*pickled_scores):
 		"""
 		Parses a list of pickeled music21 scores, and indexes the scores with 
-		the vis-framework into a pandas DataFrames.
+		the vis-framework's NoteRestIndexer into pandas DataFrames.
 		"""
 		try:
 
 			pickled = [str(x) for x in pickled_scores]
 			unthawed = [music21.converter.thaw(pickled[i]) 
 				for i in range(len(pickled))]
-			local_msg = (self.mto_parsed + ": \n" + str([str(x) for x in unthawed]))
+			local_msg = (self.mto_parsed + ": \n" + 
+				str([str(x) for x in unthawed]))
 			self._outlet(2, local_msg)
+
+			try:
+
+				self.ind_scores = [noterest.NoteRestIndexer(i).run()
+					for i in unthawed]
+
+				self.df_paths = []
+
+				for i in range(len(self.ind_scores)):
+					
+					# Build the path names, and save them into a list variable.
+					self.df_paths.append(
+						os.path.dirname(os.path.realpath(__file__)) + 
+						'/data/frames/' + str(i) + '.csv')
+
+					# Save the dataframes as csv file.
+					self.ind_scores[i].to_csv(
+						self.df_paths[i],
+						#na_rep="--",
+						encoding='utf-8')
+
+				self._outlet(2, self.vis_parsed)
+				self._outlet(1, [str(x) for x in self.df_paths])
+
+			except:
+
+				self._outlet(2, self.err_msg_2)
 
 		except:
 
 			self._outlet(2, self.err_msg_1)
+
+	def bang_1(self):
+		"""
+		Checks wether or not a DataFrame exists or should be loaded.
+		"""
+		if(self.df_paths == 0):
+			self._outlet(1, "Please choose (a) music21 stream(s) first.")
+		
+		else:
+			self._outlet(1, "DataFrames exist.")
 
 # ----- END NoteRestIndexer.py --------------------------------------- #
