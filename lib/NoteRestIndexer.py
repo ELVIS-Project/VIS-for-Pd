@@ -40,6 +40,7 @@ class Index(pyext._class):
 	objects, and then place them into a pandas DataFrame via the vis-framework.
 	The first inlet also can take a bang in order to check whether or not a 
 	DataFrame exists.
+	2. A bang queries to see how many scores have been indexed.
 
 	Outlets:
 	
@@ -47,7 +48,7 @@ class Index(pyext._class):
 	2. The second outlet displays status messages to the user. 
 	
 	"""
-	_inlets = 1
+	_inlets = 2
 	_outlets = 2
 
 	# Init function.
@@ -75,9 +76,14 @@ class Index(pyext._class):
 			pickled = [str(x) for x in pickled_scores]
 			unthawed = [music21.converter.thaw(pickled[i]) 
 				for i in range(len(pickled))]
+			
+
 			local_msg = (self.mto_parsed + ": \n" + 
 				str([str(x) for x in unthawed]))
 			self._outlet(2, local_msg)
+
+			for x in unthawed:
+				print(x.metadata.all())
 
 			try:
 
@@ -99,25 +105,47 @@ class Index(pyext._class):
 						#na_rep="--",
 						encoding='utf-8')
 
-				self._outlet(2, self.vis_parsed)
+				#self._outlet(2, self.vis_parsed)
+				self.bang_2()
 				self._outlet(1, [str(x) for x in self.df_paths])
 
 			except:
 
-				self._outlet(2, self.err_msg_2)
+				self._outlet(1, self.err_msg_2)
 
 		except:
 
-			self._outlet(2, self.err_msg_1)
+			self._outlet(1, self.err_msg_1)
 
 	def bang_1(self):
 		"""
 		Checks wether or not a DataFrame exists or should be loaded.
 		"""
 		if(self.df_paths == 0):
-			self._outlet(1, "Please choose (a) music21 stream(s) first.")
+			self._outlet(1, self._msg_missing_scores())
 		
 		else:
-			self._outlet(1, "DataFrames exist.")
+			# self._outlet(1, "DataFrames exist.")
+			self._outlet(1, [str(x) for x in self.df_paths])
+
+
+	def bang_2(self):
+		"""
+		Check to see how many DataFrames exist, i.e. how many different scores
+		were indexed. The number output can be used to select and individual 
+		score for querying.
+		"""
+		try:
+			self._outlet(2, len(self.ind_scores))
+		except:
+			self._outlet(2, self._msg_missing_scores())
+
+	def _msg_missing_scores(self):
+		"""
+		Method to indicate that no DataFrames have been loaded.
+		"""
+		return "Please load (a) music21 stream(s) first."
+
+
 
 # ----- END NoteRestIndexer.py --------------------------------------- #

@@ -1,0 +1,21 @@
+#N canvas 552 107 776 546 12;
+#X declare -path ../lib;
+#X obj 34 38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 34 67 openpanel;
+#X obj 35 482 declare -path ../lib;
+#X obj 34 97 parse-symbolic-music;
+#X obj 34 208 note-rest-indexer;
+#X obj 167 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 167 249 5 0 0 0 - - -, f 5;
+#X obj 34 293 print DataFrames;
+#X obj 48 175 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 1 6 0;
+#X connect 5 0 4 1;
+#X connect 8 0 4 0;

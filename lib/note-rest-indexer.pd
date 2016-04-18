@@ -1,33 +1,58 @@
-#N canvas 365 153 711 423 12;
-#X obj 100 301 pyext NoteRestIndexer Index;
-#X obj 363 192 parse-symbolic-music;
-#X obj 363 151 openfiles;
-#X obj 363 108 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 186 133 733 491 12;
+#X obj 60 271 pyext NoteRestIndexer Index;
+#X obj 273 176 parse-symbolic-music;
+#X obj 273 146 openfiles;
+#X obj 273 116 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 63 39 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 43 46 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 63 149 t b b;
-#X obj 63 183 openpanel;
-#X msg 40 223 doc;
-#X msg 40 253 doc+;
-#X msg 100 254 reload;
-#X obj 100 331 outlet;
-#X obj 313 76 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 43 76 t b b;
+#X obj 43 106 openpanel;
+#X msg 60 146 doc;
+#X msg 70 176 doc+;
+#X msg 80 206 reload;
+#X obj 60 431 outlet;
+#X obj 273 86 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X text 391 108 Load multiple files.;
-#X text 341 76 Check if there are existing DataFrames.;
-#X text 92 39 Open 1 file (music21 stream).;
-#X obj 363 232 inlet;
+#X text 301 116 Load multiple files.;
+#X obj 273 206 inlet;
+#X obj 273 236 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 83 354 print DataFrames;
+#X obj 223 354 print Number_of_Scores;
+#X obj 166 401 outlet;
+#X obj 303 236 inlet;
+#X text 356 236 How many scores have been parsed?;
+#X text 228 401 Number of scores parsed.;
+#X obj 223 324 spigot;
+#X obj 268 299 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 83 324 spigot;
+#X obj 128 299 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 118 432 Paths to DataFrames.;
+#X text 290 297 Turn printing on or off for debugging.;
+#X text 301 87 Manually pass DataFrame(s) on.;
+#X text 72 46 Open 1 file (symbolic music).;
 #X connect 0 0 10 0;
+#X connect 0 0 23 0;
+#X connect 0 1 17 0;
+#X connect 0 1 21 0;
 #X connect 1 0 0 1;
 #X connect 2 0 1 0;
 #X connect 3 0 2 0;
 #X connect 4 0 5 0;
 #X connect 5 0 6 0;
 #X connect 5 1 9 0;
-#X connect 6 0 0 1;
+#X connect 6 0 1 0;
 #X connect 7 0 0 0;
 #X connect 8 0 0 0;
 #X connect 9 0 0 0;
 #X connect 11 0 0 1;
-#X connect 15 0 0 1;
+#X connect 13 0 0 1;
+#X connect 14 0 0 2;
+#X connect 18 0 0 2;
+#X connect 21 0 16 0;
+#X connect 22 0 21 1;
+#X connect 23 0 15 0;
+#X connect 24 0 23 1;
