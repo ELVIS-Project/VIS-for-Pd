@@ -1,4 +1,4 @@
-#N canvas 462 177 850 334 12;
+#N canvas 265 116 850 334 12;
 #X declare -path ../lib;
 #X declare -path ../scores/symbolic;
 #X obj 41 243 declare -path ../lib;
@@ -10,11 +10,11 @@
 #X text 214 73 <= Opens 1+ files, f 72;
 #X text 214 103 <= Converts Symbolic music files via music21 to music21
 streams., f 72;
-#X obj 41 133 NoteRestIndexer;
 #X obj 41 183 print DataFrames;
 #X text 214 133 <= Indexes music21 streams with the VIS-Framework to
 pandas DataFrames., f 72;
+#X obj 41 133 note-rest-indexer;
 #X connect 2 0 4 0;
 #X connect 3 0 2 0;
-#X connect 4 0 7 0;
-#X connect 7 0 8 0;
+#X connect 4 0 9 0;
+#X connect 9 0 7 0;

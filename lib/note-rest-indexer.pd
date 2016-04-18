@@ -1,0 +1,33 @@
+#N canvas 365 153 711 423 12;
+#X obj 100 301 pyext NoteRestIndexer Index;
+#X obj 363 192 parse-symbolic-music;
+#X obj 363 151 openfiles;
+#X obj 363 108 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 63 39 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 63 149 t b b;
+#X obj 63 183 openpanel;
+#X msg 40 223 doc;
+#X msg 40 253 doc+;
+#X msg 100 254 reload;
+#X obj 100 331 outlet;
+#X obj 313 76 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 391 108 Load multiple files.;
+#X text 341 76 Check if there are existing DataFrames.;
+#X text 92 39 Open 1 file (music21 stream).;
+#X obj 363 232 inlet;
+#X connect 0 0 10 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 9 0;
+#X connect 6 0 0 1;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 0 0;
+#X connect 11 0 0 1;
+#X connect 15 0 0 1;
