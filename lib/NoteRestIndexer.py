@@ -16,13 +16,9 @@ import sys, os, music21, pyext
 from vis.analyzers.indexers import noterest
 
 try:
-    print("{} loaded.".format(sys.argv))
-    print("Using Python {}.{}.{}.".format(
-    	sys.version_info[0],
-    	sys.version_info[1],
-    	sys.version_info[2]))
+	print("NoteRestIndexer.py was loaded.")
 except:
-	print("Failed")
+	print("Loading NoteRestIndexer.py failed.")
 
 class Index(pyext._class):
 	"""
@@ -80,12 +76,15 @@ class Index(pyext._class):
 			local_msg = (self.mto_parsed + ": \n" + 
 				str([str(x) for x in unthawed]))
 			self._outlet(2, local_msg)
-
+			'''
 			meta = [(x.metadata.composer.lower() + "_" + 
 				x.metadata.title.lower()).replace(" ", "-") 
 				for x in unthawed]
+			'''
 
-			print(meta)
+			meta = [x.metadata.all() for x in unthawed]
+			for y in meta:
+				print y
 
 			try:
 

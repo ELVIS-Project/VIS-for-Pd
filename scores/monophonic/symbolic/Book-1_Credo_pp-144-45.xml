@@ -5,8 +5,9 @@
     <work-title>Credo</work-title>
     </work>
   <identification>
-    <creator type="arranger">aeolian</creator>
+    <creator type="arranger">Aeolian</creator>
     <creator type="composer">Anonymous</creator>
+    <creator type="lyricist">Dodecachordon</creator>
     <encoding>
       <software>MuseScore 2.0.3</software>
       <encoding-date>2016-04-18</encoding-date>

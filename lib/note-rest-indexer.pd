@@ -1,69 +1,49 @@
-#N canvas 461 54 728 631 12;
-#X obj 43 321 pyext NoteRestIndexer Index;
-#X obj 256 226 parse-symbolic-music;
-#X obj 256 196 openfiles;
-#X obj 256 166 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 43 16 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#N canvas 640 69 654 432 12;
+#X obj 43 211 pyext NoteRestIndexer Index;
+#X obj 256 116 parse-symbolic-music;
+#X obj 256 86 openfiles;
+#X obj 256 56 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 43 46 t b b;
-#X obj 43 76 openpanel;
-#X msg 43 221 doc;
-#X msg 53 251 doc+;
-#X msg 63 281 reload;
-#X obj 43 481 outlet;
-#X obj 256 136 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+#X msg 43 111 doc;
+#X msg 53 141 doc+;
+#X msg 63 171 reload;
+#X obj 43 371 outlet;
+#X obj 256 26 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 284 56 Load multiple files.;
+#X obj 256 146 inlet;
+#X obj 256 176 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 284 166 Load multiple files.;
-#X obj 256 256 inlet;
-#X obj 256 286 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 66 404 print DataFrames;
-#X obj 206 404 print Number_of_Scores;
-#X obj 149 451 outlet;
-#X obj 286 286 inlet;
-#X text 339 286 How many scores have been parsed?;
-#X text 211 451 Number of scores parsed.;
-#X obj 206 374 spigot;
-#X obj 251 349 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 66 294 print DataFrames;
+#X obj 206 294 print Number_of_Scores;
+#X obj 149 341 outlet;
+#X obj 286 176 inlet;
+#X text 339 176 How many scores have been parsed?;
+#X text 211 341 Number of scores parsed.;
+#X obj 206 264 spigot;
+#X obj 251 239 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 66 374 spigot;
-#X obj 111 350 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 66 264 spigot;
+#X obj 111 240 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X text 103 482 Paths to DataFrames.;
-#X text 273 347 Turn printing on or off for debugging.;
-#X text 284 137 Manually pass DataFrame(s) on.;
-#X text 72 16 Open 1 file (symbolic music).;
-#X obj 43 161 symbol;
-#X obj 43 136 bng 15 250 50 0 empty empty Bypass 17 7 0 10 -262144
--1 -1;
-#X obj 43 106 t b s;
-#X obj 43 191 t b;
-#X connect 0 0 10 0;
-#X connect 0 0 23 0;
-#X connect 0 1 17 0;
-#X connect 0 1 21 0;
+#X text 103 372 Paths to DataFrames.;
+#X text 273 237 Turn printing on or off for debugging.;
+#X text 284 27 Manually pass DataFrame(s) on.;
+#X connect 0 0 7 0;
+#X connect 0 0 20 0;
+#X connect 0 1 14 0;
+#X connect 0 1 18 0;
 #X connect 1 0 0 1;
 #X connect 2 0 1 0;
 #X connect 3 0 2 0;
-#X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 5 1 9 0;
-#X connect 6 0 31 0;
-#X connect 7 0 0 0;
-#X connect 8 0 0 0;
-#X connect 9 0 0 0;
-#X connect 11 0 0 1;
-#X connect 13 0 0 1;
-#X connect 14 0 0 2;
-#X connect 18 0 0 2;
-#X connect 21 0 16 0;
-#X connect 22 0 21 1;
-#X connect 23 0 15 0;
-#X connect 24 0 23 1;
-#X connect 29 0 1 0;
-#X connect 29 0 32 0;
-#X connect 30 0 29 0;
-#X connect 31 0 30 0;
-#X connect 31 1 29 1;
-#X connect 32 0 9 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 8 0 0 1;
+#X connect 10 0 0 1;
+#X connect 11 0 0 2;
+#X connect 15 0 0 2;
+#X connect 18 0 13 0;
+#X connect 19 0 18 1;
+#X connect 20 0 12 0;
+#X connect 21 0 20 1;

@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise version="3.0">
-  <movement-title>Dodecachordon</movement-title>
+  <work>
+      <work-title>Missa sine nomine - Sanctus - Pleni sunt</work-title>
+  </work>
   <identification>
     <creator type="composer">Josquin des Prez</creator>
+    <creator type="lyricist">Dodecachordon</creator>
+    <creator type="arranger">Aeolian</creator>
     <encoding>
       <software>Finale 2014.5 for Mac</software>
       <software>Dolet Light for Finale 2014.5</software>
-      <encoding-date>2016-03-08</encoding-date>
+      <encoding-date>2016-04-19</encoding-date>
       <supports attribute="new-system" element="print" type="yes" value="yes"/>
       <supports attribute="new-page" element="print" type="yes" value="yes"/>
       <supports element="accidental" type="yes"/>
@@ -62,11 +66,11 @@
   </defaults>
   <credit page="1">
     <credit-type>title</credit-type>
-    <credit-words default-x="602" default-y="1412" font-size="24" halign="center" valign="top">Dodecachordon</credit-words>
+    <credit-words default-x="602" default-y="1412" font-size="24" halign="center" valign="top">Missa sine nomine - Sanctus - Pleni sunt</credit-words>
   </credit>
   <credit page="1">
     <credit-type>subtitle</credit-type>
-    <credit-words default-x="602" default-y="1339" font-size="18" halign="center" valign="top">Missa sine nomine - Sanctus - Pleni sunt</credit-words>
+    <credit-words default-x="602" default-y="1339" font-size="18" halign="center" valign="top">Dodecachordon</credit-words>
   </credit>
   <credit page="1">
     <credit-type>composer</credit-type>

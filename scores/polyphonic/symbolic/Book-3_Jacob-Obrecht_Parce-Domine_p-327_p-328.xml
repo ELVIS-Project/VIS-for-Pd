@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise version="3.0">
-  <movement-title>Dodecachordon</movement-title>
+  <work>
+      <work-title>Parce Domine</work-title>
+  </work>
   <identification>
     <creator type="composer">Jacob Obrecht</creator>
+    <creator type="lyricist">Dodecachordon</creator>
+    <creator type="arranger">Aeolian</creator>
     <encoding>
       <software>Finale 2014.5 for Mac</software>
       <software>Dolet Light for Finale 2014.5</software>
@@ -63,7 +67,7 @@
   </defaults>
   <credit page="1">
     <credit-type>title</credit-type>
-    <credit-words default-x="597" default-y="1405" font-size="24" justify="center" valign="top">Dodecachordon</credit-words>
+    <credit-words default-x="597" default-y="1405" font-size="24" justify="center" valign="top">Parce Domine</credit-words>
   </credit>
   <credit page="1">
     <credit-type>composer</credit-type>
@@ -71,7 +75,7 @@
   </credit>
   <credit page="1">
     <credit-type>subtitle</credit-type>
-    <credit-words default-x="597" default-y="1335" font-size="18" justify="center" valign="top">Parce Domine</credit-words>
+    <credit-words default-x="597" default-y="1335" font-size="18" justify="center" valign="top">Dodecachordon</credit-words>
   </credit>
   <credit page="2">
     <credit-type>page number</credit-type>
@@ -79,7 +83,7 @@
   </credit>
   <credit page="2">
     <credit-type>title</credit-type>
-    <credit-words default-x="597" default-y="1428" font-size="12" justify="center" valign="top">Dodecachordon</credit-words>
+    <credit-words default-x="597" default-y="1428" font-size="12" justify="center" valign="top">Parce Domine</credit-words>
   </credit>
   <credit page="3">
     <credit-type>page number</credit-type>
@@ -87,7 +91,7 @@
   </credit>
   <credit page="3">
     <credit-type>title</credit-type>
-    <credit-words default-x="597" default-y="1428" font-size="12" justify="center" valign="top">Dodecachordon</credit-words>
+    <credit-words default-x="597" default-y="1428" font-size="12" justify="center" valign="top">Parce Domine</credit-words>
   </credit>
   <part-list>
     <part-group number="1" type="start">
@@ -98,10 +102,7 @@
       <part-name print-object="no">MusicXML Part</part-name>
       <score-instrument id="P1-I1">
         <instrument-name>ARIA Player</instrument-name>
-        <virtual-instrument>
-          <virtual-library>Garritan Instruments for Finale</virtual-library>
-          <virtual-name>009. Choir/Choir Ahs</virtual-name>
-        </virtual-instrument>
+        <virtual-instrument/>
       </score-instrument>
       <midi-device>Bank 1</midi-device>
       <midi-instrument id="P1-I1">
@@ -115,10 +116,7 @@
       <part-name print-object="no">MusicXML Part</part-name>
       <score-instrument id="P2-I2">
         <instrument-name>ARIA Player</instrument-name>
-        <virtual-instrument>
-          <virtual-library>Garritan Instruments for Finale</virtual-library>
-          <virtual-name>009. Choir/Choir Ahs</virtual-name>
-        </virtual-instrument>
+        <virtual-instrument/>
       </score-instrument>
       <midi-device>Bank 1</midi-device>
       <midi-instrument id="P2-I2">
@@ -132,10 +130,7 @@
       <part-name print-object="no">MusicXML Part</part-name>
       <score-instrument id="P3-I3">
         <instrument-name>ARIA Player</instrument-name>
-        <virtual-instrument>
-          <virtual-library>Garritan Instruments for Finale</virtual-library>
-          <virtual-name>009. Choir/Choir Ahs</virtual-name>
-        </virtual-instrument>
+        <virtual-instrument/>
       </score-instrument>
       <midi-device>Bank 1</midi-device>
       <midi-instrument id="P3-I3">
