@@ -8,7 +8,7 @@ framework available to Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.15.2016
+Updated: 04.18.2016
 
 """
 
@@ -76,14 +76,16 @@ class Index(pyext._class):
 			pickled = [str(x) for x in pickled_scores]
 			unthawed = [music21.converter.thaw(pickled[i]) 
 				for i in range(len(pickled))]
-			
 
 			local_msg = (self.mto_parsed + ": \n" + 
 				str([str(x) for x in unthawed]))
 			self._outlet(2, local_msg)
 
-			for x in unthawed:
-				print(x.metadata.all())
+			meta = [(x.metadata.composer.lower() + "_" + 
+				x.metadata.title.lower()).replace(" ", "-") 
+				for x in unthawed]
+
+			print(meta)
 
 			try:
 
