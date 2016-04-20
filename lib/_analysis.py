@@ -48,10 +48,10 @@ from vis.analyzers.indexers import ngram
 
 directory = ('/Users/reiner/Documents/MusicAnalyses/VIS-for-Pd/scores/')
 
-symbolic_score = (directory + 'monophonic/symbolic/' +
-	'Book-1_Ave-Maria-benedicta-tu_p-146.xml')
+symbolic_score = (directory + 'polyphonic/symbolic/' +
+	'Book-3_Jacob-Obrecht_Monad_p-252_p-327.xml')
 
-nri_df_path = (directory + 'dataframes/' + 'Ave-Maria-benedicta-tu.pkl')
+nri_df_path = (directory + 'dataframes/' + 'Book-3_Jacob-Obrecht_Monad_p-252_p-327.xml.pkl')
 
 # Parse score with music21.
 mto_score = music21.converter.parse(symbolic_score)

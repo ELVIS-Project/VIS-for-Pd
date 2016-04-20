@@ -71,8 +71,8 @@ class Get(pyext._class):
 				settings).run() for x in self.df_scores]
 			
 			for v, w in zip(self.hint_df,self.df_scores):
-				print(w.head(5).to_csv(sep=' '))
-				print(v.head(5).to_csv(sep=' '))
+				print(w.head(5).to_csv(sep='\t',na_rep='^'))
+				print(v.head(5).to_csv(sep='\t',na_rep='^'))
 
 		except (RuntimeError, TypeError, NameError):
 			print("O-M-G. Total Failure. Here's why:")

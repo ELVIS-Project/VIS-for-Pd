@@ -1,4 +1,4 @@
-#N canvas 30 48 910 469 12;
+#N canvas 30 48 1051 476 12;
 #X declare -path ../lib;
 #X declare -path ../scores/symbolic;
 #X obj 41 383 declare -path ../lib;
