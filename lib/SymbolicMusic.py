@@ -9,16 +9,16 @@ frozen "streams" in the pickle format.
 
 Author:	Reiner Kramer	
 Email:	reiner@music.org
-Updated:	04.18.2016
+Updated:	04.20.2016
 
 """
 
 import sys, os, music21, pyext
 
 try:
-	print("ParseSymbolicMusic.py was loaded.")
+	print("Parsing symbolic music has been enabled.")
 except:
-	print("Failed")
+	print("Symbolic music cannot be parsed.")
         
 class Parse(pyext._class):
 	"""
@@ -77,7 +77,7 @@ class Parse(pyext._class):
 
 		except:
 
-			print("Frozen list compilation failed.")
+			print("music21 was not able to pickle music21 score streams.")
 			#self._outlet(2, "A frozen stream list was not created.")
 
 	def bang_1(self):

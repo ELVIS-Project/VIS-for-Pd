@@ -8,7 +8,7 @@ framework available to Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.18.2016
+Updated: 04.20.2016
 
 """
 
@@ -73,18 +73,22 @@ class Index(pyext._class):
 			unthawed = [music21.converter.thaw(pickled[i]) 
 				for i in range(len(pickled))]
 
+			'''	
+			# Debug:
 			local_msg = (self.mto_parsed + ": \n" + 
 				str([str(x) for x in unthawed]))
-			self._outlet(2, local_msg)
+			print(local_msg)
 			'''
+
 			meta = [(x.metadata.composer.lower() + "_" + 
 				x.metadata.title.lower()).replace(" ", "-") 
 				for x in unthawed]
-			'''
 
-			meta = [x.metadata.all() for x in unthawed]
+			'''
+			# Debug
 			for y in meta:
 				print y
+			'''
 
 			try:
 
@@ -98,7 +102,7 @@ class Index(pyext._class):
 					# Build the path names, and save them into a list variable.
 					self.df_paths.append(
 						os.path.dirname(os.path.realpath(__file__)) + 
-						'/data/frames/' + str(i) + '.csv')
+						'/data/frames/' + meta[i] + '.csv')
 
 					# Save the dataframes as csv file.
 					self.ind_scores[i].to_csv(
@@ -109,6 +113,10 @@ class Index(pyext._class):
 				#self._outlet(2, self.vis_parsed)
 				self.bang_2()
 				self._outlet(1, [str(x) for x in self.df_paths])
+				'''
+				for x in self.df_paths:
+					print str(x)
+				'''
 
 			except:
 

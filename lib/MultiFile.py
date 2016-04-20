@@ -7,7 +7,7 @@ A Python object to capture multiple files.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.14.2016
+Updated: 04.20.2016
 
 Inlets:
 
@@ -24,14 +24,9 @@ Outlets:
 import sys, pyext, Tkinter, tkFileDialog
 
 try:
-    print("{} loaded.".format(sys.argv))
-    print("Using Python {}.{}.{}.".format(
-    	sys.version_info[0],
-    	sys.version_info[1],
-    	sys.version_info[2]))
-
+	print("Multiple files read is enabled.")
 except:
-	print("Failed to load.")
+	print("Failed to load MultiFile.py.")
 
 class ReadFiles(pyext._class):
 	"""
