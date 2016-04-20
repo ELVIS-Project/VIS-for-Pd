@@ -102,13 +102,10 @@ class Index(pyext._class):
 					# Build the path names, and save them into a list variable.
 					self.df_paths.append(
 						os.path.dirname(os.path.realpath(__file__)) + 
-						'/data/frames/' + meta[i] + '.csv')
+						'/data/frames/' + meta[i] + '.pkl')
 
-					# Save the dataframes as csv file.
-					self.ind_scores[i].to_csv(
-						self.df_paths[i],
-						#na_rep="--",
-						encoding='utf-8')
+					# Save the dataframes as pickle(d) files.
+					self.ind_scores[i].to_pickle(self.df_paths[i])
 
 				#self._outlet(2, self.vis_parsed)
 				self.bang_2()

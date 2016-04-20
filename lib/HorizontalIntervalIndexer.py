@@ -14,7 +14,9 @@ Updated: 04.20.2016
 """
 
 import sys, os, music21, pyext, pandas
-from vis.analyzers.indexers import noterest, interval
+
+from vis.analyzers.indexers import noterest
+from vis.analyzers.indexers import interval
 
 try:
 	print("HorizontalIntervalIndexer.py was loaded.")
@@ -37,34 +39,41 @@ class Get(pyext._class):
 	_inlets = 3
 	_outlets = 3
 
-	def __init__(self,df_paths=0,df_scores=0):
+	def __init__(self,df_paths=0,df_scores=0,hint_df=0):
 		"""
 		Storing variables used in this class.
 		"""
 		self.df_paths = df_paths
 		self.df_scores = df_scores
+		self.hint_df = hint_df
 
 	def _anything_1(self,*noterest_df):
 		"""
 		Parses a note-rest-indexed DataFrame and show horizontal intervals.
 		"""
-		# Converting symbols to actual paths
-
+		
 		try:
-
+			msg = ("Starting new music analysis.")
+			print("\n" + len(msg) * "=")
+			print(msg)
+			print(len(msg) * "=")
+			# Counting through the dataframes and converting symbols to paths:
 			self.df_paths = [str(x) for x in noterest_df]
+
+			# Choosing DataFrame:
+			self.df_scores = [pandas.read_pickle(self.df_paths[i]) 
+				for i in range(len(self.df_paths))]
 			
-			print(self.df_paths[0])
+	   		# Showing the horizontal intervals.
+			# not sure why mulitprocessing has to be turned off :-/
+			settings = {'mp':False,'horiz_attach_later':False}	
+			self.hint_df = [interval.HorizontalIntervalIndexer(x,
+				settings).run() for x in self.df_scores]
+			
+			for v, w in zip(self.hint_df,self.df_scores):
+				print(w.head(5).to_csv(sep=' '))
+				print(v.head(5).to_csv(sep=' '))
 
-			self.df_scores = pandas.read_csv(self.df_paths[0],
-				header=0,
-				index_col=0,
-				encoding='utf-8')
-
-			# self._outlet(1, self.df_score.head(7).to_csv(sep=' '))
-
-			print self.df_scores.head(10).to_csv(sep=' ')
-
-		except:
-			print("O-M-G. Total Failure.")
-
+		except (RuntimeError, TypeError, NameError):
+			print("O-M-G. Total Failure. Here's why:")
+			print(RuntimeError, TypeError, NameError)

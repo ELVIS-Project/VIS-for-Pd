@@ -1,20 +1,22 @@
-#N canvas 230 527 1002 481 12;
+#N canvas 181 248 910 469 12;
 #X declare -path ../lib;
 #X declare -path ../scores/symbolic;
 #X obj 41 383 declare -path ../lib;
 #X obj 41 413 declare -path ../scores/symbolic;
-#X obj 41 73 openfiles;
+#X obj 41 83 openfiles;
 #X obj 41 43 bng 20 250 50 0 empty empty Open_File(s) 30 10 0 12 -262144
 -1 -66577;
-#X obj 41 103 parse-symbolic-music;
-#X text 214 73 <= Opens 1+ files, f 72;
-#X text 214 103 <= Converts Symbolic music files via music21 to music21
+#X obj 41 123 parse-symbolic-music;
+#X text 214 83 <= Opens 1+ files, f 72;
+#X text 214 123 <= Converts Symbolic music files via music21 to music21
 streams., f 72;
-#X obj 41 323 print DataFrames;
-#X text 214 133 <= Indexes music21 streams with the VIS-Framework to
+#X text 214 163 <= Indexes music21 streams with the VIS-Framework to
 pandas DataFrames., f 72;
-#X obj 41 133 note-rest-indexer;
+#X obj 41 163 note-rest-indexer;
+#X obj 41 203 horizontal-interval-indexer;
+#X text 274 203 <= Indexes Horizontal Intervals with VIS-Framework
+from DataFrames., f 72;
 #X connect 2 0 4 0;
 #X connect 3 0 2 0;
-#X connect 4 0 9 0;
-#X connect 9 0 7 0;
+#X connect 4 0 8 0;
+#X connect 8 0 9 0;
