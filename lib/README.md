@@ -6,4 +6,6 @@ With this pair a user can open multiple files at once, and pass these files on t
 The object accepts any symbolic music file types that music21 can process, converts them music21 score streams, and pickles these streams for later use. Multiple files at once, or just one file can be processed.
 #### NoteRestIndexer.py/note-rest-indexer.pd
 The object takes any pickled music21 score streams, places these into pandas DataFrames with the VIS-Framework, and stores the DataFrames for quick recall. Any number of pickled music21 score streams, or just one can be used.
+#### HorizontalIntervalIndexer.py/horizontal-interval-indexer.pd
+The object takes one or more note-rest-indexed DataFrames, and processes all horizontal intervals, which in return are output in new DataFrames.
 
