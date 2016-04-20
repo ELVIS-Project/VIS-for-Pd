@@ -1,5 +1,4 @@
-# VIS-for-Pd project library
-## Introduction
+## VIS-for-Pd project library
 Most library files will consist of Python class/Pd abstraction pairs. An object in the following description refers to such a pair. 
 #### MultiFile.py/openfile.pd
 With this pair a user can open multiple files at once, and pass these files on to any object that will read these files. Any file type is accepted. The object can also accept just one file, like Pd's _openpanel_ object.
