@@ -72,17 +72,15 @@ hint_score = interval.HorizontalIntervalIndexer(df_from_pickle).run()
 vint_score = interval.IntervalIndexer(vis_score).run()
 
 # Find offset Vertical Intervals.
-vint_o_dict = {'quarterLength':4.0, 'method': None}
+vint_o_dict = {'quarterLength':2.0, 'method': None}
 vint_o_filt = offset.FilterByOffsetIndexer(vis_score,vint_o_dict).run()
 vint_o_score = interval.IntervalIndexer(vint_o_filt).run()
 
 # Find Ngrams.
 hint_vint = pandas.concat([hint_score,vint_score],axis=1)
-ngram_dict = {'mark singles': False, 'continuer': '1', 'n': 3}
-ngram_dict['horizontal'] = [('interval.HorizontalIntervalIndexer','3')]
-ngram_dict['vertical'] = [('interval.IntervalIndexer','0,3'),
-                          ('interval.IntervalIndexer','1,3'),
-                          ('interval.IntervalIndexer','2,3')]
+ngram_dict = {'mark singles': False, 'continuer': '1', 'n': 2}
+ngram_dict['horizontal'] = [('interval.HorizontalIntervalIndexer','1')]
+ngram_dict['vertical'] = [('interval.IntervalIndexer','0,1')]
 ngrams_score = ngram.NGramIndexer(hint_vint,ngram_dict).run() 
 
 

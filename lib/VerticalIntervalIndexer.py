@@ -3,7 +3,7 @@
 VerticalIntervalIndexer.py
 ==========================
 
-A Python object to to interpret a NoteRestIndexed DataFrame. A new DataFrame is
+A Python object to interpret a NoteRestIndexed DataFrame. A new DataFrame is
 created to find vertical intervals in any given sounding simultaneity
 line via the VIS-Framework.
 
@@ -51,10 +51,8 @@ class Get(pyext._class):
 		"""
 		
 		try:
-			msg = ("Starting new music analysis.")
-			print("\n" + len(msg) * "=")
-			print(msg)
-			print(len(msg) * "=")
+			msg = ("Vertical interval music analysis:")
+			print("\n" + msg + "\n" + len(msg) * "=")
 			# Counting through the dataframes and converting symbols to paths:
 			self.df_paths = [str(x) for x in noterest_df]
 
@@ -86,11 +84,21 @@ class Get(pyext._class):
 					sep='\t',
 					na_rep='^'))
 			
-		except RuntimeError:
-			print(RuntimeError)
+		except ValueError:
+			print("The pickled DataFrames passed in where not polyphonic.")
 
-		except TypeError:
-			print(TypeError)
+	def _generate_name(self,path):
+		"""
+		Private method to generate a human readable name of a composition from
+		it path.
+		"""
+		file_name = os.path.split(path)
+		file_extr = os.path.splitext(file_name[1])
+		comp_name = str(file_extr[0]).replace("-"," ").replace("_",": ")
 
-		except NameError:
-			print(NameError)
+		return comp_name
+
+	def _pd_window_msg(self,path):
+		"""
+		Private method to generate human readable messages for the Pd window.
+		"""

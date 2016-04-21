@@ -1,28 +1,32 @@
-#N canvas 887 108 557 493 12;
-#X obj 110 257 pyext HorizontalIntervalIndexer Get;
-#X msg 98 180 reload;
-#X msg 51 178 doc;
-#X msg 51 148 doc+;
-#X obj 272 60 openfiles;
-#X obj 272 30 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#N canvas 887 108 733 428 12;
+#X obj 110 197 pyext HorizontalIntervalIndexer Get;
+#X msg 51 47 reload;
+#X msg 51 107 doc;
+#X msg 51 77 doc+;
+#X obj 202 77 openfiles;
+#X obj 202 47 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 272 120 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 202 137 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 272 148 t b b;
-#X obj 272 181 list;
-#X obj 272 90 t b l;
-#X obj 202 31 inlet;
-#X obj 110 357 outlet;
-#X connect 0 0 11 0;
+#X obj 202 167 list;
+#X obj 202 107 t b l;
+#X obj 148 47 inlet;
+#X obj 110 284 outlet;
+#X obj 172 284 print Hint_DataFrames;
+#X obj 172 253 spigot;
+#X obj 217 227 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 0 0 10 0;
+#X connect 0 0 12 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
 #X connect 3 0 0 0;
-#X connect 4 0 9 0;
+#X connect 4 0 8 0;
 #X connect 5 0 4 0;
 #X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 8 0 0 1;
-#X connect 9 0 6 0;
-#X connect 9 1 8 1;
-#X connect 10 0 0 1;
-#X connect 10 0 9 0;
+#X connect 7 0 0 1;
+#X connect 8 0 6 0;
+#X connect 8 1 7 1;
+#X connect 9 0 8 0;
+#X connect 12 0 11 0;
+#X connect 13 0 12 1;

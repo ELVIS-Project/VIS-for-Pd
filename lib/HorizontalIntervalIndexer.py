@@ -3,7 +3,7 @@
 HorizontalIntervalIndexer.py
 ============================
 
-A Python object to to interpret a NoteRestIndexed DataFrame. A new DataFrame is
+A Python object to interpret a NoteRestIndexed DataFrame. A new DataFrame is
 created to find horizontal intervals in any given horizontal, or "melodic"
 line via the VIS-Framework.
 
@@ -53,13 +53,11 @@ class Get(pyext._class):
 		"""
 		
 		try:
-			msg = ("Starting new music analysis.")
-			print("\n" + len(msg) * "=")
-			print(msg)
-			print(len(msg) * "=")
+			msg = ("Horizontal interval music analysis:")
+			print("\n" + msg + "\n" + len(msg) * "=")
 			# Counting through the dataframes and converting symbols to paths:
 			self.df_paths = [str(x) for x in noterest_df]
-			
+
 			# Choosing DataFrame:
 			self.df_scores = [pandas.read_pickle(self.df_paths[i]) 
 				for i in range(len(self.df_paths))]
@@ -70,12 +68,12 @@ class Get(pyext._class):
 			self.hint_df = [interval.HorizontalIntervalIndexer(x,
 				settings).run() for x in self.df_scores]
 			
+			# Printing information to Pd window.
 			for x, v, w in zip(self.df_paths,self.hint_df,self.df_scores):
-				file_name = os.path.split(x)
-				file_extr = os.path.splitext(file_name[1])
-				comp_name = str(file_extr[0]).replace("-"," ")
-				print("\n" + comp_name.replace("_",": "))
+				comp_name = self._generate_name(x)
+				print("\n" + comp_name)
 				print(len(comp_name) * "-")
+
 				print(w.head(5).to_csv(
 					sep='\t',
 					na_rep='^'))
@@ -83,6 +81,43 @@ class Get(pyext._class):
 					sep='\t',
 					na_rep='^'))
 
+			# Building, saving DataFrames to pass on.
+			file_paths = []
+			for x,y in zip(self.df_paths,self.hint_df):
+				# Build the path names, and save them into a list variable.
+				file_name = os.path.split(x)
+				file_path = (os.path.dirname(os.path.realpath(__file__)) + 
+					'/data/frames/hint/Hint_' + file_name[1])
+				file_paths.append(file_path)
+				# Save the dataframes as pickle(d) files.
+				y.to_pickle(file_path)
+
+			self._outlet(1, [str(x) for x in file_paths])
+
 		except (RuntimeError, TypeError, NameError):
 			print("O-M-G. Total Failure. Here's why:")
 			print(RuntimeError, TypeError, NameError)
+
+		except IOError:
+			print("Please feed me a pickled NoteRestIndexer generated DataFrame.")
+
+	def _generate_name(self,path):
+		"""
+		Private method to generate a human readable name of a composition from
+		it path.
+		"""
+		file_name = os.path.split(path)
+		file_extr = os.path.splitext(file_name[1])
+		comp_name = str(file_extr[0]).replace("-"," ").replace("_",": ")
+
+		return comp_name
+
+	def _pd_window_msg(self,path):
+		"""
+		Private method to generate human readable messages for the Pd window.
+		"""
+
+
+
+
+
