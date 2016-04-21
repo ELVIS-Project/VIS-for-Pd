@@ -80,8 +80,8 @@ class Index(pyext._class):
 			print(local_msg)
 			'''
 
-			meta = [(x.metadata.composer.lower() + "_" + 
-				x.metadata.title.lower()).replace(" ", "-") 
+			meta = [(x.metadata.composer + "_" + 
+				x.metadata.title).replace(" ", "-") 
 				for x in unthawed]
 
 			'''

@@ -72,7 +72,7 @@ hint_score = interval.HorizontalIntervalIndexer(df_from_pickle).run()
 vint_score = interval.IntervalIndexer(vis_score).run()
 
 # Find offset Vertical Intervals.
-vint_o_dict = {'quarterLength':2.0, 'method': None}
+vint_o_dict = {'quarterLength':4.0, 'method': None}
 vint_o_filt = offset.FilterByOffsetIndexer(vis_score,vint_o_dict).run()
 vint_o_score = interval.IntervalIndexer(vint_o_filt).run()
 

@@ -8,4 +8,7 @@ The object accepts any symbolic music file types that music21 can process, conve
 The object takes any pickled music21 score streams, places these into pandas DataFrames with the VIS-Framework, and stores the DataFrames for quick recall. Any number of pickled music21 score streams, or just one can be used.
 #### HorizontalIntervalIndexer.py/horizontal-interval-indexer.pd
 The object takes one or more note-rest-indexed DataFrames, and processes all horizontal intervals, which in return are output in new DataFrames.
+#### VerticalIntervalIndexer.py/vertical-interval-indexer.pd
+The object accepts one or more note-rest-indexed DataFrames, and processes all
+vertical intervals of sounding simultaneities, and returns a DataFrame of the results of this type of operation.
 

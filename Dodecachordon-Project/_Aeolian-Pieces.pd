@@ -1,4 +1,4 @@
-#N canvas 30 48 1051 476 12;
+#N canvas 767 279 1051 476 12;
 #X declare -path ../lib;
 #X declare -path ../scores/symbolic;
 #X obj 41 383 declare -path ../lib;
@@ -13,10 +13,14 @@ streams., f 72;
 #X text 214 163 <= Indexes music21 streams with the VIS-Framework to
 pandas DataFrames., f 72;
 #X obj 41 163 note-rest-indexer;
-#X obj 41 203 horizontal-interval-indexer;
-#X text 274 203 <= Indexes Horizontal Intervals with VIS-Framework
+#X obj 71 203 horizontal-interval-indexer;
+#X text 304 203 <= Indexes Horizontal Intervals with VIS-Framework
 from DataFrames., f 72;
+#X obj 41 243 vertical-interval-indexer;
+#X text 254 243 <= Indexes Vertical Intervals with VIS-Framework from
+DataFrames., f 72;
 #X connect 2 0 4 0;
 #X connect 3 0 2 0;
 #X connect 4 0 8 0;
 #X connect 8 0 9 0;
+#X connect 8 0 11 0;
