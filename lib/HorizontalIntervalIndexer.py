@@ -36,16 +36,27 @@ class Get(pyext._class):
 	note-rest-indexed pickled DataFrame.
 
 	"""
-	_inlets = 3
+	_inlets = 6
 	_outlets = 3
 
-	def __init__(self,df_paths=0,df_scores=0,hint_df=0):
+	def __init__(self,
+		df_paths=0,
+		df_scores=0,
+		hint_df=0,
+		events=5,
+		direction='beginning',
+		slice_start=0,
+		slice_end=5):
 		"""
 		Storing variables used in this class.
 		"""
 		self.df_paths = df_paths
 		self.df_scores = df_scores
 		self.hint_df = hint_df
+		self.events = events
+		self.direction = direction
+		self.slice_start = slice_start
+		self.slice_end = slice_end
 
 	def _anything_1(self,*noterest_df):
 		"""
@@ -74,10 +85,12 @@ class Get(pyext._class):
 				print("\n" + comp_name)
 				print(len(comp_name) * "-")
 
+				"""
 				print(w.head(5).to_csv(
 					sep='\t',
 					na_rep='^'))
-				print(v.head(5).to_csv(
+				"""
+				print(v.head(self.events).to_csv(
 					sep='\t',
 					na_rep='^'))
 
@@ -101,6 +114,40 @@ class Get(pyext._class):
 		except IOError:
 			print("Please feed me a pickled NoteRestIndexer generated DataFrame.")
 
+	def _anything_2(self,events):
+		"""
+		Determines how many events are to be shown.
+		"""
+		if(self.hint_df == 0):
+			self._msg_missing_score()
+		else:
+			self.events = events
+			# The beginning or the end of the DataFrame
+			self._heads_or_tails()
+
+	def _anything_3(self,direction):
+		"""
+		Determines, whether the events are shown from the beginning or 
+		the end.
+		"""
+		if(self.hint_df == 0):
+			self._msg_missing_score()
+		else:
+			self.direction = str(direction)
+			self._heads_or_tails()
+
+	def _anything_4(self,slice_start,slice_end):
+		"""
+		Picks a slice from a given DataFrame.
+		"""
+		if(self.hint_df == 0):
+			self._msg_missing_score()
+		else:
+			for x in self.hint_df:
+				print(x.iloc[slice_start:slice_end].to_csv(
+					sep='\t',
+					na_rep='^'))
+
 	def _generate_name(self,path):
 		"""
 		Private method to generate a human readable name of a composition from
@@ -116,6 +163,31 @@ class Get(pyext._class):
 		"""
 		Private method to generate human readable messages for the Pd window.
 		"""
+
+		# Local methods: complying with DRY.
+	def _heads_or_tails(self):
+		"""
+		Helper method to determine whether to count from the beginning
+		or from the end of the DataFrame.
+		"""
+		if(self.direction == 'end'):
+			for x in self.hint_df:
+				print(x.tail(self.events).to_csv(
+						sep='\t',
+						na_rep='^'))
+			#self._outlet(1,self.ind_score.tail(self.events).to_csv())
+		else:
+			for x in self.hint_df:
+				print(x.head(self.events).to_csv(
+						sep='\t',
+						na_rep='^'))
+			#self._outlet(1,self.ind_score.head(self.events).to_csv())
+
+	def _msg_missing_scores(self):
+		"""
+		Method to indicate that no DataFrames have been loaded.
+		"""
+		return "Please load (a) note-rest-indexed DataFrame(s) first."
 
 
 

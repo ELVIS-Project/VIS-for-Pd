@@ -8,7 +8,7 @@ framework available to Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.20.2016
+Updated: 04.22.2016
 
 """
 
@@ -44,17 +44,29 @@ class Index(pyext._class):
 	2. The second outlet displays status messages to the user. 
 	
 	"""
-	_inlets = 2
+	_inlets = 6
 	_outlets = 2
 
 	# Init function.
-	def __init__(self,mto_scores=0,ind_scores=0,df_paths=0):
+	def __init__(self,
+		mto_scores=0,
+		ind_scores=0,
+		df_paths=0,
+		events=5,
+		direction='beginning',
+		slice_start=0,
+		slice_end=5):
 		"""
 		Storing variables used in this class.
 		"""
 		self.mto_scores = mto_scores
 		self.ind_scores = ind_scores
 		self.df_paths = df_paths
+
+		self.events = events
+		self.direction = direction
+		self.slice_start = slice_start
+		self.slice_end = slice_end
 		# Messages
 		self.err_msg_1 = ("There wasn't enough heat to thaw the frozen " + 
 			"music21 object.")
@@ -114,6 +126,15 @@ class Index(pyext._class):
 				for x in self.df_paths:
 					print str(x)
 				'''
+				print(self.mto_parsed)
+
+				for x, y in zip(self.df_paths,self.ind_scores):
+					comp_name = self._generate_name(x)
+					print("\n" + comp_name)
+					print(len(comp_name) * "-")
+					print(y.head(5).to_csv(
+						sep='\t',
+						na_rep='^'))
 
 			except:
 
@@ -122,6 +143,40 @@ class Index(pyext._class):
 		except:
 
 			self._outlet(1, self.err_msg_1)
+
+	def _anything_2(self,events):
+		"""
+		Determines how many events are to be shown.
+		"""
+		if(self.ind_scores == 0):
+			self._msg_missing_score()
+		else:
+			self.events = events
+			# The beginning or the end of the DataFrame
+			self._heads_or_tails()
+
+	def _anything_3(self,direction):
+		"""
+		Determines, whether the events are shown from the beginning or 
+		the end.
+		"""
+		if(self.ind_scores == 0):
+			self._msg_missing_score()
+		else:
+			self.direction = str(direction)
+			self._heads_or_tails()
+
+	def _anything_4(self,slice_start,slice_end):
+		"""
+		Picks a slice from a given DataFrame.
+		"""
+		if(self.ind_scores == 0):
+			self._msg_missing_score()
+		else:
+			for x in self.ind_scores:
+				print(x.iloc[slice_start:slice_end].to_csv(
+					sep='\t',
+					na_rep='^'))
 
 	def bang_1(self):
 		"""
@@ -151,6 +206,36 @@ class Index(pyext._class):
 		Method to indicate that no DataFrames have been loaded.
 		"""
 		return "Please load (a) music21 stream(s) first."
+
+	def _generate_name(self,path):
+		"""
+		Private method to generate a human readable name of a composition from
+		it path.
+		"""
+		file_name = os.path.split(path)
+		file_extr = os.path.splitext(file_name[1])
+		comp_name = str(file_extr[0]).replace("-"," ").replace("_",": ")
+
+		return comp_name
+
+	# Local methods: complying with DRY.
+	def _heads_or_tails(self):
+		"""
+		Helper method to determine whether to count from the beginning
+		or from the end of the DataFrame.
+		"""
+		if(self.direction == 'end'):
+			for x in self.ind_scores:
+				print(x.tail(self.events).to_csv(
+						sep='\t',
+						na_rep='^'))
+			#self._outlet(1,self.ind_score.tail(self.events).to_csv())
+		else:
+			for x in self.ind_scores:
+				print(x.head(self.events).to_csv(
+						sep='\t',
+						na_rep='^'))
+			#self._outlet(1,self.ind_score.head(self.events).to_csv())
 
 
 

@@ -9,7 +9,7 @@ frozen "streams" in the pickle format.
 
 Author:	Reiner Kramer	
 Email:	reiner@music.org
-Updated:	04.20.2016
+Updated:	04.21.2016
 
 """
 
@@ -74,6 +74,7 @@ class Parse(pyext._class):
 				for i in range(len(self.mto_score_list))]
 				
 			self._outlet(1, frozen_list)
+			print("music21 parsed the selected files into a music21 stream.")
 
 		except:
 
