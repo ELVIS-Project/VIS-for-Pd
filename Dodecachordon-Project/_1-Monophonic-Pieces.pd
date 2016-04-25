@@ -1,4 +1,4 @@
-#N canvas 514 119 834 782 12;
+#N canvas 295 23 1084 715 12;
 #X declare -path ../lib;
 #X obj 41 43 declare -path ../lib;
 #X obj 41 123 openfiles;
@@ -14,7 +14,7 @@ pandas DataFrames., f 72;
 #X obj 142 610 horizontal-interval-indexer;
 #X obj 41 643 vertical-interval-indexer;
 #X obj 92 510 spigot;
-#X obj 137 483 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 137 483 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 41 610 spigot;
 #X obj 86 583 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -37,13 +37,13 @@ pandas DataFrames., f 72;
 #X obj 136 342 note-rest-indexer-pak;
 #X text 254 367 <= Scroll through a DataFrame slice.;
 #X obj 98 241 dataframe-start-end;
-#X obj 253 341 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 265 341 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 184 540 dataframe-start-end;
 #X floatatom 184 513 5 0 0 0 - - -, f 5;
-#X obj 289 532 note-rest-indexer-pak;
 #X obj 292 507 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
+#X obj 289 532 note-rest-indexer-pak;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
 #X connect 3 0 7 0;
@@ -66,7 +66,7 @@ pandas DataFrames., f 72;
 #X connect 29 0 7 3;
 #X connect 30 0 27 1;
 #X connect 31 0 8 2;
-#X connect 32 0 33 0;
 #X connect 32 0 8 1;
-#X connect 33 0 8 3;
-#X connect 34 0 33 1;
+#X connect 32 0 34 0;
+#X connect 33 0 34 1;
+#X connect 34 0 8 3;
