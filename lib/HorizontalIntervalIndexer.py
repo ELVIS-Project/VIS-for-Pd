@@ -9,7 +9,7 @@ line via the VIS-Framework.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.21.2016
+Updated: 04.26.2016
 
 """
 
@@ -46,7 +46,8 @@ class Get(pyext._class):
 		events=5,
 		direction='beginning',
 		slice_start=0,
-		slice_end=5):
+		slice_end=5,
+		meta=5):
 		"""
 		Storing variables used in this class.
 		"""
@@ -81,15 +82,7 @@ class Get(pyext._class):
 			
 			# Printing information to Pd window.
 			for x, v, w in zip(self.df_paths,self.hint_df,self.df_scores):
-				comp_name = self._generate_name(x)
-				print("\n" + comp_name)
-				print(len(comp_name) * "-")
-
-				"""
-				print(w.head(5).to_csv(
-					sep='\t',
-					na_rep='^'))
-				"""
+				self._generate_name(x)
 				print(v.head(self.events).to_csv(
 					sep='\t',
 					na_rep='^'))
@@ -143,10 +136,23 @@ class Get(pyext._class):
 		if(self.hint_df == 0):
 			self._msg_missing_score()
 		else:
-			for x in self.hint_df:
-				print(x.iloc[slice_start:slice_end].to_csv(
+			for x, y in zip(self.df_paths,self.hint_df):
+				self._generate_name(x)
+				print(y.iloc[slice_start:slice_end].to_csv(
 					sep='\t',
 					na_rep='^'))
+
+	def bang_1(self):
+		"""
+		Force pass DataFrame paths to next items, e.g.: filters.
+		"""
+		if(self.hint_df == 0):
+			self._outlet(1, self._msg_missing_scores())
+		
+		else:
+			# self._outlet(1, "DataFrames exist.")
+			print("The horizontally indexed DataFrames were passed on.")
+			self._outlet(1, [str(x) for x in self.hint_df])
 
 	def _generate_name(self,path):
 		"""
@@ -157,7 +163,8 @@ class Get(pyext._class):
 		file_extr = os.path.splitext(file_name[1])
 		comp_name = str(file_extr[0]).replace("-"," ").replace("_",": ")
 
-		return comp_name
+		print("\n" + comp_name)
+		print(len(comp_name) * "-")
 
 	def _pd_window_msg(self,path):
 		"""
@@ -170,18 +177,17 @@ class Get(pyext._class):
 		Helper method to determine whether to count from the beginning
 		or from the end of the DataFrame.
 		"""
-		if(self.direction == 'end'):
-			for x in self.hint_df:
-				print(x.tail(self.events).to_csv(
-						sep='\t',
-						na_rep='^'))
-			#self._outlet(1,self.ind_score.tail(self.events).to_csv())
-		else:
-			for x in self.hint_df:
-				print(x.head(self.events).to_csv(
-						sep='\t',
-						na_rep='^'))
-			#self._outlet(1,self.ind_score.head(self.events).to_csv())
+		for x, y in zip(self.df_paths,self.hint_df):
+			
+			self._generate_name(x)
+
+			if(self.direction == 'end'):
+				display = y.tail(self.events).to_csv(sep='\t', na_rep='^')
+			
+			else:
+				display = y.head(self.events).to_csv(sep='\t', na_rep='^')
+			
+			print(display)
 
 	def _msg_missing_scores(self):
 		"""

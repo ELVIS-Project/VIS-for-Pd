@@ -1,4 +1,4 @@
-#N canvas 665 585 515 413 12;
+#N canvas 665 585 430 249 12;
 #X obj 216 56 inlet;
 #X obj 19 208 outlet;
 #X obj 19 150 pyext SymbolicMusic Parse;
