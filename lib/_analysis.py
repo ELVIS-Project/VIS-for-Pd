@@ -162,8 +162,8 @@ df_from_pickle = pandas.read_pickle(nri_df_path)
 # Settings
 hint_settings = {
 	'simple or compound':'simple',
-	'quality': False,
-	'directed': False,
+	'quality': True,
+	'directed': True,
 	'horiz_attach_later': True,
 	'mp':False
 }
@@ -189,7 +189,7 @@ def horizontal_ngrams(hint_score,sample_rate):
 
 	return hint_col, hint_col_ng
 
-hints_ngrams = horizontal_ngrams(hint_score, 3)
+hints_ngrams = horizontal_ngrams(hint_score, 5)
 
 def count_unique_ngrams(hints_ngrams,ordered=True):
 	"""
@@ -210,7 +210,7 @@ def count_unique_ngrams(hints_ngrams,ordered=True):
 		
 		return reduced_ngrams
 
-unique_ngrams = count_unique_ngrams(hints_ngrams[1],ordered=False)
+unique_ngrams = count_unique_ngrams(hints_ngrams[1],ordered=True)
 
 """
 print('\n')

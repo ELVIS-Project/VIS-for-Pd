@@ -9,7 +9,7 @@ frozen "streams" in the pickle format.
 
 Author:	Reiner Kramer	
 Email:	reiner@music.org
-Updated:	04.21.2016
+Updated:	04.26.2016
 
 """
 
@@ -69,11 +69,11 @@ class Parse(pyext._class):
 			self.mto_score_list = [music21.converter.parse(str(x)) 
 				for x in symbolic_score_list]
 
-			frozen_list = [music21.converter.freeze(self.mto_score_list[i],
+			self.frozen_list = [music21.converter.freeze(self.mto_score_list[i],
 				fmt='pickle', fp=(self.directory + str(i) + '.pgz'))
 				for i in range(len(self.mto_score_list))]
 				
-			self._outlet(1, frozen_list)
+			self._outlet(1, self.frozen_list)
 			print("music21 parsed the selected files into a music21 stream.")
 
 		except:
@@ -89,12 +89,8 @@ class Parse(pyext._class):
 			self._outlet(1, "There are currently no music21 score streams present.")
 
 		else:
-			filename = music21.converter.freeze(self.mto_score_list[0],
-				fmt='pickle',
-				fp=(self.directory + 'mango.pgz'))
-
-			musky = music21.converter.thaw(filename)
-
-			self._outlet(2, str(musky))
+			print("The music21 stream has been resent.")
+			self._outlet(1, self.frozen_list)
+			
 
 # ----- END ParseSymbolicMusic.py ------------------------------------ #

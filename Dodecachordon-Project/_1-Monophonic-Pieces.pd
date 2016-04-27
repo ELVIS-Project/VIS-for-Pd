@@ -1,52 +1,139 @@
-#N canvas 183 36 1653 857 12;
+#N canvas 206 23 1001 747 12;
 #X declare -path ../lib;
-#X obj 527 123 declare -path ../lib;
-#X obj 527 183 openfiles;
-#X obj 527 153 bng 20 250 50 0 empty empty Open_File(s) 30 10 0 12
--262144 -1 -66577;
-#X obj 527 213 parse-symbolic-music;
-#X text 700 183 <= Opens 1+ files, f 26;
-#X text 700 213 <= Converts Symbolic music files via music21 to music21
+#X obj 244 53 declare -path ../lib;
+#X obj 244 113 openfiles;
+#X obj 244 83 bng 20 250 50 0 empty empty Open_File(s) 30 10 0 12 -262144
+-1 -66577;
+#X obj 244 143 parse-symbolic-music;
+#X text 417 113 <= Opens 1+ files, f 26;
+#X text 417 143 <= Converts Symbolic music files via music21 to music21
 streams., f 65;
-#X text 673 450 <= Indexes music21 streams with the VIS-Framework to
+#X text 373 380 <= Indexes music21 streams with the VIS-Framework to
 pandas DataFrames., f 72;
-#X obj 511 450 note-rest-indexer;
-#X obj 481 684 horizontal-interval-indexer;
-#X obj 511 507 spigot;
-#X obj 556 480 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 211 380 note-rest-indexer;
+#X obj 185 644 horizontal-interval-indexer;
+#X obj 211 437 spigot;
+#X obj 256 410 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 714 684 <= Horizontal Interval Analysis, f 32;
-#X obj 560 243 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X text 418 644 <= Horizontal Interval Analysis, f 32;
+#X obj 313 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 644 482 5 0 0 0 - - -, f 5;
-#X obj 511 425 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X floatatom 344 412 5 0 0 0 - - -, f 5;
+#X obj 211 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 588 240 <= How many scores have been loaded?;
-#X text 692 286 <= Direction of the DataFrame.;
-#X floatatom 594 339 5 0 0 0 - - -, f 5;
-#X text 646 337 <= Number of Events to be shown.;
-#X obj 610 369 note-rest-indexer-pak;
-#X text 738 394 <= Scroll through a DataFrame slice.;
-#X obj 577 268 dataframe-start-end;
-#X obj 739 368 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+#X text 341 170 <= How many scores have been loaded?;
+#X text 435 216 <= Direction of the DataFrame.;
+#X floatatom 337 269 5 0 0 0 - - -, f 5;
+#X text 389 267 <= Number of Events to be shown.;
+#X obj 353 299 note-rest-indexer-pak;
+#X text 481 324 <= Scroll through a DataFrame slice.;
+#X obj 320 198 dataframe-start-end;
+#X obj 482 298 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X obj 602 534 dataframe-start-end;
-#X floatatom 572 507 5 0 0 0 - - -, f 5;
-#X obj 633 604 note-rest-indexer-pak;
-#X obj 544 403 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 291 464 dataframe-start-end;
+#X floatatom 272 437 5 0 0 0 - - -, f 5;
+#X obj 318 534 note-rest-indexer-pak;
+#X obj 244 333 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 334 400 Pass Score DataFrames =>;
-#X obj 481 659 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X text 34 330 Pass Score DataFrames =>;
+#X obj 185 589 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 381 656 Re-Index =>;
-#X obj 541 616 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X text 85 586 Re-Index =>;
+#X obj 238 546 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 396 614 Pass HINTs* on =>;
-#X text 1179 120 * Horizonal Interval DataFrame;
-#X text 409 422 Re-Index =>;
+#X text 90 544 Pass HINTs* on =>;
+#X text 30 683 * Horizonal Interval DataFrame;
+#X text 109 352 Re-Index =>;
+#N canvas 1050 85 663 422 hint_settings 0;
+#X msg 67 165 simple;
+#X msg 175 174 False;
+#X msg 203 144 True;
+#X msg 98 138 compound;
+#X obj 63 112 select 0 1;
+#X obj 64 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 173 112 select 0 1;
+#X obj 174 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 180 202 symbol;
+#X msg 265 174 False;
+#X msg 293 144 True;
+#X obj 263 112 select 0 1;
+#X obj 264 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 270 202 symbol;
+#X msg 355 174 False;
+#X msg 383 144 True;
+#X obj 353 112 select 0 1;
+#X obj 354 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 360 202 symbol;
+#X msg 445 174 False;
+#X msg 473 144 True;
+#X obj 443 112 select 0 1;
+#X obj 444 82 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 450 202 symbol;
+#X obj 86 215 symbol;
+#X obj 113 311 pyx. pak 5;
+#X text 32 50 simple/compound;
+#X text 178 51 quality;
+#X text 258 52 directed;
+#X text 345 49 mp;
+#X text 438 51 attach later;
+#X obj 536 244 loadbang;
+#X obj 534 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 103 364 outlet;
+#X connect 0 0 24 0;
+#X connect 1 0 8 0;
+#X connect 2 0 8 0;
+#X connect 3 0 24 0;
+#X connect 4 0 0 0;
+#X connect 4 1 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;
+#X connect 6 1 2 0;
+#X connect 7 0 6 0;
+#X connect 8 0 25 2;
+#X connect 9 0 13 0;
+#X connect 10 0 13 0;
+#X connect 11 0 9 0;
+#X connect 11 1 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 25 3;
+#X connect 14 0 18 0;
+#X connect 15 0 18 0;
+#X connect 16 0 14 0;
+#X connect 16 1 15 0;
+#X connect 17 0 16 0;
+#X connect 18 0 25 4;
+#X connect 19 0 23 0;
+#X connect 20 0 23 0;
+#X connect 21 0 19 0;
+#X connect 21 1 20 0;
+#X connect 22 0 21 0;
+#X connect 23 0 25 5;
+#X connect 24 0 25 1;
+#X connect 25 0 33 0;
+#X connect 31 0 32 0;
+#X connect 32 0 19 0;
+#X connect 32 0 14 0;
+#X connect 32 0 1 0;
+#X connect 32 0 0 0;
+#X connect 32 0 12 0;
+#X restore 344 614 pd hint_settings;
+#X obj 244 200 spigot;
+#X obj 289 173 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 66 224 pitch-count-filter;
+#X obj 90 174 spigot;
+#X obj 135 147 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
-#X connect 3 0 7 1;
+#X connect 3 0 35 0;
+#X connect 3 0 38 0;
 #X connect 7 0 9 0;
 #X connect 7 1 13 0;
 #X connect 9 0 8 1;
@@ -65,3 +152,8 @@ pandas DataFrames., f 72;
 #X connect 26 0 7 2;
 #X connect 28 0 8 0;
 #X connect 30 0 8 2;
+#X connect 34 0 8 6;
+#X connect 35 0 26 0;
+#X connect 36 0 35 1;
+#X connect 38 0 37 0;
+#X connect 39 0 38 1;

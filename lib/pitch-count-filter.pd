@@ -1,0 +1,29 @@
+#N canvas 166 486 450 300 10;
+#X obj 42 208 pyext CountPitches Count;
+#X msg 48 51 doc;
+#X msg 31 19 doc+;
+#X msg 59 84 reload;
+#X obj 38 251 outlet;
+#X obj 148 35 inlet;
+#X text 235 33 Load multiple files.;
+#X obj 206 63 openfiles;
+#X obj 206 33 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 206 123 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 206 153 list;
+#X obj 206 93 t b l;
+#X obj 243 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 5 0 11 0;
+#X connect 7 0 11 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 1;
+#X connect 11 0 9 0;
+#X connect 11 1 10 1;
+#X connect 12 0 0 1;

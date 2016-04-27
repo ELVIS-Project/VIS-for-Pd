@@ -40,6 +40,7 @@ class Get(pyext._class):
 	_outlets = 3
 
 	def __init__(self,
+		nrdf=0,
 		df_paths=0,
 		df_scores=0,
 		hint_df=0,
@@ -47,10 +48,12 @@ class Get(pyext._class):
 		direction='beginning',
 		slice_start=0,
 		slice_end=5,
-		meta=5):
+		meta=5,
+		hint_settings=0):
 		"""
 		Storing variables used in this class.
 		"""
+		self.nrdf = nrdf
 		self.df_paths = df_paths
 		self.df_scores = df_scores
 		self.hint_df = hint_df
@@ -58,6 +61,13 @@ class Get(pyext._class):
 		self.direction = direction
 		self.slice_start = slice_start
 		self.slice_end = slice_end
+		self.hint_settings = {
+			'simple or compound':'simple',
+			'quality': False,
+			'directed': True,
+			'mp':False,
+			'horiz_attach_later':False
+		}
 
 	def _anything_1(self,*noterest_df):
 		"""
@@ -65,20 +75,32 @@ class Get(pyext._class):
 		"""
 		
 		try:
+			self.nrdf = noterest_df
 			msg = ("Horizontal interval music analysis:")
 			print("\n" + msg + "\n" + len(msg) * "=")
 			# Counting through the dataframes and converting symbols to paths:
-			self.df_paths = [str(x) for x in noterest_df]
+			self.df_paths = [str(x) for x in self.nrdf]
 
 			# Choosing DataFrame:
+
 			self.df_scores = [pandas.read_pickle(self.df_paths[i]) 
 				for i in range(len(self.df_paths))]
 			
 	   		# Showing the horizontal intervals.
 			# not sure why mulitprocessing has to be turned off :-/
-			settings = {'mp':False,'horiz_attach_later':False}	
+
+			"""
+			self.hint_settings = {
+				'simple or compound':'simple',
+				'quality': False,
+				'directed': True,
+				'mp':False,
+				'horiz_attach_later':False
+			}
+			"""
+
 			self.hint_df = [interval.HorizontalIntervalIndexer(x,
-				settings).run() for x in self.df_scores]
+				self.hint_settings).run() for x in self.df_scores]
 			
 			# Printing information to Pd window.
 			for x, v, w in zip(self.df_paths,self.hint_df,self.df_scores):
@@ -141,6 +163,24 @@ class Get(pyext._class):
 				print(y.iloc[slice_start:slice_end].to_csv(
 					sep='\t',
 					na_rep='^'))
+
+	def _anything_5(self,*hint_settings):
+		"""
+		Settings as adopted from the VIS-framework.
+		"""
+		self.hint_settings = {
+
+			'simple or compound': str(hint_settings[0]),
+			'quality': eval(str(hint_settings[1])),
+			'directed': eval(str(hint_settings[2])),
+			'mp': eval(str(hint_settings[3])),
+			'horiz_attach_later': eval(str(hint_settings[4]))		
+
+		}
+
+		print("You've changed the DataFrame parameters to: " + 
+			str(self.hint_settings) +  
+			" Please re-index the scores.")
 
 	def bang_1(self):
 		"""

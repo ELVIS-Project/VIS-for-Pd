@@ -1,4 +1,4 @@
-#N canvas 689 311 1034 647 12;
+#N canvas 176 23 1034 647 12;
 #X obj 63 411 pyext NoteRestIndexer Index;
 #X msg 33 321 doc;
 #X msg 33 351 doc+;
