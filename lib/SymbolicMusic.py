@@ -50,12 +50,16 @@ class Parse(pyext._class):
 	_outlets = 2
 
 	# Init function.
-	def __init__(self,mto_score_list=0,mto_frozen_list=0):
+	def __init__(self,
+		mto_score_list=0,
+		mto_frozen_list=0,
+		mto_meta=0):
 		"""
 		Init function for storing variables used in this class.
 		"""
 		self.mto_score_list = mto_score_list
 		self.mto_frozen_list = mto_frozen_list
+		self.mto_meta = mto_meta
 		self.directory = (os.path.dirname(os.path.realpath(__file__)) 
 			+ '/data/music21streams/')
 
@@ -69,8 +73,12 @@ class Parse(pyext._class):
 			self.mto_score_list = [music21.converter.parse(str(x)) 
 				for x in symbolic_score_list]
 
+			self.meta = [(x.metadata.composer + "_" + 
+				x.metadata.title).replace(" ", "-") 
+				for x in self.mto_score_list]
+
 			self.frozen_list = [music21.converter.freeze(self.mto_score_list[i],
-				fmt='pickle', fp=(self.directory + str(i) + '.pgz'))
+				fmt='pickle', fp=(self.directory + self.meta[i] + '.pgz'))
 				for i in range(len(self.mto_score_list))]
 				
 			self._outlet(1, self.frozen_list)
@@ -85,11 +93,11 @@ class Parse(pyext._class):
 		"""
 		Bang to check if there are an parsed music21 streams present.
 		"""
-		if(self.mto_score_list == 0):
+		if(self.frozen_list == 0):
 			self._outlet(1, "There are currently no music21 score streams present.")
 
 		else:
-			print("The music21 stream has been resent.")
+			print("The music21 stream has been re-sent.")
 			self._outlet(1, self.frozen_list)
 			
 
