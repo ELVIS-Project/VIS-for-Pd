@@ -37,6 +37,8 @@ class Get(pyext._class):
 	1. A pickled horizontal interval DataFrame.
 	2. A pickled vertical interval DataFrame.
 
+	@TODO: merge pandas dataframes pandas.concat([list of dataframes]) 
+
 	"""
 	_inlets = 3
 	_outlets = 3
