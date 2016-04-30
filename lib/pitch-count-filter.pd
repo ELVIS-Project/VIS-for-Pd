@@ -1,29 +1,54 @@
-#N canvas 166 486 450 300 10;
-#X obj 42 208 pyext CountPitches Count;
-#X msg 48 51 doc;
-#X msg 31 19 doc+;
-#X msg 59 84 reload;
-#X obj 38 251 outlet;
-#X obj 148 35 inlet;
-#X text 235 33 Load multiple files.;
-#X obj 206 63 openfiles;
-#X obj 206 33 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#N canvas 139 321 521 311 10;
+#X obj 32 218 pyext CountPitches Count;
+#X msg 49 61 doc;
+#X msg 32 29 doc+;
+#X msg 60 94 reload;
+#X obj 32 261 outlet;
+#X obj 123 29 inlet;
+#X obj 167 59 openfiles;
+#X obj 167 29 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 206 123 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 167 119 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 206 153 list;
-#X obj 206 93 t b l;
-#X obj 243 201 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 167 149 list;
+#X obj 167 89 t b l;
+#X obj 79 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 79 29 inlet;
+#X obj 242 30 inlet;
+#X msg 320 102 pitchClass;
+#X msg 320 42 name;
+#X msg 320 72 nameWithOctave;
+#X msg 320 132 midi;
+#X obj 242 59 symbol;
+#X symbolatom 242 135 10 0 0 0 - - -, f 10;
+#X msg 446 84 pitch;
+#X msg 436 57 count;
+#X obj 426 114 symbol;
+#X symbolatom 426 143 10 0 0 0 - - -, f 10;
+#X obj 426 30 inlet;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
 #X connect 3 0 0 0;
-#X connect 5 0 11 0;
-#X connect 7 0 11 0;
-#X connect 8 0 7 0;
-#X connect 9 0 10 0;
-#X connect 10 0 0 1;
-#X connect 11 0 9 0;
-#X connect 11 1 10 1;
-#X connect 12 0 0 1;
+#X connect 5 0 10 0;
+#X connect 6 0 10 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 0 1;
+#X connect 10 0 8 0;
+#X connect 10 1 9 1;
+#X connect 11 0 0 1;
+#X connect 12 0 11 0;
+#X connect 13 0 18 0;
+#X connect 14 0 18 0;
+#X connect 15 0 18 0;
+#X connect 16 0 18 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 0 2;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 0 3;
+#X connect 24 0 22 0;

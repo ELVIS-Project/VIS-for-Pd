@@ -49,9 +49,9 @@ mto_score = music21.converter.parse(symbolic_score)
 first_five = [str(x) for x in mto_score.parts[0].pitches[:5]]
 
 # ----- Counting Pitches ------ #
-pc_count = mto_score.pitchAttributeCount('pitchClass')
+#pc_count = mto_score.pitchAttributeCount('pitchClass')
 # pc_name_count = mto_score.pitchAttributeCount('name')
-# ps_name_count = mto_score.pitchAttributeCount('nameWithOctave')
+pc_count = mto_score.pitchAttributeCount('nameWithOctave')
 
 # putting pc_count dictionary into tuplet format
 pc_count_tup = [(x, pc_count[x]) for x in list(pc_count.keys())]
@@ -59,20 +59,16 @@ pc_count_tup = [(x, pc_count[x]) for x in list(pc_count.keys())]
 # ps_name_count_tup = [(x, ps_name_count[x]) for x in list(ps_name_count.keys())]
 
 # sorting according to pitch names ascending
-pc_count_sort_pc = sorted(pc_count_tup, key=lambda x: x[0])
+pc_count_sorted = sorted(pc_count_tup, key=lambda x: x[0])
 
 # sorting according to pitch names descening
-pc_count_sort_pc_desc = sorted(pc_count_tup, 
-	key=lambda x: x[0], 
-	reverse=True)
+pc_count_sorted_desc = sorted(pc_count_tup, key=lambda x: x[0], reverse=True)
 
 # sorting according to pitch occurence ascending
-pc_count_sort_occ = sorted(pc_count_tup, 
-	key=lambda x: x[1])
+pc_count_sort_occ = sorted(pc_count_tup, key=lambda x: x[1])
 
 # sorting according to pitch occurence descending
-pc_count_sort_occ_desc = sorted(pc_count_tup, 
-	key=lambda x: x[1], reverse=True)
+pc_count_sort_occ_desc = sorted(pc_count_tup, key=lambda x: x[1], reverse=True)
 
 # ----- End counting pitches ----- #
 

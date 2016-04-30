@@ -1,4 +1,4 @@
-#N canvas 109 91 286 350 12;
+#N canvas 109 91 286 350 10;
 #X obj 50 194 pyx. pak 2;
 #X obj 37 138 + 1;
 #X obj 137 199 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
@@ -6,9 +6,9 @@
 #X floatatom 107 108 5 0 0 0 - - -, f 5;
 #X floatatom 107 128 5 0 0 0 - - -, f 5;
 #X floatatom 107 148 5 0 0 0 - - -, f 5;
-#X text 151 108 Start;
-#X text 151 128 End;
-#X text 151 148 Interval;
+#X text 144 108 Start;
+#X text 144 128 End;
+#X text 144 148 Interval;
 #X obj 50 222 outlet;
 #X obj 26 249 unpack 0 0;
 #X floatatom 26 288 5 0 0 0 - - -, f 5;
@@ -26,4 +26,4 @@
 #X connect 10 1 12 0;
 #X connect 13 0 5 0;
 #X connect 14 0 3 0;
-#X coords 0 -1 1 1 120 70 2 100 100;
+#X coords 0 -1 1 1 100 70 2 100 100;
