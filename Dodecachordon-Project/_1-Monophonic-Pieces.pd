@@ -1,4 +1,4 @@
-#N canvas 283 23 956 606 10;
+#N canvas 181 51 936 617 10;
 #X declare -path ../lib;
 #X obj 237 23 declare -path ../lib;
 #X obj 237 83 openfiles;
@@ -7,38 +7,38 @@
 #X obj 237 113 parse-symbolic-music;
 #X text 372 113 <= Converts Symbolic music files via music21 to music21
 streams., f 65;
-#X text 498 350 <= Indexes music21 streams with the VIS-Framework to
+#X text 438 350 <= Indexes music21 streams with the VIS-Framework to
 pandas DataFrames., f 72;
-#X obj 385 350 note-rest-indexer;
-#X obj 366 561 horizontal-interval-indexer;
-#X obj 385 407 spigot;
-#X obj 418 380 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 325 350 note-rest-indexer;
+#X obj 306 561 horizontal-interval-indexer;
+#X obj 325 407 spigot;
+#X obj 358 380 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 466 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 406 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 484 382 5 0 0 0 - - -, f 5;
-#X obj 385 325 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X floatatom 424 382 5 0 0 0 - - -, f 5;
+#X obj 315 325 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 487 141 <= How many scores have been loaded?;
-#X text 595 186 <= Direction of the DataFrame.;
-#X floatatom 507 239 5 0 0 0 - - -, f 5;
-#X text 549 237 <= Number of Events to be shown.;
-#X text 635 294 <= Scroll through a DataFrame slice.;
-#X obj 490 168 dataframe-start-end;
-#X obj 636 268 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+#X text 427 141 <= How many scores have been loaded?;
+#X text 535 186 <= Direction of the DataFrame.;
+#X floatatom 447 239 5 0 0 0 - - -, f 5;
+#X text 489 237 <= Number of Events to be shown.;
+#X text 575 294 <= Scroll through a DataFrame slice.;
+#X obj 430 168 dataframe-start-end;
+#X obj 576 268 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X obj 465 407 dataframe-start-end;
-#X floatatom 425 453 5 0 0 0 - - -, f 5;
-#X obj 465 477 note-rest-indexer-pak;
-#X obj 409 303 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 405 407 dataframe-start-end;
+#X floatatom 365 453 5 0 0 0 - - -, f 5;
+#X obj 405 477 note-rest-indexer-pak;
+#X obj 349 303 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 252 302 Pass Score DataFrames =>;
-#X obj 366 506 bng 15 250 50 0 empty reindex empty 17 7 0 10 -262144
+#X text 192 302 Pass Score DataFrames =>;
+#X obj 306 506 bng 15 250 50 0 empty reindex empty 17 7 0 10 -262144
 -1 -1;
-#X text 293 505 Re-Index =>;
-#X obj 405 453 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X text 233 505 Re-Index =>;
+#X obj 345 453 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 309 324 Re-Index =>;
+#X text 237 324 Re-Index =>;
 #N canvas 361 70 773 652 hint_settings 0;
 #X msg 73 362 simple;
 #X msg 193 362 False;
@@ -125,13 +125,13 @@ pandas DataFrames., f 72;
 #X connect 34 0 7 0;
 #X connect 35 0 12 0;
 #X coords 0 -1 1 1 135 70 2 100 100;
-#X restore 575 477 pd hint_settings;
-#X obj 397 190 spigot;
-#X obj 430 163 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 515 477 pd hint_settings;
+#X obj 337 190 spigot;
+#X obj 370 163 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 29 260 pitch-count-filter;
 #X obj 64 200 spigot;
-#X obj 141 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 141 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 354 83 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -143,30 +143,30 @@ pandas DataFrames., f 72;
 #X msg 123 114 nameWithOctave;
 #X msg 123 144 midi;
 #X text 358 52 <= Opens 1+ files;
-#X text 376 582 ^ Horizontal Interval Analysis, f 32;
+#X text 316 582 ^ Horizontal Interval Analysis, f 32;
 #X msg 170 207 pitch;
 #X msg 170 180 count;
-#X text 305 452 Pass HINTs on =>;
-#X obj 507 269 note-rest-indexer-pak;
+#X text 245 452 Pass HINTs on =>;
+#X obj 447 269 note-rest-indexer-pak;
 #X obj 169 260 melodic-interval-filter;
 #X obj 236 233 spigot;
 #X obj 269 207 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 169 234 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 21 557 horizontal-ngrams;
-#X obj 21 527 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 31 537 horizontal-ngrams;
+#X obj 31 507 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X msg 120 499 2;
-#X msg 149 499 3;
-#X msg 178 499 4;
-#X msg 207 499 5;
-#X msg 236 499 6;
-#X floatatom 120 533 5 0 0 0 - - -, f 5;
-#X obj 70 527 spigot;
-#X obj 103 500 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X msg 130 479 2;
+#X msg 159 479 3;
+#X msg 188 479 4;
+#X msg 217 479 5;
+#X msg 246 479 6;
+#X floatatom 130 513 5 0 0 0 - - -, f 5;
+#X obj 80 507 spigot;
+#X obj 113 480 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 19 468 NGrams;
+#X text 29 448 NGrams;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
 #X connect 3 0 30 0;
