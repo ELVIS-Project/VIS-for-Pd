@@ -9,7 +9,7 @@ horizontal intervals with vertical intervals.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.21.2016
+Updated: 04.30.2016
 
 """
 
