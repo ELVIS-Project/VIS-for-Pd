@@ -4,7 +4,7 @@
 
 Author: Reiner Kramer
 Email:  reiner@music.org
-Date:   04.26.2016
+Date:   05.17.2016
 
 This is the main analysis script file used to create the Mode-Finder
 program. The purpose is to create a set of algorithms that can be used 
@@ -33,14 +33,12 @@ from collections import Counter
 directory = ('/Users/reiner/Documents/MusicAnalyses/VIS-for-Pd/scores/'
 	+ 'monophonic/symbolic/')
 
-"""
-symbolic_score = ('Book-1_Ave-Maria-benedicta-tu_p-146.xml')
-"""
-symbolic_score = (directory + 'Book-1_Dominus-vobiscum_pp-146-47.xml')
 
+symbolic_score = (directory + 'Book-1_Ave-Maria-benedicta-tu_p-146.xml')
+# symbolic_score = (directory + 'Book-1_Dominus-vobiscum_pp-146-47.xml')
 
 nri_df_path = (directory + 'dataframes/' + 
-	'Book-1_Dominus-vobiscum_pp-146-47.pkl')
+	'Book-1_Ave-Maria-benedicta-tu_p-146.pkl')
 
 # Parse score with music21.
 mto_score = music21.converter.parse(symbolic_score)

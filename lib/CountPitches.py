@@ -7,7 +7,7 @@ A music21 filter to count pitches of a composition.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.29.2016
+Updated: 05.16.2016
 
 """
 

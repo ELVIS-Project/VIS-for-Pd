@@ -1,4 +1,4 @@
-#N canvas 409 23 904 690 10;
+#N canvas 409 23 905 643 10;
 #X declare -path ../lib;
 #X obj 237 23 declare -path ../lib;
 #X obj 237 83 openfiles;
@@ -53,7 +53,7 @@ pandas DataFrames., f 72;
 #X msg 287 364 False;
 #X msg 325 332 True;
 #X obj 287 302 select 0 1;
-#X obj 287 272 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 287 272 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 287 394 symbol;
 #X msg 381 364 False;
@@ -81,7 +81,7 @@ pandas DataFrames., f 72;
 1;
 #X obj 107 127 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 107 146 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 107 146 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 129 108 simple/compound;
 #X text 129 126 quality;
@@ -165,7 +165,7 @@ pandas DataFrames., f 72;
 #X obj 80 507 spigot;
 #X obj 113 480 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 29 448 NGrams;
+#X text 29 478 NGrams;
 #X text 575 294 <= Scroll through a DataFrame slices.;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
