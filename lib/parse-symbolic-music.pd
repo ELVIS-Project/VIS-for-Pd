@@ -1,22 +1,22 @@
-#N canvas 309 92 710 316 12;
-#X obj 157 25 inlet;
-#X obj 19 268 outlet;
-#X obj 19 210 pyext SymbolicMusic Parse;
-#X msg 36 60 doc;
-#X msg 19 28 doc+;
-#X msg 47 93 reload;
-#X text 245 25 Load multiple files.;
-#X obj 216 55 openfiles;
-#X obj 216 25 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#N canvas 309 92 508 313 12;
+#X obj 92 25 inlet;
+#X obj 24 268 outlet;
+#X obj 24 210 pyext SymbolicMusic Parse;
+#X msg 41 60 doc;
+#X msg 24 28 doc+;
+#X msg 52 93 reload;
+#X text 180 25 Load multiple files.;
+#X obj 151 55 openfiles;
+#X obj 151 25 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 216 115 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 151 115 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 216 145 list;
-#X obj 216 85 t b l;
-#X obj 414 25 inlet;
-#X text 474 24 <= resend music21 streams;
-#X obj 414 55 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 151 145 list;
+#X obj 151 85 t b l;
+#X obj 221 85 inlet;
+#X text 281 84 <= resend music21 streams;
+#X obj 221 115 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 0 0 11 0;
 #X connect 2 0 1 0;
 #X connect 3 0 2 0;

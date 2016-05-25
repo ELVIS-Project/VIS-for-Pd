@@ -1,0 +1,9 @@
+#N canvas 661 430 257 216 10;
+#X obj 101 101 cnv 13 32 13 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X floatatom 100 100 5 0 0 0 - - -, f 5;
+#X obj 100 71 inlet;
+#X obj 100 130 outlet;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X coords 0 -1 1 1 32 14 2 100 100;

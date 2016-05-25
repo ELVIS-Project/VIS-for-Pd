@@ -1,4 +1,4 @@
-#N canvas 409 23 905 643 10;
+#N canvas 337 42 905 643 10;
 #X declare -path ../lib;
 #X obj 237 23 declare -path ../lib;
 #X obj 237 83 openfiles;
@@ -167,6 +167,7 @@ pandas DataFrames., f 72;
 1;
 #X text 29 478 NGrams;
 #X text 575 294 <= Scroll through a DataFrame slices.;
+#X msg 20 128 frequency;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
 #X connect 3 0 29 0;
@@ -216,3 +217,4 @@ pandas DataFrames., f 72;
 #X connect 58 0 51 2;
 #X connect 59 0 51 1;
 #X connect 60 0 59 1;
+#X connect 63 0 31 2;

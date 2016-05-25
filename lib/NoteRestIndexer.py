@@ -8,7 +8,7 @@ framework available to Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.26.2016
+Updated: 05.25.2016
 
 """
 
@@ -72,8 +72,6 @@ class Index(pyext._class):
 		self.err_msg_1 = ("There wasn't enough heat to thaw the frozen " + 
 			"music21 object.")
 		self.err_msg_2 = "The NoteRestIndexer failed."
-		self.mto_parsed = "\nThe scores were thawed and parsed with music21."
-		self.vis_parsed = "\nThe scores have been indexed with VIS."
 
 	def _anything_1(self,*pickled_scores):
 		"""
@@ -82,7 +80,7 @@ class Index(pyext._class):
 		"""
 
 		if(pickled_scores == 0):
-			print(self._msg_missing_scores())
+			self._print_output('no_scores')
 
 		else:
 
@@ -92,22 +90,9 @@ class Index(pyext._class):
 				unthawed = [music21.converter.thaw(pickled[i]) 
 					for i in range(len(pickled))]
 
-				'''	
-				# Debug:
-				local_msg = (self.mto_parsed + ": \n" + 
-					str([str(x) for x in unthawed]))
-				print(local_msg)
-				'''
-
 				self.meta = [(x.metadata.composer + "_" + 
 					x.metadata.title).replace(" ", "-") 
 					for x in unthawed]
-
-				'''
-				# Debug
-				for y in meta:
-					print y
-				'''
 
 				try:
 
@@ -126,22 +111,20 @@ class Index(pyext._class):
 						# Save the dataframes as pickle(d) files.
 						self.ind_scores[i].to_pickle(self.df_paths[i])
 
-					#self._outlet(2, self.vis_parsed)
 					self.bang_2()
 					self._outlet(1, [str(x) for x in self.df_paths])
-					'''
-					for x in self.df_paths:
-						print str(x)
-					'''
-					print(self.mto_parsed)
+					# self._print_output('mto_parsed')
 
 					for x, y in zip(self.df_paths,self.ind_scores):
 						self._generate_name(x)
+						# Renaming the columns to a more user friendly format.
+						y.columns.set_levels(['Part'], level=0, inplace=True)
+						y.columns.set_names(['Score','Events'], inplace=True)
 						print(y.head(self.events).to_csv(
 							sep='\t',
 							na_rep='^'))
 
-					print(self.vis_parsed)
+					self._print_output('vis_parsed')
 
 				except:
 
@@ -156,7 +139,7 @@ class Index(pyext._class):
 		Determines how many events are to be shown.
 		"""
 		if(self.ind_scores == 0):
-			print(self._msg_missing_scores())
+			self._print_output('no_scores')
 		else:
 			self.events = events
 			# The beginning or the end of the DataFrame
@@ -168,7 +151,7 @@ class Index(pyext._class):
 		the end.
 		"""
 		if(self.ind_scores == 0):
-			print(self._msg_missing_scores())
+			self._print_output('no_scores')
 		else:
 			self.direction = str(direction)
 			self._heads_or_tails()
@@ -178,10 +161,12 @@ class Index(pyext._class):
 		Picks a slice from a given DataFrame.
 		"""
 		if(self.ind_scores == 0):
-			print(self._msg_missing_scores())
+			self._print_output('no_scores')
 		else:
 			for x, y in zip(self.df_paths,self.ind_scores):
 				self._generate_name(x)
+				y.columns.set_levels(['Part'], level=0, inplace=True)
+				y.columns.set_names(['Score','Events'], inplace=True)
 				print(y.iloc[slice_start:slice_end].to_csv(
 					sep='\t',
 					na_rep='^'))
@@ -191,12 +176,10 @@ class Index(pyext._class):
 		Checks wether or not a DataFrame exists or should be loaded.
 		"""
 		if(self.df_paths == 0):
-			self._outlet(1, self._msg_missing_scores())
-			print(self._msg_missing_scores())
-		
+			self._print_output('no_scores')
+
 		else:
-			# self._outlet(1, "DataFrames exist.")
-			print("The note-rest-indexed DataFrames were passed on.")
+			self._print_output('pass_on')
 			self._outlet(1, [str(x) for x in self.df_paths])
 
 	def bang_2(self):
@@ -208,14 +191,7 @@ class Index(pyext._class):
 		try:
 			self._outlet(2, len(self.ind_scores))
 		except:
-			self._outlet(2, self._msg_missing_scores())
-			print(self._msg_missing_scores())
-
-	def _msg_missing_scores(self):
-		"""
-		Method to indicate that no DataFrames have been loaded.
-		"""
-		return "Please load music21 streams first."
+			self._print_output('no_scores')
 
 	def _generate_name(self,path):
 		"""
@@ -229,7 +205,7 @@ class Index(pyext._class):
 		print("\n" + comp_name)
 		print(len(comp_name) * "-")
 
-	# Local methods: complying with DRY.
+	# Local methods:
 	def _heads_or_tails(self):
 		"""
 		Helper method to determine whether to count from the beginning
@@ -239,6 +215,9 @@ class Index(pyext._class):
 			
 			self._generate_name(x)
 
+			y.columns.set_levels(['Part'], level=0, inplace=True)
+			y.columns.set_names(['Score','Events'], inplace=True)
+
 			if(self.direction == 'end'):
 				display = y.tail(self.events).to_csv(sep='\t', na_rep='^')
 			
@@ -247,5 +226,18 @@ class Index(pyext._class):
 			
 			print(display)
 
+	def _print_output(self,print_what):
+		"""
+		Selects and formats message outputs in the Pd window.
+		"""
+
+		messages = {
+			'mto_parsed':'\nThe scores were thawed and parsed with music21.',
+			'vis_parsed':'\nThe scores have been indexed with VIS.',
+			'no_scores':'\nPlease load music21 streams first.',
+			'pass_on':'\nThe note-rest-indexed DataFrames were passed on.'
+		}
+
+		print(messages[print_what])
 
 # ----- END NoteRestIndexer.py --------------------------------------- #

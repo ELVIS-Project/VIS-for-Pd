@@ -9,7 +9,7 @@ frozen "streams" in the pickle format.
 
 Author:	Reiner Kramer	
 Email:	reiner@music.org
-Updated:	04.26.2016
+Updated:	05.24.2016
 
 """
 
@@ -40,14 +40,12 @@ class Parse(pyext._class):
 	Outlets:
 
 	1. List of music21 streams.
-	2. Returns a debug message, if so desired.
-	3. Default outlet (does nothing?). 
 
 	"""
 
 	# How many inlets and outlets.
 	_inlets = 1
-	_outlets = 2
+	_outlets = 1
 
 	# Init function.
 	def __init__(self,
@@ -77,28 +75,52 @@ class Parse(pyext._class):
 				x.metadata.title).replace(" ", "-") 
 				for x in self.mto_score_list]
 
-			self.frozen_list = [music21.converter.freeze(self.mto_score_list[i],
-				fmt='pickle', fp=(self.directory + self.meta[i] + '.pgz'))
+			self.mto_frozen_list = [music21.converter.freeze(
+				self.mto_score_list[i], fmt='pickle', fp=(self.directory + 
+					self.meta[i] + '.pgz'))
 				for i in range(len(self.mto_score_list))]
 				
-			self._outlet(1, self.frozen_list)
-			print("music21 parsed the selected files into a music21 stream.")
+			self._outlet(1, self.mto_frozen_list)
+			self._print_output('parsed')
 
-		except:
+		except Exception as e:
 
-			print("music21 was not able to pickle music21 score streams.")
-			#self._outlet(2, "A frozen stream list was not created.")
+			self._print_exception(e)
 
 	def bang_1(self):
 		"""
 		Bang to check if there are an parsed music21 streams present.
 		"""
-		if(self.frozen_list == 0):
-			self._outlet(1, "There are currently no music21 score streams present.")
+		if(self.mto_frozen_list == 0):
+			self._print_output('no_scores')
 
 		else:
-			print("The music21 stream has been re-sent.")
-			self._outlet(1, self.frozen_list)
+			self._outlet(1, self.mto_frozen_list)
+			self._print_output('resend')
+
+	def _print_output(self,print_what):
+		"""
+		Prints various error messages.
+		"""
+
+		messages = {
+			'resend':'The music21 stream has been re-sent.',
+			'no_scores':'No scores have been parsed.',
+			'parsed':'music21 parsed the selected files into a music21 stream.'
+		}
+
+		print(messages[print_what])
+
+	def _print_exception(self,print_what):
+		"""
+		Prints custom exceptions. 
+		"""
+		print(print_what)
+
+
+
+
+
 			
 
 # ----- END ParseSymbolicMusic.py ------------------------------------ #

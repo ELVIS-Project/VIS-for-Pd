@@ -9,7 +9,7 @@ line via the VIS-Framework.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.29.2016
+Updated: 05.24.2016
 
 """
 
@@ -211,7 +211,7 @@ class Get(pyext._class):
 		Private method to generate human readable messages for the Pd window.
 		"""
 
-		# Local methods: complying with DRY.
+	# ----- Local methods ----- #
 	def _heads_or_tails(self):
 		"""
 		Helper method to determine whether to count from the beginning
