@@ -4,7 +4,7 @@
 
 Author: Reiner Kramer
 Email:  reiner@music.org
-Date:   05.25.2015
+Date:   05.26.2015
 
 This is the main analysis script file used to find additional 
 information on Piazzolla's Fugal Style.
@@ -37,9 +37,15 @@ symbolic_score = ('/Users/reiner/Desktop/MusCan-2016/vis/scores/'+
 # Parse score with music21.
 mto_score = music21.converter.parse(symbolic_score)
 
+parts = [x.id for x in mto_score.parts]
+
 # NoteRest index the score (place the score into a pandas DataFrame
 # that was parsed with music21.
 vis_score = noterest.NoteRestIndexer(mto_score).run()
+vis_score.columns.set_levels(parts, level=0, inplace=True)
+vis_score.columns.set_names(['Score','Events'], inplace=True)
+
+vis_score
 
 '''
 # ----- built-in pandas items ----- # 
@@ -59,7 +65,7 @@ vis_score['noterest.NoteRestIndexer']['0'].size
 # Converting pitch name values with music21
 def convert_pitch(pitch, pitch_type):
 	"""
-	Converts a particular pitch name to another pitch value.
+	Converts a particular pitch name to another pitch name.
 	- "pitch" must be for example: C#4
 	- "pitch_type" is the convert-to value (see pitch.Pitch in music21) like:
 	  pitchClass, name, nameWithOctave, midi, frequency, ps, fullName, french,
@@ -71,7 +77,7 @@ def convert_pitch(pitch, pitch_type):
 	except:
 		return pitch
 
-vis_score.applymap(lambda x: convert_pitch(x, 'frequency')).head(10)
+vis_score.applymap(lambda x: convert_pitch(x, 'pitchClass')).head(10)
 
 
 # ... or just in the series:

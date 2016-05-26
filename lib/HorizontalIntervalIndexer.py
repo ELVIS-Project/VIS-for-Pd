@@ -105,6 +105,8 @@ class Get(pyext._class):
 			# Printing information to Pd window.
 			for x, v, w in zip(self.df_paths,self.hint_df,self.df_scores):
 				self._generate_name(x)
+				v.columns.set_levels(['Part'], level=0, inplace=True)
+				v.columns.set_names(['Score','Events'], inplace=True)
 				print(v.head(self.events).to_csv(
 					sep='\t',
 					na_rep='^'))
@@ -160,6 +162,8 @@ class Get(pyext._class):
 		else:
 			for x, y in zip(self.df_paths,self.hint_df):
 				self._generate_name(x)
+				y.columns.set_levels(['Part'], level=0, inplace=True)
+				y.columns.set_names(['Score','Events'], inplace=True)
 				print(y.iloc[slice_start:slice_end].to_csv(
 					sep='\t',
 					na_rep='^'))
@@ -221,6 +225,9 @@ class Get(pyext._class):
 			
 			self._generate_name(x)
 
+			y.columns.set_levels(['Part'], level=0, inplace=True)
+			y.columns.set_names(['Score','Events'], inplace=True)
+
 			if(self.direction == 'end'):
 				display = y.tail(self.events).to_csv(sep='\t', na_rep='^')
 			
@@ -234,8 +241,4 @@ class Get(pyext._class):
 		Method to indicate that no DataFrames have been loaded.
 		"""
 		return "Please load (a) note-rest-indexed DataFrame(s) first."
-
-
-
-
 

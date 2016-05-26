@@ -68,10 +68,6 @@ class Index(pyext._class):
 		self.slice_start = slice_start
 		self.slice_end = slice_end
 		self.meta = meta
-		# Messages
-		self.err_msg_1 = ("There wasn't enough heat to thaw the frozen " + 
-			"music21 object.")
-		self.err_msg_2 = "The NoteRestIndexer failed."
 
 	def _anything_1(self,*pickled_scores):
 		"""
@@ -128,11 +124,12 @@ class Index(pyext._class):
 
 				except:
 
-					self._outlet(1, self.err_msg_2)
+					self._print_output('nri_fail')
 
 			except:
 
-				self._outlet(1, self.err_msg_1)
+				self._print_output('music21_fail')
+				
 
 	def _anything_2(self,events):
 		"""
@@ -235,7 +232,9 @@ class Index(pyext._class):
 			'mto_parsed':'\nThe scores were thawed and parsed with music21.',
 			'vis_parsed':'\nThe scores have been indexed with VIS.',
 			'no_scores':'\nPlease load music21 streams first.',
-			'pass_on':'\nThe note-rest-indexed DataFrames were passed on.'
+			'pass_on':'\nThe note-rest-indexed DataFrames were passed on.',
+			'nri_fail':'\nThe NoteRestIndexer failed.',
+			'music21_fail':'\nMusic21 failed to unthaw the music21 streams.'
 		}
 
 		print(messages[print_what])

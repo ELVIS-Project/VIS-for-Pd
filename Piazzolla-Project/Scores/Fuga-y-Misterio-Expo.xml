@@ -7,7 +7,7 @@
     <encoding>
       <software>Finale 2014.5 for Mac</software>
       <software>Dolet Light for Finale 2014.5</software>
-      <encoding-date>2016-05-24</encoding-date>
+      <encoding-date>2016-05-25</encoding-date>
       <supports attribute="new-system" element="print" type="yes" value="yes"/>
       <supports attribute="new-page" element="print" type="yes" value="yes"/>
       <supports element="accidental" type="yes"/>
@@ -94,19 +94,21 @@
       <group-barline>yes</group-barline>
     </part-group>
     <score-part id="P1">
-      <part-name print-object="no">MusicXML Part</part-name>
-      <score-instrument id="P1-I2">
+      <part-name>Flute</part-name>
+      <part-abbreviation>Fl.</part-abbreviation>
+      <score-instrument id="P1-I3">
         <instrument-name>ARIA Player</instrument-name>
       </score-instrument>
-      <midi-instrument id="P1-I2">
-        <midi-channel>4</midi-channel>
+      <midi-instrument id="P1-I3">
+        <midi-channel>1</midi-channel>
         <midi-program>1</midi-program>
         <volume>80</volume>
         <pan>0</pan>
       </midi-instrument>
     </score-part>
     <score-part id="P2">
-      <part-name print-object="no">MusicXML Part</part-name>
+      <part-name>Bandoneon</part-name>
+      <part-abbreviation>Ban.</part-abbreviation>
       <score-instrument id="P2-I1">
         <instrument-name>ARIA Player</instrument-name>
       </score-instrument>
@@ -118,24 +120,26 @@
       </midi-instrument>
     </score-part>
     <score-part id="P3">
-      <part-name print-object="no">MusicXML Part</part-name>
-      <score-instrument id="P3-I1">
-        <instrument-name>ARIA Player</instrument-name>
+      <part-name>Guitar</part-name>
+      <part-abbreviation>Gtr.</part-abbreviation>
+      <score-instrument id="P3-I2">
+        <instrument-name>IAC Driver IAC Bus</instrument-name>
       </score-instrument>
-      <midi-instrument id="P3-I1">
-        <midi-channel>2</midi-channel>
+      <midi-instrument id="P3-I2">
+        <midi-channel>3</midi-channel>
         <midi-program>1</midi-program>
-        <volume>80</volume>
+        <volume>76</volume>
         <pan>0</pan>
       </midi-instrument>
     </score-part>
     <score-part id="P4">
-      <part-name print-object="no">MusicXML Part</part-name>
-      <score-instrument id="P4-I3">
-        <instrument-name>ARIA Player</instrument-name>
+      <part-name>Piano/Bass</part-name>
+      <part-abbreviation>p./b.</part-abbreviation>
+      <score-instrument id="P4-I4">
+        <instrument-name>IAC Driver IAC Bus</instrument-name>
       </score-instrument>
-      <midi-instrument id="P4-I3">
-        <midi-channel>1</midi-channel>
+      <midi-instrument id="P4-I4">
+        <midi-channel>4</midi-channel>
         <midi-program>1</midi-program>
         <volume>80</volume>
         <pan>0</pan>
