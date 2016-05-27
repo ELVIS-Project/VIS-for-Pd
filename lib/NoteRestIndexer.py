@@ -44,7 +44,7 @@ class Index(pyext._class):
 	2. The second outlet displays status messages to the user. 
 	
 	"""
-	_inlets = 6
+	_inlets = 4
 	_outlets = 2
 
 	# Init function.

@@ -114,13 +114,19 @@ class Convert(pyext._class):
 		Picks a slice from a given DataFrame.
 		"""
 		if(self.nri_df == 0):
+			
 			self._msg_missing_score()
+		
 		else:
+
+			self.slice_start = slice_start
+			self.slice_end = slice_end
+
 			for x, y in zip(self.df_paths,self.df_scores):
 				self._generate_name(x)
 				y.columns.set_levels(['Part'], level=0, inplace=True)
 				y.columns.set_names(['Score','Events'], inplace=True)
-				print(y.iloc[slice_start:slice_end].to_csv(
+				print(y.iloc[self.slice_start:self.slice_end].to_csv(
 					sep='\t',
 					na_rep='^'))
 
