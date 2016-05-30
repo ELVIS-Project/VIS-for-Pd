@@ -176,6 +176,7 @@ class Index(pyext._class):
 			self._print_output('no_scores')
 
 		else:
+			# self._heads_or_tails()
 			self._print_output('pass_on')
 			self._outlet(1, [str(x) for x in self.df_paths])
 

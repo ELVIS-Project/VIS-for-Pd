@@ -1,4 +1,4 @@
-#N canvas 176 23 1034 647 12;
+#N canvas 398 38 668 608 10;
 #X obj 63 411 pyext NoteRestIndexer Index;
 #X msg 33 321 doc;
 #X msg 33 351 doc+;
@@ -6,7 +6,7 @@
 #X obj 63 571 outlet;
 #X obj 184 147 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 127 87 Load multiple files.;
+#X text 131 87 Load multiple files.;
 #X obj 86 494 print DataFrames;
 #X obj 226 494 print Number_of_Scores;
 #X obj 169 541 outlet;
@@ -22,49 +22,33 @@
 #X text 123 572 Paths to DataFrames.;
 #X text 293 437 Turn printing on or off for debugging.;
 #X text 212 148 Manually pass DataFrame(s) on.;
-#X obj 98 117 openfiles;
-#X obj 98 87 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 102 117 openfiles;
+#X obj 102 87 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 98 177 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 98 207 list;
-#X obj 98 147 t b l;
-#X obj 44 37 inlet;
-#X obj 98 57 inlet;
+#X obj 102 177 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 102 207 list;
+#X obj 102 147 t b l;
+#X obj 65 37 inlet;
+#X obj 102 57 inlet;
 #X obj 227 207 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 291 207 inlet;
-#X msg 169 314 beginning;
-#X msg 169 344 end;
+#X msg 182 314 beginning;
+#X msg 182 344 end;
 #X obj 362 207 inlet;
 #X floatatom 362 237 5 0 0 0 - - -, f 5;
-#X floatatom 442 289 5 0 0 0 - - -, f 5;
-#X floatatom 481 349 5 0 0 0 - - -, f 5;
+#X floatatom 432 289 5 0 0 0 - - -, f 5;
+#X floatatom 461 349 5 0 0 0 - - -, f 5;
 #X text 415 207 Show how many events.;
 #X text 440 262 Start;
-#X text 529 349 End, f 4;
+#X text 509 349 End, f 4;
 #X text 473 237 Show a slice of events:;
 #X obj 404 377 pyx. pak 2;
-#X obj 481 318 + 1;
+#X obj 461 318 + 1;
 #X obj 421 237 inlet;
-#X floatatom 502 290 5 0 0 0 - - -, f 5;
-#X text 552 289 Interval:;
-#X obj 689 66 inlet;
-#X msg 743 161 pitch-names;
-#X msg 770 131 mod-12;
-#X msg 716 191 pitch-class-name;
-#X msg 689 221 midi;
-#X obj 856 67 inlet;
-#X text 885 100 Play;
-#X obj 856 99 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X text 687 35 Display Style:;
-#X text 852 35 Auralization:;
-#X obj 689 101 select 1 2 3 4;
-#X obj 240 344 r nri-display;
-#X obj 276 377 r nri-playback;
-#X obj 770 261 s nri-display;
-#X obj 856 129 s nri-playback;
+#X floatatom 482 290 5 0 0 0 - - -, f 5;
+#X text 532 289 Interval:;
 #X obj 184 117 inlet;
 #X connect 0 0 4 0;
 #X connect 0 0 15 0;
@@ -101,17 +85,4 @@
 #X connect 40 0 34 0;
 #X connect 41 0 0 4;
 #X connect 42 0 40 1;
-#X connect 44 0 54 0;
-#X connect 45 0 57 0;
-#X connect 46 0 57 0;
-#X connect 47 0 57 0;
-#X connect 48 0 57 0;
-#X connect 49 0 51 0;
-#X connect 51 0 58 0;
-#X connect 54 0 48 0;
-#X connect 54 1 47 0;
-#X connect 54 2 45 0;
-#X connect 54 3 46 0;
-#X connect 55 0 0 5;
-#X connect 56 0 0 6;
-#X connect 59 0 5 0;
+#X connect 44 0 5 0;

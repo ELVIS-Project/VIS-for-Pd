@@ -4,7 +4,7 @@
 
 Author: Reiner Kramer
 Email:  reiner@music.org
-Date:   05.26.2015
+Date:   05.29.2015
 
 This is the main analysis script file used to find additional 
 information on Piazzolla's Fugal Style.
@@ -21,10 +21,7 @@ import pandas
 # Import vis-framework items.
 
 # ----- working with pep installed vis ----- #
-from vis.analyzers.indexers import noterest
-from vis.analyzers.indexers import interval
-from vis.analyzers.indexers import offset
-from vis.analyzers.indexers import ngram
+from vis.analyzers.indexers import noterest, interval, offset, ngram
 
 # ----- Parsing a score ---------------------------------------------- #
 
@@ -37,13 +34,13 @@ symbolic_score = ('/Users/reiner/Desktop/MusCan-2016/vis/scores/'+
 # Parse score with music21.
 mto_score = music21.converter.parse(symbolic_score)
 
-parts = [x.id for x in mto_score.parts]
+score_parts = [x.id for x in mto_score.parts]
 
 # NoteRest index the score (place the score into a pandas DataFrame
 # that was parsed with music21.
 vis_score = noterest.NoteRestIndexer(mto_score).run()
-vis_score.columns.set_levels(parts, level=0, inplace=True)
-vis_score.columns.set_names(['Score','Events'], inplace=True)
+# vis_score.columns.set_levels(parts, level=0, inplace=True)
+# vis_score.columns.set_names(['Score','Events'], inplace=True)
 
 vis_score
 
@@ -89,9 +86,9 @@ vis_score['noterest.NoteRestIndexer']['0'].apply(lambda x:
 	convert_pitch(x, 'pitchClass')).value_counts()
 '''
 
-vis_pc_score = vis_score.applymap(lambda x: convert_pitch(x, 'pitchClass'))
-vis_midi_score = vis_score.applymap(lambda x: convert_pitch(x, 'midi'))
-vis_name_score = vis_score.applymap(lambda x: convert_pitch(x, 'name'))
+# vis_pc_score = vis_score.applymap(lambda x: convert_pitch(x, 'pitchClass'))
+# vis_midi_score = vis_score.applymap(lambda x: convert_pitch(x, 'midi'))
+# vis_name_score = vis_score.applymap(lambda x: convert_pitch(x, 'name'))
 
 # Find all the Horizontal intervals. 
 hint_score = interval.HorizontalIntervalIndexer(vis_score).run()
@@ -100,7 +97,7 @@ hint_score = interval.HorizontalIntervalIndexer(vis_score).run()
 vint_score = interval.IntervalIndexer(vis_score).run()
 
 # Find offset Vertical Intervals.
-vint_o_dict = {'quarterLength':2.0, 'method': None}
+vint_o_dict = {'quarterLength':4.0, 'method': None}
 vint_o_filt = offset.FilterByOffsetIndexer(vis_score,vint_o_dict).run()
 vint_o_score = interval.IntervalIndexer(vint_o_filt).run()
 

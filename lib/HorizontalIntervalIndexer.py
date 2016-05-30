@@ -9,7 +9,7 @@ line via the VIS-Framework.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 05.24.2016
+Updated: 05.29.2016
 
 """
 
@@ -76,6 +76,7 @@ class Get(pyext._class):
 		
 		try:
 			self.nrdf = noterest_df
+
 			msg = ("Horizontal interval music analysis:")
 			print("\n" + msg + "\n" + len(msg) * "=")
 			# Counting through the dataframes and converting symbols to paths:
@@ -87,18 +88,6 @@ class Get(pyext._class):
 				for i in range(len(self.df_paths))]
 			
 	   		# Showing the horizontal intervals.
-			# not sure why mulitprocessing has to be turned off :-/
-
-			"""
-			self.hint_settings = {
-				'simple or compound':'simple',
-				'quality': False,
-				'directed': True,
-				'mp':False,
-				'horiz_attach_later':False
-			}
-			"""
-
 			self.hint_df = [interval.HorizontalIntervalIndexer(x,
 				self.hint_settings).run() for x in self.df_scores]
 			
@@ -124,12 +113,9 @@ class Get(pyext._class):
 
 			self._outlet(1, [str(x) for x in file_paths])
 
-		except (RuntimeError, TypeError, NameError):
-			print("O-M-G. Total Failure. Here's why:")
-			print(RuntimeError, TypeError, NameError)
-
-		except IOError:
-			print("Please feed me a pickled NoteRestIndexer generated DataFrame.")
+		except Exception as e:
+			
+			print(e)
 
 	def _anything_2(self,events):
 		"""
@@ -182,9 +168,10 @@ class Get(pyext._class):
 
 		}
 
-		print("You've changed the DataFrame parameters to: " + 
-			str(self.hint_settings) +  
-			" Please re-index the scores.")
+		self.hint_df = [interval.HorizontalIntervalIndexer(x,
+			self.hint_settings).run() for x in self.df_scores]
+
+		self._heads_or_tails()
 
 	def bang_1(self):
 		"""
