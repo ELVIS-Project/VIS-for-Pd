@@ -1,0 +1,105 @@
+#N canvas 844 258 325 525 12;
+#X obj -14 -51 cnv 15 300 500 empty empty empty 20 12 0 14 -33289 -66577
+0;
+#X obj 9 19 cnv 15 250 100 empty empty empty 20 12 0 14 -241291 -66577
+0;
+#X obj 36 53 hsl 195 15 0 1 0 0 grenze-links empty empty -2 -6 0 8
+-262144 -1 -1 2400 1;
+#X obj 36 82 hsl 195 15 0 1 0 0 grenze-rechts empty empty -2 -6 0 8
+-262144 -1 -1 15700 1;
+#X obj 9 120 cnv 15 250 200 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 0 0 450 300 graph1 0;
+#X array array1 62079 float 2;
+#X coords 0 1 62079 -1 200 140 1;
+#X restore 32 136 graph;
+#X obj 35 281 hsl 195 15 0 1 0 0 empty pos empty -2 -6 0 8 -262144
+-1 -1 12808 1;
+#X obj 9 321 cnv 15 250 100 empty empty empty 20 12 0 14 -260818 -66577
+0;
+#X obj 33 343 hsl 128 15 -2 2 0 0 geschw empty empty -2 -6 0 8 -262144
+-1 -1 7300 1;
+#X obj 32 392 hsl 128 15 0 2 0 0 amp empty empty -2 -6 0 8 -262144
+-1 -1 6600 1;
+#X obj 9 -12 cnv 15 250 30 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 23 -4 bng 22 250 50 0 load empty empty 0 -6 0 8 -258699 -1 -1
+;
+#X obj 49 -46 cnv 15 100 20 empty empty Sample-Player 20 12 1 14 -33289
+-262144 0;
+#X obj 183 426 cnv 15 100 20 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#N canvas 2696 194 663 906 subpatch 0;
+#X obj 211 93 soundfiler;
+#X msg 212 66 read -resize \$1 array1;
+#X obj 211 42 openpanel;
+#X obj 45 477 phasor~;
+#X floatatom 45 423 5 0 0 0 - - -;
+#X obj 44 635 tabread4~ array1;
+#X obj 44 741 *~;
+#X floatatom 305 648 5 0 0 0 - - -;
+#X obj 305 692 line~;
+#X msg 305 668 \$1 20;
+#X obj 45 766 hip~ 5;
+#X obj 45 795 dac~;
+#X obj 45 448 *;
+#X obj 45 292 expr 1 / $f1;
+#X obj 309 231 -;
+#X obj 364 190 t f b;
+#X floatatom 309 196 5 0 0 0 - - -;
+#X obj 85 188 expr 44100 / $f1;
+#X obj 45 343 *;
+#X obj 45 531 +~;
+#X obj 45 503 *~;
+#X obj 192 627 unsig~ 20;
+#X obj 275 140 r grenze-rechts;
+#X obj 365 165 r grenze-links;
+#X obj 199 653 s pos;
+#X obj 211 18 r load;
+#X obj 81 350 r geschw;
+#X obj 305 622 r amp;
+#X text 424 813 www.pd-tutorial.com;
+#X text 426 786 Johannes Kreidler;
+#X obj 81 382 t b f;
+#X obj 45 587 *~;
+#X connect 0 0 17 0;
+#X connect 0 0 31 1;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 20 0;
+#X connect 4 0 12 0;
+#X connect 5 0 6 0;
+#X connect 6 0 10 0;
+#X connect 7 0 9 0;
+#X connect 8 0 6 1;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 10 0 11 1;
+#X connect 12 0 3 0;
+#X connect 13 0 18 0;
+#X connect 14 0 13 0;
+#X connect 14 0 20 1;
+#X connect 15 0 14 1;
+#X connect 15 0 19 1;
+#X connect 15 1 16 0;
+#X connect 16 0 14 0;
+#X connect 17 0 18 1;
+#X connect 18 0 4 0;
+#X connect 19 0 21 0;
+#X connect 19 0 31 0;
+#X connect 20 0 19 0;
+#X connect 21 0 24 0;
+#X connect 22 0 16 0;
+#X connect 23 0 15 0;
+#X connect 25 0 2 0;
+#X connect 26 0 30 0;
+#X connect 27 0 7 0;
+#X connect 30 0 4 0;
+#X connect 30 1 12 1;
+#X connect 31 0 5 0;
+#X restore 187 426 pd subpatch;
+#X text 48 -7 first load sound file;
+#X text 31 33 left limit;
+#X text 145 100 right limit;
+#X text 29 322 playback speed;
+#X text 27 371 volume;
