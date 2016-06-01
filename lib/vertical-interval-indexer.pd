@@ -1,4 +1,4 @@
-#N canvas 443 23 708 367 10;
+#N canvas 162 284 708 367 10;
 #X obj 36 258 pyext VerticalIntervalIndexer Get;
 #X obj 68 150 list;
 #X obj 68 90 t b l;
@@ -29,7 +29,9 @@
 #X obj 166 143 inlet;
 #X obj 422 180 inlet;
 #X obj 381 58 vint-settings;
+#X obj 231 285 outlet;
 #X connect 0 0 10 0;
+#X connect 0 1 28 0;
 #X connect 1 0 0 1;
 #X connect 2 0 3 0;
 #X connect 2 1 1 1;

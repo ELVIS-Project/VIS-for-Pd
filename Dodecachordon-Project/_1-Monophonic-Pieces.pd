@@ -26,16 +26,16 @@ pandas DataFrames., f 72;
 #X obj 430 168 dataframe-start-end;
 #X obj 576 268 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X obj 405 407 dataframe-start-end;
-#X floatatom 365 453 5 0 0 0 - - -, f 5;
-#X obj 405 477 note-rest-indexer-pak;
+#X obj 438 407 dataframe-start-end;
+#X floatatom 385 453 5 0 0 0 - - -, f 5;
+#X obj 438 477 note-rest-indexer-pak;
 #X obj 349 303 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 192 302 Pass Score DataFrames =>;
 #X obj 306 506 bng 15 250 50 0 empty reindex empty 17 7 0 10 -262144
 -1 -1;
 #X text 233 505 Re-Index =>;
-#X obj 345 453 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 359 453 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 237 324 Re-Index =>;
 #N canvas 361 70 773 652 hint_settings 0;
@@ -124,7 +124,7 @@ pandas DataFrames., f 72;
 #X connect 34 0 7 0;
 #X connect 35 0 12 0;
 #X coords 0 -1 1 1 135 70 2 100 100;
-#X restore 515 477 pd hint_settings;
+#X restore 578 477 pd hint_settings;
 #X obj 337 190 spigot;
 #X obj 370 163 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -145,7 +145,7 @@ pandas DataFrames., f 72;
 #X text 316 582 ^ Horizontal Interval Analysis, f 32;
 #X msg 170 207 pitch;
 #X msg 170 180 count;
-#X text 245 452 Pass HINTs on =>;
+#X text 259 452 Pass HINTs on =>;
 #X obj 447 269 note-rest-indexer-pak;
 #X obj 170 260 melodic-interval-filter;
 #X obj 237 233 spigot;
@@ -167,7 +167,7 @@ pandas DataFrames., f 72;
 1;
 #X text 29 478 NGrams;
 #X text 575 294 <= Scroll through a DataFrame slices.;
-#X msg 20 128 frequency;
+#X msg 123 26 frequency;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
 #X connect 3 0 29 0;

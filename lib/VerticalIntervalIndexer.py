@@ -35,7 +35,7 @@ class Get(pyext._class):
 
 	"""
 	_inlets = 6
-	_outlets = 1
+	_outlets = 2
 
 	def __init__(self,
 		nri_df=0,
@@ -47,7 +47,8 @@ class Get(pyext._class):
 		slice_start=0,
 		slice_end=5,
 		meta=5,
-		vint_settings=0):
+		vint_settings=0,
+		vint_paths=0):
 		"""
 		Storing variables used in this class.
 		"""
@@ -69,6 +70,7 @@ class Get(pyext._class):
 			'horiz_attach_later':False
 
 		}
+		self.vint_paths = vint_paths
 
 	def _anything_1(self,*noterest_df):
 		"""
@@ -106,6 +108,23 @@ class Get(pyext._class):
 				print(v.head(self.events).to_csv(
 					sep='\t',
 					na_rep='^'))
+
+			# Building, saving DataFrames to pass on.
+			self.vint_paths = []
+
+			for x,y in zip(self.df_paths,self.vint_df):
+				# Build the path names, and save them into a list variable.
+				file_name = os.path.split(x)
+				file_path = (os.path.dirname(os.path.realpath(__file__)) + 
+					'/data/frames/vint/Vint_' + file_name[1])
+				self.vint_paths.append(file_path)
+				# Save the dataframes as pickle(d) files.
+				y.to_pickle(file_path)
+
+			# Passing on VINT DataFrames
+			self._outlet(1, [str(x) for x in self.vint_paths])
+			# Passing through Noterest Indexed DataFrames
+			self._outlet(2, [str(x) for x in self.df_paths])
 			
 		except Exception as e:
 			

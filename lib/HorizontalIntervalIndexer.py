@@ -49,7 +49,8 @@ class Get(pyext._class):
 		slice_start=0,
 		slice_end=5,
 		meta=5,
-		hint_settings=0):
+		hint_settings=0,
+		hint_paths=0):
 		"""
 		Storing variables used in this class.
 		"""
@@ -68,6 +69,7 @@ class Get(pyext._class):
 			'mp':False,
 			'horiz_attach_later':False
 		}
+		self.hint_paths = hint_paths
 
 	def _anything_1(self,*noterest_df):
 		"""
@@ -83,7 +85,6 @@ class Get(pyext._class):
 			self.df_paths = [str(x) for x in self.nrdf]
 
 			# Choosing DataFrame:
-
 			self.df_scores = [pandas.read_pickle(self.df_paths[i]) 
 				for i in range(len(self.df_paths))]
 			
@@ -101,17 +102,17 @@ class Get(pyext._class):
 					na_rep='^'))
 
 			# Building, saving DataFrames to pass on.
-			file_paths = []
+			self.hint_paths = []
 			for x,y in zip(self.df_paths,self.hint_df):
 				# Build the path names, and save them into a list variable.
 				file_name = os.path.split(x)
 				file_path = (os.path.dirname(os.path.realpath(__file__)) + 
 					'/data/frames/hint/Hint_' + file_name[1])
-				file_paths.append(file_path)
+				self.hint_paths.append(file_path)
 				# Save the dataframes as pickle(d) files.
 				y.to_pickle(file_path)
 
-			self._outlet(1, [str(x) for x in file_paths])
+			self._outlet(1, [str(x) for x in self.hint_paths])
 
 		except Exception as e:
 			
@@ -183,7 +184,7 @@ class Get(pyext._class):
 		else:
 			# self._outlet(1, "DataFrames exist.")
 			print("The horizontally indexed DataFrames were passed on.")
-			self._outlet(1, [str(x) for x in self.hint_df])
+			self._outlet(1, [str(x) for x in self.hint_paths])
 
 	def _generate_name(self,path):
 		"""

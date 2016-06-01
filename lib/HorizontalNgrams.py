@@ -7,7 +7,7 @@ Filters a horizontal interval indexers output.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 04.29.2016
+Updated: 05.30.2016
 
 """
 
@@ -16,9 +16,9 @@ import sys, os, music21, pyext, pandas
 from vis.analyzers.indexers import noterest, interval
 
 try:
-	print("HorizontalIntervalIndexer.py was loaded.")
+	print("HorizontalNGrams.py was loaded.")
 except:
-	print("Loading HorizontalIntervalIndexer.py failed.")
+	print("Loading HorizontalNGrams.py failed.")
 
 class Get(pyext._class):
 	"""
@@ -47,7 +47,7 @@ class Get(pyext._class):
 		slice_end=5,
 		meta=5,
 		hint_settings=0,
-		sample_rate=0):
+		sample_rate=2):
 		"""
 		Storing variables used in this class.
 		"""
@@ -81,9 +81,10 @@ class Get(pyext._class):
 				for x in self.ngrams]
 
 			self._print_ngrams(self.df_paths,self.ngrams_reduced)
-
-		except:
-			print("O-M-G. Total Failure. Here's why:")
+			
+		except Exception as e:
+			
+			print(e)
 
 	def _anything_2(self,sample_rate):
 		"""
@@ -95,15 +96,20 @@ class Get(pyext._class):
 		
 		else:
 
-			self.sample_rate = int(sample_rate)
+			try:
+				self.sample_rate = int(sample_rate)
 
-			self.ngrams = [self._horizontal_ngrams(x, self.sample_rate)
-				for x in self.df_scores]
+				self.ngrams = [self._horizontal_ngrams(x, self.sample_rate)
+					for x in self.df_scores]
+				
+				self.ngrams_reduced = [self._count_unique_ngrams(x, ordered=True) 
+					for x in self.ngrams]
+
+				self._print_ngrams(self.df_paths,self.ngrams_reduced)
+
+			except Exception as e:
 			
-			self.ngrams_reduced = [self._count_unique_ngrams(x, ordered=True) 
-				for x in self.ngrams]
-
-			self._print_ngrams(self.df_paths,self.ngrams_reduced)
+				print(e)
 
 	'''
 	def bang_1(self):
@@ -123,10 +129,14 @@ class Get(pyext._class):
 		"""
 		Creates horizontal ngrams.
 		"""
-
+		print(hint_scores['interval.HorizontalIntervalIndexer']['0'])
+		'''
 		hint_cols = [str(x) 
 			for x in hint_scores['interval.HorizontalIntervalIndexer']['0']
 			if (str(x) != 'Rest')]
+		
+		hint_cols = [str(x) for x in hint_scores]
+
 
 		hint_cols_ng = []
 
@@ -135,6 +145,7 @@ class Get(pyext._class):
 				hint_cols_ng.append(hint_cols[x:(x+sample_rate)])
 
 		return hint_cols_ng
+		'''
 
 	def _count_unique_ngrams(self,hints_ngrams,ordered=True):
 		"""
@@ -183,8 +194,3 @@ class Get(pyext._class):
 		Method to indicate that no DataFrames have been loaded.
 		"""
 		return "Please load (a) note-rest-indexed DataFrame(s) first."
-
-
-
-
-

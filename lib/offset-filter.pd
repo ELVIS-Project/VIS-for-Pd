@@ -1,0 +1,23 @@
+#N canvas 433 109 462 475 10;
+#X obj 36 261 pyext OffsetFilter Define;
+#X obj 60 150 list;
+#X obj 60 90 t b l;
+#X obj 60 120 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 36 177 reload;
+#X msg 36 231 doc;
+#X msg 36 204 doc+;
+#X obj 60 63 openfiles;
+#X obj 60 33 bng 20 250 50 0 empty empty Open_File(s) 30 10 0 12 -262144
+-1 -66577;
+#X obj 20 33 inlet;
+#X connect 1 0 0 1;
+#X connect 2 0 3 0;
+#X connect 2 1 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 2 0;
+#X connect 8 0 7 0;
+#X connect 9 0 2 0;
