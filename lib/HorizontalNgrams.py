@@ -134,7 +134,7 @@ class Get(pyext._class):
 		"""
 
 		hint_cols = [str(x) 
-			for x in hint_scores['Part']['0']
+			for x in hint_scores['interval.HorizontalIntervalIndexer']['0']
 			if (str(x) != 'Rest')]
 
 		hint_cols_ng = []
