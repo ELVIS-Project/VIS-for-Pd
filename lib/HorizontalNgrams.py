@@ -7,7 +7,7 @@ Filters a horizontal interval indexers output.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 05.30.2016
+Updated: 06.01.2016
 
 """
 
@@ -37,9 +37,10 @@ class Get(pyext._class):
 	_outlets = 1
 
 	def __init__(self,
-		nrdf=0,
+		nri_df=0,
 		df_paths=0,
 		df_scores=0,
+		ngrams=0,
 		hint_scores=0,
 		events=5,
 		direction='beginning',
@@ -47,13 +48,14 @@ class Get(pyext._class):
 		slice_end=5,
 		meta=5,
 		hint_settings=0,
-		sample_rate=2):
+		sample_rate=3):
 		"""
 		Storing variables used in this class.
 		"""
-		self.nrdf = nrdf
+		self.nri_df = nri_df
 		self.df_paths = df_paths
 		self.df_scores = df_scores
+		self.ngrams = ngrams
 		self.hint_scores = hint_scores
 		self.events = events
 		self.direction = direction
@@ -79,9 +81,9 @@ class Get(pyext._class):
 			
 			self.ngrams_reduced = [self._count_unique_ngrams(x, ordered=True) 
 				for x in self.ngrams]
-
-			self._print_ngrams(self.df_paths,self.ngrams_reduced)
 			
+			self._print_ngrams(self.df_paths,self.ngrams_reduced)
+
 		except Exception as e:
 			
 			print(e)
@@ -97,6 +99,7 @@ class Get(pyext._class):
 		else:
 
 			try:
+
 				self.sample_rate = int(sample_rate)
 
 				self.ngrams = [self._horizontal_ngrams(x, self.sample_rate)
@@ -129,14 +132,10 @@ class Get(pyext._class):
 		"""
 		Creates horizontal ngrams.
 		"""
-		print(hint_scores['interval.HorizontalIntervalIndexer']['0'])
-		'''
-		hint_cols = [str(x) 
-			for x in hint_scores['interval.HorizontalIntervalIndexer']['0']
-			if (str(x) != 'Rest')]
-		
-		hint_cols = [str(x) for x in hint_scores]
 
+		hint_cols = [str(x) 
+			for x in hint_scores['Part']['0']
+			if (str(x) != 'Rest')]
 
 		hint_cols_ng = []
 
@@ -145,8 +144,8 @@ class Get(pyext._class):
 				hint_cols_ng.append(hint_cols[x:(x+sample_rate)])
 
 		return hint_cols_ng
-		'''
 
+	
 	def _count_unique_ngrams(self,hints_ngrams,ordered=True):
 		"""
 		Counts N-Grams, removes duplicates, and sorts them in order of frequency.
@@ -188,7 +187,6 @@ class Get(pyext._class):
 		print(len(comp_name) * "-")
 
 
-	
 	def _msg_missing_scores(self):
 		"""
 		Method to indicate that no DataFrames have been loaded.

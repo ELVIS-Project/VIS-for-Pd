@@ -89,9 +89,9 @@ t_mto_score = mto_score.transpose('p5')
 
 # ----- Ambitus ----- #
 ambana = music21.analysis.discrete.Ambitus()
-ambana.getPitchRanges(t_mto_score)
+ambana.getPitchRanges(mto_score)
 # (0, 12)
-ambana.getPitchSpan(t_mto_score)
+ambana.getPitchSpan(mto_score)
 # (<music21.pitch.Pitch D3>, <music21.pitch.Pitch D4>)
 # in MIDI: [x.midi for x in ambana.getPitchSpan(mto_score)]
 # in PS Names: [x.nameWithOctave for x in ambana.getPitchSpan(mto_score)]
@@ -183,7 +183,7 @@ def horizontal_ngrams(hint_score,sample_rate):
 
 	return hint_col, hint_col_ng
 
-hints_ngrams = horizontal_ngrams(hint_score, 5)
+hints_ngrams = horizontal_ngrams(hint_score, 3)
 
 def count_unique_ngrams(hints_ngrams,ordered=True):
 	"""
