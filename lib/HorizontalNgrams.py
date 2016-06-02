@@ -37,31 +37,16 @@ class Get(pyext._class):
 	_outlets = 1
 
 	def __init__(self,
-		nri_df=0,
 		df_paths=0,
 		df_scores=0,
 		ngrams=0,
-		hint_scores=0,
-		events=5,
-		direction='beginning',
-		slice_start=0,
-		slice_end=5,
-		meta=5,
-		hint_settings=0,
 		sample_rate=3):
 		"""
 		Storing variables used in this class.
 		"""
-		self.nri_df = nri_df
 		self.df_paths = df_paths
 		self.df_scores = df_scores
 		self.ngrams = ngrams
-		self.hint_scores = hint_scores
-		self.events = events
-		self.direction = direction
-		self.slice_start = slice_start
-		self.slice_end = slice_end
-		self.hint_settings = hint_settings
 		self.sample_rate = sample_rate
 
 
@@ -72,16 +57,21 @@ class Get(pyext._class):
 		
 		try:
 
+			# Convert paths into real strings:
 			self.df_paths = [str(x) for x in df_paths]
 			
+			# Generate scores from paths:
 			self.df_scores = [pandas.read_pickle(x) for x in self.df_paths]
 
+			# Build N-Grams from scores:
 			self.ngrams = [self._horizontal_ngrams(x, self.sample_rate)
 				for x in self.df_scores]
 			
+			# Remove Duplicates from N-Grams:
 			self.ngrams_reduced = [self._count_unique_ngrams(x, ordered=True) 
 				for x in self.ngrams]
 			
+			# Print N-Grams to Pd Window:
 			self._print_ngrams(self.df_paths,self.ngrams_reduced)
 
 		except Exception as e:
@@ -100,59 +90,53 @@ class Get(pyext._class):
 
 			try:
 
+				# Apply new N-Gram length, i.e. sample rate:
 				self.sample_rate = int(sample_rate)
 
+				# Generate N-Grams:
 				self.ngrams = [self._horizontal_ngrams(x, self.sample_rate)
 					for x in self.df_scores]
 				
+				# Remove Duplicates from N-Grams:
 				self.ngrams_reduced = [self._count_unique_ngrams(x, ordered=True) 
 					for x in self.ngrams]
 
+				# Print N-Grams to Pd Window:
 				self._print_ngrams(self.df_paths,self.ngrams_reduced)
 
 			except Exception as e:
 			
 				print(e)
 
-	'''
-	def bang_1(self):
-		"""
-		Force pass DataFrame paths to next items, e.g.: filters.
-		"""
-		if(self.hint_scores == 0):
-			self._outlet(1, self._msg_missing_scores())
-		
-		else:
-			# self._outlet(1, "DataFrames exist.")
-			print("The horizontally indexed DataFrames were re-indexed.")
-			self._outlet(1, [str(x) for x in self.hint_scores])
-	'''
-
 	def _horizontal_ngrams(self, hint_scores, sample_rate):
 		"""
 		Creates horizontal ngrams.
 		"""
 
+		# Remove rests:
 		hint_cols = [str(x) 
-			for x in hint_scores['interval.HorizontalIntervalIndexer']['0']
+			for x in hint_scores['Part']['0']
 			if (str(x) != 'Rest')]
 
-		hint_cols_ng = []
-
-		for x in range(len(hint_cols)):
-			if x < (len(hint_cols) - (sample_rate - 1)):
-				hint_cols_ng.append(hint_cols[x:(x+sample_rate)])
+		# Add sample rate:
+		hint_cols_ng = [hint_cols[x:(x+sample_rate)] 
+			for x in range(len(hint_cols))
+			if (x < (len(hint_cols) - (sample_rate - 1)))]
 
 		return hint_cols_ng
-
 	
 	def _count_unique_ngrams(self,hints_ngrams,ordered=True):
 		"""
 		Counts N-Grams, removes duplicates, and sorts them in order of frequency.
 		"""
+
+		# Count N-Grams:
 		counted_ngrams = [(x, hints_ngrams.count(x)) for x in hints_ngrams]
+		
+		# Removed N-Grams
 		reduced_ngrams = [eval(y) for y in set([str(x) for x in counted_ngrams])]
 
+		# Order N-Grams by frequency of occurence if so desired:
 		if(ordered == True):
 			
 			ordered_ngrams = sorted(reduced_ngrams, 
@@ -177,14 +161,15 @@ class Get(pyext._class):
 	def _generate_name(self,path):
 		"""
 		Private method to generate a human readable name of a composition from
-		it path.
+		it path. This method need to be improved and use meta data rather than
+		generate metadata from a file string ...
 		"""
 		file_name = os.path.split(path)
 		file_extr = os.path.splitext(file_name[1])
-		comp_name = str(file_extr[0]).replace("-"," ").replace("_",": ")
+		strip_name = str(file_extr[0]).replace("-"," ").replace("_",": ")
+		comp_name = strip_name.replace("Hint: ","")
 
-		print("\n" + comp_name)
-		print(len(comp_name) * "-")
+		print("\n{0}\n{1}".format(comp_name, (len(comp_name) * "-")))
 
 
 	def _msg_missing_scores(self):

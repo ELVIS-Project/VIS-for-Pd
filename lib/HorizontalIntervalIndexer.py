@@ -18,8 +18,11 @@ import sys, os, music21, pyext, pandas
 from vis.analyzers.indexers import noterest, interval
 
 try:
+
 	print("HorizontalIntervalIndexer.py was loaded.")
+
 except:
+
 	print("Loading HorizontalIntervalIndexer.py failed.")
 
 class Get(pyext._class):
@@ -37,7 +40,7 @@ class Get(pyext._class):
 
 	"""
 	_inlets = 6
-	_outlets = 3
+	_outlets = 1
 
 	def __init__(self,
 		nrdf=0,
@@ -78,16 +81,16 @@ class Get(pyext._class):
 		
 		try:
 			self.nrdf = noterest_df
-
 			msg = ("Horizontal interval music analysis:")
 			print("\n" + msg + "\n" + len(msg) * "=")
+			
 			# Counting through the dataframes and converting symbols to paths:
 			self.df_paths = [str(x) for x in self.nrdf]
-
+			
 			# Choosing DataFrame:
 			self.df_scores = [pandas.read_pickle(self.df_paths[i]) 
 				for i in range(len(self.df_paths))]
-			
+	   		
 	   		# Showing the horizontal intervals.
 			self.hint_df = [interval.HorizontalIntervalIndexer(x,
 				self.hint_settings).run() for x in self.df_scores]
@@ -149,8 +152,8 @@ class Get(pyext._class):
 		else:
 			for x, y in zip(self.df_paths,self.hint_df):
 				self._generate_name(x)
-				# y.columns.set_levels(['Part'], level=0, inplace=True)
-				# y.columns.set_names(['Score','Events'], inplace=True)
+				y.columns.set_levels(['Part'], level=0, inplace=True)
+				y.columns.set_names(['Score','Events'], inplace=True)
 				print(y.iloc[slice_start:slice_end].to_csv(
 					sep='\t',
 					na_rep='^'))

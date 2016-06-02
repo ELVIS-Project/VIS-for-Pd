@@ -1,4 +1,4 @@
-#N canvas 484 107 569 506 12;
+#N canvas 484 107 569 506 10;
 #X msg 90 247 reload;
 #X msg 90 307 doc;
 #X msg 90 277 doc+;
