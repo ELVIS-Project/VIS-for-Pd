@@ -1,8 +1,0 @@
-#N canvas 651 498 450 300 12;
-#X obj 134 146 pyext NGramIndexer Get;
-#X obj 191 75 inlet;
-#X obj 249 75 inlet;
-#X obj 134 216 outlet;
-#X connect 0 0 3 0;
-#X connect 1 0 0 1;
-#X connect 2 0 0 2;

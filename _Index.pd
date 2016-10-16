@@ -1,64 +1,147 @@
-#N canvas 279 49 834 598 12;
-#X declare -path lib;
-#X obj 30 536 VIS-for-Pd Help;
-#X obj 30 506 declare -path lib;
-#X obj 30 71 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#N canvas 46 23 1101 707 10;
+#X declare -path library;
+#X obj 33 102 openfiles;
+#X obj 33 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 243 536 vis-vertical-intervals;
-#X obj 446 536 vis-horizontal-intervals;
-#X msg 189 212 beginning;
-#X msg 203 242 end;
-#X obj 446 482 spigot;
-#X obj 491 454 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 243 492 spigot;
-#X obj 288 464 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 416 504 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 635 506 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 30 403 VIS-Index-Score 5 beginning;
-#X floatatom 136 132 5 0 0 0 - - -, f 5;
-#X text 196 130 <= Determine how many events to view in score.;
-#X obj 83 97 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 84 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 30 433 print DataFrame;
-#X text 221 146 The number can be click-and-dragged \, or click on
-the number field \, enter the number on your computer keyboard and
-hit enter.;
-#X text 287 211 <= Click to view events from "beginning" of score.
-;
-#X text 287 241 <= Click to view events from the "end" of the score.
-;
-#X text 126 99 <= Click to peak at score events with default values.
-;
-#X text 27 31 ----- VIS-for-Pd -----------------------------------------------------------------------------
-, f 95;
-#X msg 243 273 0 7;
-#X text 286 273 <= Select a slice from the score by selecting starting
-and end points.;
-#X floatatom 374 356 5 0 0 0 - - -, f 5;
-#X obj 313 383 pack 0 0;
-#X text 424 355 <= This can also happen dynamically.;
-#X floatatom 313 354 5 0 0 0 - - -, f 5;
-#X text 63 72 <= Click to open a symbolic music score from you file
-system (.xml \, .mei \, .mid \, .krn \, etc.)., f 92;
-#X connect 2 0 13 0;
-#X connect 5 0 13 3;
-#X connect 6 0 13 3;
-#X connect 7 0 4 0;
+#X obj 201 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 226 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 182 309 5 0 0 0 - - -, f 5;
+#X obj 251 247 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 451 124 spigot;
+#X obj 484 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 428 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 552 131 pitchClass;
+#X msg 552 101 name;
+#X msg 552 161 nameWithOctave;
+#X msg 552 191 midi;
+#X msg 552 245 pitch;
+#X msg 552 218 count;
+#X obj 953 239 spigot;
+#X obj 986 213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 892 240 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 552 73 frequency;
+#X obj 428 262 CountPitches;
+#X obj 892 266 CountMelodicIntervals;
+#X obj 451 73 r mto_stream;
+#X obj 953 186 r mto_stream;
+#X obj 226 309 s mto_stream;
+#X floatatom 251 143 5 0 0 0 - - -, f 5;
+#X obj 33 36 declare -path library;
+#X obj 672 218 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 697 126 spigot;
+#X obj 730 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 697 73 r mto_stream;
+#X msg 779 154 pitchClass;
+#X msg 779 100 name;
+#X msg 779 127 nameWithOctave;
+#X msg 779 181 midi;
+#X msg 779 73 fullName;
+#X msg 779 208 frequency;
+#X obj 672 263 Ambitus, f 13;
+#X obj 139 269 NoteRestIndexer;
+#X obj 251 73 DataframeStartEnd;
+#X obj 139 605 HintIndexer;
+#X floatatom 201 393 5 0 0 0 - - -, f 5;
+#X obj 243 393 DataframeStartEnd;
+#X obj 243 463 IndexerPak;
+#X obj 243 543 HintSettings;
+#X obj 119 570 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 33 129 s scores;
+#X obj 139 393 r scores;
+#X obj 139 447 spigot;
+#X obj 172 420 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 139 126 spigot;
+#X obj 172 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 139 73 r scores;
+#X obj 139 632 s hint-dataframes;
+#X obj 139 336 s nri-dataframes;
+#X obj 251 167 IndexerPak;
+#X obj 431 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 540 450 2;
+#X msg 569 450 3;
+#X msg 598 450 4;
+#X msg 627 450 5;
+#X msg 656 450 6;
+#X floatatom 540 493 5 0 0 0 - - -, f 5;
+#X obj 477 480 spigot;
+#X obj 510 453 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 427 388 Horizontal NGrams;
+#X obj 431 527 HorizontalNgrams;
+#X obj 477 418 r hint-dataframes;
+#X connect 0 0 46 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 38 1;
+#X connect 4 0 38 2;
+#X connect 6 0 38 6;
+#X connect 7 0 20 1;
 #X connect 8 0 7 1;
-#X connect 9 0 3 0;
-#X connect 10 0 9 1;
-#X connect 11 0 3 1;
-#X connect 12 0 4 1;
-#X connect 13 0 17 0;
-#X connect 13 1 7 0;
-#X connect 13 1 9 0;
-#X connect 14 0 13 2;
-#X connect 16 0 13 1;
-#X connect 23 0 13 4;
-#X connect 25 0 26 1;
-#X connect 26 0 13 4;
-#X connect 28 0 26 0;
+#X connect 9 0 20 0;
+#X connect 10 0 20 2;
+#X connect 11 0 20 2;
+#X connect 12 0 20 2;
+#X connect 13 0 20 2;
+#X connect 14 0 20 3;
+#X connect 15 0 20 3;
+#X connect 16 0 21 1;
+#X connect 17 0 16 1;
+#X connect 18 0 21 0;
+#X connect 19 0 20 2;
+#X connect 22 0 7 0;
+#X connect 23 0 16 0;
+#X connect 25 0 38 4;
+#X connect 25 0 55 0;
+#X connect 27 0 37 0;
+#X connect 28 0 37 1;
+#X connect 29 0 28 1;
+#X connect 30 0 28 0;
+#X connect 31 0 37 2;
+#X connect 32 0 37 2;
+#X connect 33 0 37 2;
+#X connect 34 0 37 2;
+#X connect 35 0 37 2;
+#X connect 36 0 37 2;
+#X connect 38 0 54 0;
+#X connect 38 1 5 0;
+#X connect 38 2 24 0;
+#X connect 39 0 38 3;
+#X connect 40 0 53 0;
+#X connect 41 0 43 0;
+#X connect 41 0 40 1;
+#X connect 42 0 40 2;
+#X connect 43 0 40 3;
+#X connect 44 0 40 4;
+#X connect 45 0 40 0;
+#X connect 47 0 48 0;
+#X connect 48 0 40 0;
+#X connect 49 0 48 1;
+#X connect 50 0 38 0;
+#X connect 51 0 50 1;
+#X connect 52 0 50 0;
+#X connect 55 0 38 5;
+#X connect 56 0 66 0;
+#X connect 57 0 62 0;
+#X connect 58 0 62 0;
+#X connect 59 0 62 0;
+#X connect 60 0 62 0;
+#X connect 61 0 62 0;
+#X connect 62 0 66 2;
+#X connect 63 0 66 1;
+#X connect 64 0 63 1;
+#X connect 67 0 63 0;
