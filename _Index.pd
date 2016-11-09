@@ -1,4 +1,4 @@
-#N canvas 46 23 1101 707 10;
+#N canvas 2 23 1060 673 10;
 #X declare -path library;
 #X obj 33 102 openfiles;
 #X obj 33 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -24,7 +24,7 @@
 #X msg 552 245 pitch;
 #X msg 552 218 count;
 #X obj 953 239 spigot;
-#X obj 986 213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 986 213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 892 240 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -79,7 +79,7 @@
 #X msg 656 450 6;
 #X floatatom 540 493 5 0 0 0 - - -, f 5;
 #X obj 477 480 spigot;
-#X obj 510 453 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 510 453 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 427 388 Horizontal NGrams;
 #X obj 431 527 HorizontalNgrams;
