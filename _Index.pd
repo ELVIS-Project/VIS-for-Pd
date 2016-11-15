@@ -1,89 +1,91 @@
-#N canvas 2 23 1060 673 10;
+#N canvas 208 96 1498 921 10;
 #X declare -path library;
 #X obj 33 102 openfiles;
 #X obj 33 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 84 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 201 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 95 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 226 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X floatatom 182 309 5 0 0 0 - - -, f 5;
-#X obj 251 247 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 120 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 451 124 spigot;
-#X obj 484 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 428 73 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 552 131 pitchClass;
-#X msg 552 101 name;
-#X msg 552 161 nameWithOctave;
-#X msg 552 191 midi;
-#X msg 552 245 pitch;
-#X msg 552 218 count;
-#X obj 953 239 spigot;
-#X obj 986 213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 892 240 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X floatatom 76 409 5 0 0 0 - - -, f 5;
+#X obj 145 347 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 552 73 frequency;
-#X obj 428 262 CountPitches;
-#X obj 892 266 CountMelodicIntervals;
-#X obj 451 73 r mto_stream;
-#X obj 953 186 r mto_stream;
-#X obj 226 309 s mto_stream;
-#X floatatom 251 143 5 0 0 0 - - -, f 5;
+#X obj 345 224 spigot;
+#X obj 378 200 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 322 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 446 231 pitchClass;
+#X msg 446 201 name;
+#X msg 446 261 nameWithOctave;
+#X msg 446 291 midi;
+#X msg 446 345 pitch;
+#X msg 446 318 count;
+#X obj 847 339 spigot;
+#X obj 880 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 786 340 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 446 173 frequency;
+#X obj 322 362 CountPitches;
+#X obj 786 366 CountMelodicIntervals;
+#X obj 345 173 r mto_stream;
+#X obj 847 286 r mto_stream;
+#X obj 120 409 s mto_stream;
+#X floatatom 145 243 5 0 0 0 - - -, f 5;
 #X obj 33 36 declare -path library;
-#X obj 672 218 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 566 318 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 697 126 spigot;
-#X obj 730 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 591 226 spigot;
+#X obj 624 200 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 697 73 r mto_stream;
-#X msg 779 154 pitchClass;
-#X msg 779 100 name;
-#X msg 779 127 nameWithOctave;
-#X msg 779 181 midi;
-#X msg 779 73 fullName;
-#X msg 779 208 frequency;
-#X obj 672 263 Ambitus, f 13;
-#X obj 139 269 NoteRestIndexer;
-#X obj 251 73 DataframeStartEnd;
-#X obj 139 605 HintIndexer;
-#X floatatom 201 393 5 0 0 0 - - -, f 5;
-#X obj 243 393 DataframeStartEnd;
-#X obj 243 463 IndexerPak;
-#X obj 243 543 HintSettings;
-#X obj 119 570 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 591 173 r mto_stream;
+#X msg 673 254 pitchClass;
+#X msg 673 200 name;
+#X msg 673 227 nameWithOctave;
+#X msg 673 281 midi;
+#X msg 673 173 fullName;
+#X msg 673 308 frequency;
+#X obj 566 363 Ambitus, f 13;
+#X obj 33 369 NoteRestIndexer;
+#X obj 145 173 DataframeStartEnd;
+#X obj 33 705 HintIndexer;
+#X floatatom 95 493 5 0 0 0 - - -, f 5;
+#X obj 137 493 DataframeStartEnd;
+#X obj 137 563 IndexerPak;
+#X obj 137 643 HintSettings;
+#X obj 13 670 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 33 129 s scores;
-#X obj 139 393 r scores;
-#X obj 139 447 spigot;
-#X obj 172 420 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 33 493 r scores;
+#X obj 33 547 spigot;
+#X obj 66 520 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 139 126 spigot;
-#X obj 172 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 33 226 spigot;
+#X obj 66 200 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 139 73 r scores;
-#X obj 139 632 s hint-dataframes;
-#X obj 139 336 s nri-dataframes;
-#X obj 251 167 IndexerPak;
-#X obj 431 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 33 173 r scores;
+#X obj 33 732 s hint-dataframes;
+#X obj 33 436 s nri-dataframes;
+#X obj 145 267 IndexerPak;
+#X obj 325 577 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 540 450 2;
-#X msg 569 450 3;
-#X msg 598 450 4;
-#X msg 627 450 5;
-#X msg 656 450 6;
-#X floatatom 540 493 5 0 0 0 - - -, f 5;
-#X obj 477 480 spigot;
-#X obj 510 453 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X msg 434 550 2;
+#X msg 463 550 3;
+#X msg 492 550 4;
+#X msg 521 550 5;
+#X msg 550 550 6;
+#X floatatom 434 593 5 0 0 0 - - -, f 5;
+#X obj 371 580 spigot;
+#X obj 404 553 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 427 388 Horizontal NGrams;
-#X obj 431 527 HorizontalNgrams;
-#X obj 477 418 r hint-dataframes;
+#X text 321 488 Horizontal NGrams;
+#X obj 325 627 HorizontalNgrams;
+#X obj 371 518 r hint-dataframes;
+#X text 117 71 <= Load symbolic music scores (any format music21 can
+interpret)., f 65;
 #X connect 0 0 46 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 1;

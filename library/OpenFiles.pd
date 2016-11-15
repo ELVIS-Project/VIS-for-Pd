@@ -1,19 +1,19 @@
-#N canvas 311 103 580 556 10;
+#N canvas 656 99 530 321 10;
 #X obj 182 68 inlet;
 #X obj 35 273 outlet;
 #X msg 55 96 reload;
 #X msg 45 69 doc;
 #X msg 35 42 doc+;
 #X obj 35 126 pyext OpenFiles ReadFiles;
-#X obj 226 197 inlet;
+#X obj 251 127 inlet;
 #X obj 35 214 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 35 244 list;
-#X obj 35 184 t b l;
+#X obj 35 154 t b l;
 #X obj 182 95 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X text 70 244 Recall previously loaded files.;
-#X text 209 97 Load multiple files.;
+#X text 292 127 <= Recall previously loaded files.;
+#X text 225 68 <= Load multiple files.;
 #X connect 0 0 10 0;
 #X connect 2 0 5 0;
 #X connect 3 0 5 0;

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-MultiFile.py
+OpenFile.py
 ============
 
 A Python object to capture multiple files.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 10.12.2016
+Updated: 11.15.2016
 
 Inlets:
 
@@ -31,7 +31,7 @@ except:
 class ReadFiles(pyext._class):
 	"""
 
-	MultiFile.py Module
+	OpenFiles.py Module
 	===================
 
 	ReadFiles Class
@@ -98,4 +98,4 @@ class ReadFiles(pyext._class):
 		"""
 		self._outlet(2, self.status_fail)
 
-# ----- END MultiFile.py --------------------------------------------- #
+# ----- END OpenFiles.py --------------------------------------------- #
