@@ -7,7 +7,7 @@ Get the ambitus of a music21 stream without a pitch count.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 10.12.2016
+Updated: 11.15.2016
 
 """
 
@@ -96,6 +96,15 @@ class Find(pyext._class):
 		which then can be printed with a Print object.
 		"""
 		self.print_pd_win = str(print_pd_win)
+
+	def bang_1(self):
+		"""
+		Check whether or not a music21 stream exists or not.
+		"""
+		if(self.ambiti == 0):
+			print("... load a music21 stream :(.")
+		else:
+			self._print_ambiti(self.ambiti,self.meta)
 
 	def _calc_ambiti(self, scores):
 		"""

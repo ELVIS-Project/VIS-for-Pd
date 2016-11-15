@@ -69,14 +69,12 @@ class ReadFiles(pyext._class):
 		are then passed to first outlet.
 		"""
 		try: 
-			le_machine = Tkinter.Tk()
-			le_machine.withdraw()
+			Tkinter.Tk().withdraw()
 			# TODO: Dialogue window opens behind Pd patch, but should be forced
 			#       to the front
-			#le_machine.lift()
-			#le_machine.focus_force()
-			collected_files = tkFileDialog.askopenfilenames(parent=le_machine,
-				title='Choose a symbolic music file')
+			# le_machine.lift()
+			# le_machine.focus_force()
+			collected_files = tkFileDialog.askopenfilenames()
 			self.the_files = collected_files
 			self._outlet(1, self.the_files)
 			self._msg_success()
