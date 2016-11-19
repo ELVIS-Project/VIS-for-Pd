@@ -11,9 +11,11 @@ Author: Reiner Kramer
 Email: reiner@music.org
 Updated: 11.19.2016
 
-@TODO: 	The offsets currently happen at number of occuring offsets 
-		rather than musical offsets. This needs to be changed to 
-		musical offsets.
+@TODO: 	1. 	The offsets currently happen at number of occuring offsets 
+			rather than musical offsets. This needs to be changed to 
+			musical offsets.
+
+		2.	Offsets need to be differentiated.
 
 """
 
@@ -58,6 +60,21 @@ class Set(pyext._class):
 				for i in range(len(self.scores_paths)):
 					self.scores_imported.append(
 						pandas.read_pickle(self.scores_paths[i]))
+
+				# Save Offset Indexed DataFrames:
+				# @TODO
+				
+				'''
+				for i in range(len(self.vints)):
+					
+					# Build the path names, and save into a list.
+					self.df_paths.append(
+						os.path.dirname(os.path.realpath(__file__)) + 
+						'/data/frames/offsets/' + self.meta[i] + '.pkl')
+
+					# Save the dataframes as pickle(d) files.
+					self.vints[i].to_pickle(self.df_paths[i])
+				'''
 
 				for x, y in zip(self.scores_paths,self.scores_imported):
 					#self._generate_name(x)

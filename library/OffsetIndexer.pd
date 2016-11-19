@@ -19,7 +19,7 @@
 #X msg 300 85 0;
 #X text 332 85 <= Resets offsets.;
 #X obj 115 224 outlet;
-#X text 164 224 <= Pass on new DataFrame;
+#X text 164 224 <= Pass on new DataFrame.;
 #X connect 0 0 13 0;
 #X connect 1 0 18 0;
 #X connect 2 0 1 0;
