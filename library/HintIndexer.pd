@@ -1,6 +1,6 @@
-#N canvas 568 75 839 481 10;
+#N canvas 407 251 608 475 10;
 #X obj 55 346 pyext HintIndexer Get;
-#X text 26 27 Horizontal Interval Indexer;
+#X text 31 24 Horizontal Interval Indexer;
 #X msg 28 255 doc;
 #X msg 28 282 doc+;
 #X msg 28 309 reload;
@@ -9,7 +9,7 @@
 -1;
 #X obj 126 92 bng 20 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 75 65 inlet;
+#X obj 75 63 inlet;
 #X obj 156 92 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X floatatom 200 93 5 0 0 0 - - -, f 5;

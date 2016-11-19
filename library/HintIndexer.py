@@ -1,7 +1,14 @@
 # -*- coding: utf-8 -*-
 """
 HintIndexer.py
-============================
+==============
+
+Portmanteau for:
+
+Horizontal Interval Indexer
+-          ---      -------
+
+(in honor of Humdrum)
 
 A Python object to interpret a NoteRestIndexed DataFrame. A new DataFrame is
 created to find horizontal intervals in any given horizontal, or "melodic"
@@ -9,7 +16,7 @@ line via the VIS-Framework.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 10.13.2016
+Updated: 11.18.2016
 
 @TODO: 	Rather than saving dataframes as pickled files in the data folder
 		of the library directory, files should be cached via memoization
@@ -79,7 +86,7 @@ class Get(pyext._class):
 
 		try:
 			
-			# Let user know tha we are looking at horizontal intervals:
+			# Let user know that we are looking at horizontal intervals:
 			msg = ("Horizontal interval music analysis:")
 			print("\n" + msg + "\n" + len(msg) * "=")
 			
@@ -124,6 +131,7 @@ class Get(pyext._class):
 			# Renaming the columns to a more user friendly format:
 			for x, y in zip(self.df_paths,self.hints):
 				self._generate_name(x)
+				
 				y.columns.set_levels(['Part'], level=0, inplace=True)
 				y.columns.set_names(['Score','Events'], inplace=True)
 				print(y.head(self.events).to_csv(
