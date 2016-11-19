@@ -1,5 +1,22 @@
 # -*- coding: utf-8 -*-
 
+"""
+OffsetIndexer.py
+================
+
+Indexes passed-in DataFrames, assigns an offset, and creates a new off-
+set DataFrame.
+
+Author: Reiner Kramer	
+Email: reiner@music.org
+Updated: 11.19.2016
+
+@TODO: 	The offsets currently happen at number of occuring offsets 
+		rather than musical offsets. This needs to be changed to 
+		musical offsets.
+
+"""
+
 import sys, os, music21, pandas, requests, vis, pyext
 from vis.models.indexed_piece import Importer
 
@@ -28,8 +45,10 @@ class Set(pyext._class):
 
 
 	def _anything_1(self, *symbolic_scores):
-		
-		
+		"""
+		Parses a pickeled DataFrame, and applies an offset to that Data-
+		Frame as a new DataFrame.
+		"""
 		if(len(symbolic_scores) >= 1):
 
 			try:
@@ -40,16 +59,11 @@ class Set(pyext._class):
 					self.scores_imported.append(
 						pandas.read_pickle(self.scores_paths[i]))
 
-				# Convert score paths from symbols to strings:
-				#self.scores_paths = [str(x) for x in symbolic_scores]
-				
-				# Create Music21 streams and index them with VIS:
-				#self.scores_imported = [Importer(x) for x in self.scores_paths]
-
-				#print(self.scores_imported)
-
 				for x, y in zip(self.scores_paths,self.scores_imported):
 					#self._generate_name(x)
+
+					self._generate_name(x)
+
 					y.columns.set_levels(['Part'], level=0, inplace=True)
 					y.columns.set_names(['Score','Events'], inplace=True)
 					print(y.head(self.events).to_csv(
@@ -67,11 +81,15 @@ class Set(pyext._class):
 			print("...there were no scores...")
 
 	def _anything_2(self, offset):
-
+		"""
+		Takes a number to specify what type of offset to use. 
+		Note: Check pandas documentation.
+		"""
 		self.df_offset = offset
 
 		for x, y in zip(self.scores_paths,self.scores_imported):
-			#self._generate_name(x)
+			
+			self._generate_name(x)
 			y.columns.set_levels(['Part'], level=0, inplace=True)
 			y.columns.set_names(['Score','Events'], inplace=True)
 			
@@ -83,4 +101,16 @@ class Set(pyext._class):
 				print(y[::self.df_offset].head(self.events).to_csv(
 					sep='\t',
 					na_rep='^'))
+
+	def _generate_name(self,path):
+		"""
+		Private method to generate a human readable name of a composition 
+		from its path.
+		"""
+		file_name = os.path.split(path)
+		file_extr = os.path.splitext(file_name[1])
+		comp_name = str(file_extr[0]).replace("-"," ").replace("_",": ")
+
+		print("\n" + comp_name)
+		print(len(comp_name) * "-")
 

@@ -56,7 +56,7 @@ class Get(pyext._class):
 		hint_settings=0,
 		events=5,
 		mto_frozen_dir=0,
-		df_paths=0,
+		df_paths=[],
 		direction='beginning',
 		slice_start=0,
 		slice_end=5):
@@ -116,8 +116,6 @@ class Get(pyext._class):
 				for x in self.scores_imported]
 
 			# Save NoteRestIndexed DataFrames:
-			self.df_paths = []
-
 			for i in range(len(self.hints)):
 				
 				# Build the path names, and save into a list.

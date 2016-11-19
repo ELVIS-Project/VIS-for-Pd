@@ -9,7 +9,7 @@ framework available within Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 11.18.2016
+Updated: 11.19.2016
 
 @TODO: 	Rather than saving dataframes as pickled files in the data folder
 		of the library directory, files should be cached via memoization

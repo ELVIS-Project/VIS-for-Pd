@@ -1,4 +1,4 @@
-#N canvas 266 40 527 284 10;
+#N canvas 266 40 572 268 10;
 #X obj 182 29 inlet;
 #X obj 115 187 pyext OffsetIndexer Set;
 #X msg 61 92 doc;
@@ -18,7 +18,10 @@
 #X text 282 30 <= Recall previously loaded files.;
 #X msg 300 85 0;
 #X text 332 85 <= Resets offsets.;
+#X obj 115 224 outlet;
+#X text 164 224 <= Pass on new DataFrame;
 #X connect 0 0 13 0;
+#X connect 1 0 18 0;
 #X connect 2 0 1 0;
 #X connect 3 0 1 0;
 #X connect 4 0 1 0;

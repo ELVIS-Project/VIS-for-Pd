@@ -51,7 +51,7 @@ class Get(pyext._class):
 		scores_mto=0,
 		meta=0,
 		vints=0,
-		df_paths=0,
+		df_paths=[],
 		events=5,
 		direction='beginning',
 		slice_start=0,
@@ -116,8 +116,6 @@ class Get(pyext._class):
 				for x in self.scores_imported]
 
 			# Save Vertical Indexed DataFrames:
-			self.df_paths = []
-
 			for i in range(len(self.vints)):
 				
 				# Build the path names, and save into a list.
