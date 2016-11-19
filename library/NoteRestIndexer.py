@@ -9,7 +9,7 @@ framework available within Pd.
 
 Author: Reiner Kramer	
 Email: reiner@music.org
-Updated: 10.13.2016
+Updated: 11.18.2016
 
 @TODO: 	Rather than saving dataframes as pickled files in the data folder
 		of the library directory, files should be cached via memoization
@@ -63,7 +63,7 @@ class Index(pyext._class):
 		scores_mto=0,
 		scores_mto_frozen=0,
 		scores_pandas=0,
-		df_paths=0,
+		df_paths=[],
 		events=5,
 		direction='beginning',
 		slice_start=0,
@@ -119,8 +119,6 @@ class Index(pyext._class):
 					for x in self.scores_imported]
 
 				# Save NoteRestIndexed DataFrames:
-				self.df_paths = []
-
 				for i in range(len(self.scores_pandas)):
 					
 					# Build the path names, and save into a list.
@@ -140,7 +138,6 @@ class Index(pyext._class):
 				# Renaming the columns to a more user friendly format:
 				for x, y in zip(self.df_paths,self.scores_pandas):
 					self._generate_name(x)
-					
 					y.columns.set_levels(['Part'], level=0, inplace=True)
 					y.columns.set_names(['Score','Events'], inplace=True)
 					print(y.head(self.events).to_csv(

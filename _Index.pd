@@ -1,4 +1,4 @@
-#N canvas 107 23 1115 730 10;
+#N canvas 111 23 1140 710 10;
 #X declare -path library;
 #X obj 33 148 openfiles;
 #X obj 33 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -51,38 +51,38 @@
 #X obj 586 459 Ambitus, f 13;
 #X obj 33 435 NoteRestIndexer;
 #X obj 145 239 DataframeStartEnd;
-#X obj 33 781 HintIndexer;
-#X floatatom 95 569 5 0 0 0 - - -, f 5;
-#X obj 137 569 DataframeStartEnd;
-#X obj 137 636 IndexerPak;
-#X obj 13 746 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 33 921 HintIndexer;
+#X floatatom 95 709 5 0 0 0 - - -, f 5;
+#X obj 137 709 DataframeStartEnd;
+#X obj 137 776 IndexerPak;
+#X obj 13 886 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 33 175 s scores;
-#X obj 33 569 r scores;
-#X obj 33 623 spigot;
-#X obj 66 596 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 33 709 r scores;
+#X obj 33 763 spigot;
+#X obj 66 736 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 33 292 spigot;
 #X obj 66 266 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 33 239 r scores;
-#X obj 33 808 s hint-dataframes;
+#X obj 33 948 s hint-dataframes;
 #X obj 33 502 s nri-dataframes;
 #X obj 145 333 IndexerPak;
-#X obj 355 623 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 355 763 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 464 656 2;
-#X msg 493 656 3;
-#X msg 522 656 4;
-#X msg 551 656 5;
-#X msg 580 656 6;
-#X floatatom 464 699 5 0 0 0 - - -, f 5;
-#X obj 401 686 spigot;
-#X obj 434 659 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X msg 464 796 2;
+#X msg 493 796 3;
+#X msg 522 796 4;
+#X msg 551 796 5;
+#X msg 580 796 6;
+#X floatatom 464 839 5 0 0 0 - - -, f 5;
+#X obj 401 826 spigot;
+#X obj 434 799 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 351 594 Horizontal NGrams;
-#X obj 355 733 HorizontalNgrams;
-#X obj 401 624 r hint-dataframes;
+#X text 351 734 Horizontal NGrams;
+#X obj 355 873 HorizontalNgrams;
+#X obj 401 764 r hint-dataframes;
 #X text 50 101 <= Load symbolic music scores (any format music21 can
 interpret)., f 65;
 #X text 31 79 1) We have to load a score first.;
@@ -94,26 +94,42 @@ interpret)., f 65;
 #X text 350 241 3a) Count Pitches in a score.;
 #X text 583 241 3b) Find the range of a part in a score.;
 #X text 843 241 3b) Find melodic intervals in a score.;
-#X text 31 545 4) We can find all melodic intervals in a score and
+#X text 31 685 4) We can find all melodic intervals in a score and
 index them., f 66;
-#X text 611 656 <= Specify sample rate of overlapping windows.;
-#X obj 137 713 IntSettings;
-#X floatatom 95 879 5 0 0 0 - - -, f 5;
-#X obj 137 879 DataframeStartEnd;
-#X obj 137 946 IndexerPak;
-#X obj 13 1056 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X text 611 796 <= Specify sample rate of overlapping windows.;
+#X obj 137 853 IntSettings;
+#X floatatom 95 1019 5 0 0 0 - - -, f 5;
+#X obj 137 1019 DataframeStartEnd;
+#X obj 137 1086 IndexerPak;
+#X obj 13 1196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 33 879 r scores;
-#X obj 33 933 spigot;
-#X obj 66 906 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 33 1019 r scores;
+#X obj 33 1073 spigot;
+#X obj 66 1046 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 137 1023 IntSettings;
-#X obj 33 1118 s vint-dataframes;
-#X obj 33 1091 VintIndexer;
-#X text 351 571 4a) With consecutive melodic intervals \, we can find
+#X obj 137 1163 IntSettings;
+#X obj 33 1258 s vint-dataframes;
+#X obj 33 1231 VintIndexer;
+#X text 351 711 4a) With consecutive melodic intervals \, we can find
 melodic N-Grams., f 69;
-#X text 31 855 5) We can find all vertical intervals in a score and
+#X text 31 995 5) We can find all vertical intervals in a score and
 index them., f 67;
+#X text 31 535 3d) We can look at the DataFrame at different offsets.
+;
+#X obj 34 621 OffsetIndexer;
+#X obj 150 562 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 180 585 1;
+#X msg 210 585 2;
+#X msg 240 585 4;
+#X msg 270 585 8;
+#X floatatom 180 635 5 0 0 0 - - -, f 5;
+#X msg 180 562 0;
+#X text 212 562 <= Resets offsets.;
+#X obj 34 562 r nri-dataframes;
+#X obj 34 590 spigot;
+#X obj 101 586 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
 #X connect 0 0 45 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 1;
@@ -185,3 +201,13 @@ index them., f 67;
 #X connect 85 0 84 1;
 #X connect 86 0 88 4;
 #X connect 88 0 87 0;
+#X connect 93 0 92 1;
+#X connect 94 0 98 0;
+#X connect 95 0 98 0;
+#X connect 96 0 98 0;
+#X connect 97 0 98 0;
+#X connect 98 0 92 2;
+#X connect 99 0 98 0;
+#X connect 101 0 102 0;
+#X connect 102 0 92 0;
+#X connect 103 0 102 1;
